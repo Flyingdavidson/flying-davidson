@@ -3,24 +3,30 @@ import Link from "next/link";
 
 const planes = [
   {
-    name: "Red Bull One",
-    model: "GameBird GB1",
-    role: "Unlimited Aerobatics",
-    image: "/images/hangar/redbull-one-wing.jpg",
-    speed: "426 km/h",
-    power: "315 hp",
-    ability: "Precision Display",
-    registration: "N71PD",
-  },
-  {
     name: "Edge 540 V3",
     model: "Air Race X Machine",
     role: "Championship Racing",
     image: "/images/hangar/edge-540.jpg",
+    registration: "N540HA",
     speed: "220+ mph",
     power: "400+ hp",
-    ability: "Pure Speed",
-    registration: "N540HA",
+    type: "Race Aircraft",
+    ability: "Precision Speed",
+    story:
+      "Patrick’s AIR RACE X machine, built around speed, precision and repeatability. Every setup decision, every line and every fraction of a second matters.",
+  },
+  {
+    name: "Red Bull One",
+    model: "GameBird GB1",
+    role: "Unlimited Aerobatics",
+    image: "/images/hangar/redbull-one-wing.jpg",
+    registration: "N71PD",
+    speed: "426 km/h",
+    power: "315 hp",
+    type: "Display Aircraft",
+    ability: "Unlimited Aerobatics",
+    story:
+      "Patrick’s Red Bull GameBird, used for high-energy aerobatic displays and precision flying that turns every performance into a memory.",
   },
 ];
 
@@ -40,9 +46,9 @@ export default function HangarPage() {
         </p>
 
         <h1 className="text-6xl font-black uppercase leading-[0.9] tracking-tight md:text-8xl">
-          Inside
+          The
           <br />
-          The Hangar.
+          Fleet.
         </h1>
 
         <p className="mt-8 max-w-2xl text-xl leading-9 text-white/65">
@@ -50,26 +56,31 @@ export default function HangarPage() {
           purposes and one thing in common — they all demand precision.
         </p>
 
-        <div className="mt-20 grid gap-10 md:grid-cols-2">
+        <div className="mt-20 grid gap-10 lg:grid-cols-2">
           {planes.map((plane) => (
             <article
               key={plane.name}
               className="group overflow-hidden border border-white/10 bg-white/[0.03] transition duration-500 hover:-translate-y-2 hover:border-yellow-500/50"
             >
-              <div className="relative h-[360px] overflow-hidden">
+              <div className="relative h-[380px] overflow-hidden">
                 <Image
                   src={plane.image}
                   alt={plane.name}
                   fill
                   className="object-cover object-center transition duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent" />
 
-                <div className="absolute bottom-6 left-6">
+                <div className="absolute left-6 top-6 border border-yellow-500/60 bg-black/70 px-4 py-2 text-xs font-black uppercase tracking-[0.3em] text-yellow-400">
+                  {plane.type}
+                </div>
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+
+                <div className="absolute bottom-6 left-6 right-6">
                   <p className="text-xs uppercase tracking-[0.35em] text-yellow-400">
                     {plane.model}
                   </p>
-                  <h2 className="mt-2 text-4xl font-black uppercase">
+                  <h2 className="mt-2 text-4xl font-black uppercase md:text-5xl">
                     {plane.name}
                   </h2>
                 </div>
@@ -80,11 +91,25 @@ export default function HangarPage() {
                   {plane.role}
                 </p>
 
+                <p className="mt-5 text-base leading-7 text-white/65">
+                  {plane.story}
+                </p>
+
                 <div className="mt-8 grid grid-cols-2 gap-4">
+                  <Stat label="Registration" value={plane.registration} />
                   <Stat label="Speed" value={plane.speed} />
                   <Stat label="Power" value={plane.power} />
                   <Stat label="Special Ability" value={plane.ability} />
-                  <Stat label="Registration" value={plane.registration} />
+                </div>
+
+                <div className="mt-8 flex flex-wrap gap-4">
+                  <button className="border border-yellow-500/60 px-5 py-3 text-xs uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black">
+                    Gallery →
+                  </button>
+
+                  <button className="border border-white/15 px-5 py-3 text-xs uppercase tracking-[0.25em] text-white/60 transition hover:border-white/50 hover:text-white">
+                    Videos →
+                  </button>
                 </div>
               </div>
             </article>
@@ -97,7 +122,7 @@ export default function HangarPage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border border-white/10 bg-black/30 p-4">
+    <div className="border border-white/10 bg-black/35 p-4">
       <p className="text-[10px] uppercase tracking-[0.28em] text-white/35">
         {label}
       </p>

@@ -1,0 +1,103 @@
+import Image from "next/image";
+
+export default function AirRaceX() {
+  return (
+    <section id="airracex" className="bg-black text-white">
+      <div className="relative min-h-screen overflow-hidden">
+        <Image
+          src="/images/air-race-x/arx-hero.jpg"
+          alt="Patrick Davidson Air Race X aircraft"
+          fill
+          className="object-cover object-[75%_32%]"
+          priority
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/65 to-black/5" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-black/20" />
+
+        <div className="relative z-10 flex min-h-screen flex-col justify-between px-8 py-8">
+          <div className="max-w-2xl pt-14">
+            <p className="mb-5 flex items-center gap-5 text-xs uppercase tracking-[0.6em] text-[#62d6aa]">
+              <span className="h-px w-14 bg-[#62d6aa]" />
+              Air Race X
+            </p>
+
+            <h2 className="text-5xl font-black uppercase italic leading-[0.95] tracking-tight md:text-7xl">
+              Where
+              <br />
+              <span className="text-[#62d6aa]">milliseconds</span>
+              <br />
+              decide
+              <br />
+              champions.
+            </h2>
+
+            <p className="mt-7 max-w-lg text-base leading-8 text-white/75">
+              Air Race X is one of the purest tests of flying precision in the
+              world. Every gate, every turn and every decision is measured in
+              milliseconds. There are no second chances — only preparation,
+              precision and commitment.
+            </p>
+
+            <div className="mt-7 flex flex-col items-start gap-3">
+              <a
+                href="/air-race-x"
+                className="inline-flex items-center gap-6 border border-[#62d6aa] px-7 py-4 text-xs uppercase tracking-[0.35em] text-[#62d6aa] transition hover:bg-[#62d6aa] hover:text-black"
+              >
+                Explore Air Race X <span>→</span>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div className="grid gap-6 border-y border-white/10 bg-black/25 py-6 text-center backdrop-blur-[2px] md:grid-cols-4">
+              <div>
+                <p className="text-4xl font-black italic md:text-5xl">2025</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
+                  Champion
+                </p>
+                <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/35">
+                  Air Race X
+                </p>
+              </div>
+
+              <div>
+                <p className="text-4xl font-black italic md:text-5xl">2026</p>
+                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
+                  Champion
+                </p>
+                <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/35">
+                  Air Race X
+                </p>
+              </div>
+
+              <div>
+                <p className="text-4xl font-black italic md:text-5xl">
+                  426<span className="ml-2 text-xl text-[#62d6aa]">km/h</span>
+                </p>
+                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
+                  Top Speed
+                </p>
+              </div>
+
+              <div>
+                <p className="text-4xl font-black italic md:text-5xl">
+                  12<span className="ml-2 text-xl text-[#62d6aa]">G</span>
+                </p>
+                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
+                  Maximum Load
+                </p>
+              </div>
+            </div>
+
+            <div className="py-6 text-center">
+              <p className="text-xs uppercase tracking-[0.5em] text-white/60">
+                Every champion starts with a single lap.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

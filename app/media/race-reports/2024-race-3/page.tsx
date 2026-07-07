@@ -153,20 +153,31 @@ export default function RaceReport2024Race3() {
             </Chapter>
 
             <section className="relative h-[520px] overflow-hidden border border-white/10">
-              <Image
-                src="/images/race-reports/2024-race-3/hangar.jpg"
-                alt="Team 77 hangar at sunset"
-                fill
-                className="object-cover object-center"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-              <div className="absolute bottom-8 left-8 right-8">
-                <p className="max-w-3xl text-3xl font-black uppercase italic leading-tight md:text-5xl">
-                  36 runs. Four days. One solar storm. One clean flight.
-                  <span className="text-[#62d6aa]"> Qualified third.</span>
-                </p>
-              </div>
-            </section>
+  <Image
+    src="/images/race-reports/2024-race-3/hangar.jpg"
+    alt="Team 77 hangar at sunset"
+    fill
+    className="object-cover object-center"
+  />
+
+  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+  <div className="absolute bottom-8 left-8 right-8">
+    <p className="max-w-3xl text-3xl font-black uppercase italic leading-tight md:text-5xl">
+      36 runs. Four days. One solar storm. One clean flight.
+      <span className="text-[#62d6aa]"> Qualified third.</span>
+    </p>
+
+    <a
+      href="https://youtu.be/X0dhLSlKQMs?si=EXMquP3L9IMF_VVy"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-8 inline-flex items-center gap-5 border border-[#62d6aa]/70 bg-black/50 px-7 py-4 text-xs uppercase tracking-[0.35em] text-[#62d6aa] backdrop-blur transition hover:bg-[#62d6aa] hover:text-black"
+    >
+      ▶ Watch Race 3 <span>→</span>
+    </a>
+  </div>
+</section>
           </article>
         </div>
       </section>

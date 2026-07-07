@@ -65,7 +65,7 @@ export default function Hero() {
 
             <div className="space-y-3 text-sm uppercase tracking-[0.32em] text-white/85">
               <p>Professional Pilot</p>
-              <p>2025 • 2026 Air Race X Champion</p>
+              <p>2025 Air Race X Champion</p>
               <p>6× South African Aerobatic Champion</p>
             </div>
 

@@ -62,14 +62,14 @@ export default function AirRaceX() {
               </div>
 
               <div>
-                <p className="text-4xl font-black italic md:text-5xl">2026</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
-                  Champion
-                </p>
-                <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/35">
-                  Air Race X
-                </p>
-              </div>
+  <p className="text-4xl font-black italic md:text-5xl">2026</p>
+  <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
+    Season
+  </p>
+  <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/35">
+    In Progress
+  </p>
+</div>
 
               <div>
                 <p className="text-4xl font-black italic md:text-5xl">

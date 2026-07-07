@@ -19,7 +19,7 @@ const planes = [
     name: "Red Bull One",
     model: "GameBird GB1",
     role: "Unlimited Aerobatics",
-    image: "/images/hangar/redbull-one-wing.jpg",
+    image: "/images/hangar/redbull-one-wing1.jpg",
     registration: "N71PD",
     speed: "426 km/h",
     power: "315 hp",

@@ -12,6 +12,7 @@ const planes = [
     power: "400+ hp",
     type: "Race Aircraft",
     ability: "Precision Speed",
+    gallery: "/hangar/edge-540",
     story:
       "Patrick’s AIR RACE X machine, built around speed, precision and repeatability. Every setup decision, every line and every fraction of a second matters.",
   },
@@ -25,6 +26,7 @@ const planes = [
     power: "315 hp",
     type: "Display Aircraft",
     ability: "Unlimited Aerobatics",
+    gallery: "#",
     story:
       "Patrick’s Red Bull GameBird, used for high-energy aerobatic displays and precision flying that turns every performance into a memory.",
   },
@@ -103,9 +105,12 @@ export default function HangarPage() {
                 </div>
 
                 <div className="mt-8 flex flex-wrap gap-4">
-                  <button className="border border-yellow-500/60 px-5 py-3 text-xs uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black">
+                  <Link
+                    href={plane.gallery}
+                    className="border border-yellow-500/60 px-5 py-3 text-xs uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
+                  >
                     Gallery →
-                  </button>
+                  </Link>
 
                   <button className="border border-white/15 px-5 py-3 text-xs uppercase tracking-[0.25em] text-white/60 transition hover:border-white/50 hover:text-white">
                     Videos →

@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 
 export default function AirRaceX() {
   return (
@@ -51,43 +54,27 @@ export default function AirRaceX() {
 
           <div>
             <div className="grid gap-6 border-y border-white/10 bg-black/25 py-6 text-center backdrop-blur-[2px] md:grid-cols-4">
-              <div>
-                <p className="text-4xl font-black italic md:text-5xl">2025</p>
-                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
-                  Champion
-                </p>
-                <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/35">
-                  Air Race X
-                </p>
-              </div>
+              <Stat value="2025" topLabel="Champion" bottomLabel="Air Race X" />
 
-              <div>
-  <p className="text-4xl font-black italic md:text-5xl">2026</p>
-  <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
-    Season
-  </p>
-  <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/35">
-    In Progress
-  </p>
-</div>
+              <Stat
+                value="2026"
+                topLabel="Season"
+                bottomLabel="In Progress"
+              />
 
-              <div>
-                <p className="text-4xl font-black italic md:text-5xl">
-                  426<span className="ml-2 text-xl text-[#62d6aa]">km/h</span>
-                </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
-                  Top Speed
-                </p>
-              </div>
+              <AnimatedStat
+                end={426}
+                suffix="km/h"
+                topLabel="Top Speed"
+                bottomLabel="Race Aircraft"
+              />
 
-              <div>
-                <p className="text-4xl font-black italic md:text-5xl">
-                  12<span className="ml-2 text-xl text-[#62d6aa]">G</span>
-                </p>
-                <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
-                  Maximum Load
-                </p>
-              </div>
+              <AnimatedStat
+                end={12}
+                suffix="G"
+                topLabel="Maximum Load"
+                bottomLabel="Race Forces"
+              />
             </div>
 
             <div className="py-6 text-center">
@@ -99,5 +86,98 @@ export default function AirRaceX() {
         </div>
       </div>
     </section>
+  );
+}
+
+function AnimatedStat({
+  end,
+  suffix,
+  topLabel,
+  bottomLabel,
+}: {
+  end: number;
+  suffix: string;
+  topLabel: string;
+  bottomLabel: string;
+}) {
+  const [value, setValue] = useState(0);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started) {
+          setStarted(true);
+        }
+      },
+      { threshold: 0.35 }
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [started]);
+
+  useEffect(() => {
+    if (!started) return;
+
+    const duration = 1500;
+    const startTime = performance.now();
+
+    function animate(now: number) {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(Math.floor(eased * end));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }, [started, end]);
+
+  return (
+    <div ref={ref}>
+      <p className="text-4xl font-black italic md:text-5xl">
+        {value}
+        <span className="ml-2 text-xl text-[#62d6aa]">{suffix}</span>
+      </p>
+
+      <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
+        {topLabel}
+      </p>
+
+      <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/35">
+        {bottomLabel}
+      </p>
+    </div>
+  );
+}
+
+function Stat({
+  value,
+  topLabel,
+  bottomLabel,
+}: {
+  value: string;
+  topLabel: string;
+  bottomLabel: string;
+}) {
+  return (
+    <div>
+      <p className="text-4xl font-black italic md:text-5xl">{value}</p>
+
+      <p className="mt-2 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
+        {topLabel}
+      </p>
+
+      <p className="mt-1 text-xs uppercase tracking-[0.3em] text-white/35">
+        {bottomLabel}
+      </p>
+    </div>
   );
 }

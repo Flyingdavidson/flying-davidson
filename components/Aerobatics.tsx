@@ -1,81 +1,106 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useState } from "react";
+
+const portraitSlides = [
+  "/images/aerobatics/aero-smoke-ring.jpg",
+  "/images/aerobatics/aero-smoke-cloud.jpg",
+  "/images/aerobatics/aero-close.jpg",
+];
 
 export default function Aerobatics() {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActive((current) => (current + 1) % portraitSlides.length);
+    }, 3200);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section id="aerobatics" className="bg-[#f4f1eb] text-black">
-      <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-12 px-8 py-20 md:grid-cols-2">
-        <div className="relative h-[620px] overflow-hidden rounded-[32px] shadow-2xl">
-          <Image
-            src="/images/aerobatics/aerobatics-planning.jpg"
-            alt="Aerobatic display planning sketches"
-            fill
-            priority
-            className="object-cover object-center"
-          />
-        </div>
+    <section id="aerobatics" className="bg-black text-white">
+      <div className="relative min-h-screen overflow-hidden">
+        <Image
+          src="/images/aerobatics/aero-flag.jpg"
+          alt="Patrick Davidson aerobatic display with South African flag"
+          fill
+          priority
+          className="object-cover object-center"
+        />
 
-        <div>
-          <p className="mb-6 text-xs uppercase tracking-[0.55em] text-red-600/70">
-            Aerobatics
-          </p>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/10" />
 
-          <h2 className="max-w-2xl text-5xl font-extralight leading-[1.08] tracking-tight md:text-7xl">
-            Every display
-            <br />
-            begins with
-            <br />
-            a sketch.
-          </h2>
+        <div className="relative z-10 grid min-h-screen items-center gap-10 px-8 py-24 md:grid-cols-[1fr_0.8fr] md:px-16 lg:px-24">
+          <div className="max-w-4xl">
+            <p className="mb-6 text-xs uppercase tracking-[0.55em] text-red-400/90">
+              Aerobatics
+            </p>
 
-          <p className="mt-8 max-w-xl text-lg leading-9 text-black/65">
-            Before the smoke, the speed and the applause, every manoeuvre starts
-            on paper. Each climb, roll and recovery is imagined, planned and
-            refined before the wheels leave the ground.
-          </p>
+            <h2 className="text-6xl font-black uppercase italic leading-[0.85] tracking-tight md:text-8xl">
+              The Sky
+              <br />
+              Is The
+              <br />
+              Canvas.
+            </h2>
 
-          <div className="mt-10 grid grid-cols-2 gap-6 border-y border-black/10 py-8">
-            <div>
-              <p className="text-4xl font-black">6×</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-black/45">
-                South African Champion
-              </p>
-            </div>
+            <p className="mt-8 max-w-2xl text-xl leading-9 text-white/75">
+              Aerobatics is where precision becomes performance. Every display
+              is carefully planned, flown with intent and drawn across the sky
+              in smoke.
+            </p>
 
-            <div>
-              <p className="text-4xl font-black">12</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-black/45">
-                First Competition Win
-              </p>
-            </div>
-
-            <div>
-              <p className="text-4xl font-black">Youngest</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-black/45">
-                SA Aerobatic Champion
-              </p>
-            </div>
-
-            <div>
-              <p className="text-4xl font-black">FAI</p>
-              <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-black/45">
-                World Championship Competitor
-              </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Tag>Precision</Tag>
+              <Tag>Smoke</Tag>
+              <Tag>Performance</Tag>
             </div>
           </div>
 
-          <p className="mt-8 max-w-xl text-lg leading-9 text-black/65">
-            Six South African titles. A champion before most pilots had earned
-            their licence. Still inspiring crowds decades later.
-          </p>
+          <div className="relative hidden justify-end md:flex">
+            <div className="relative h-[520px] w-[360px] overflow-hidden border border-white/15 bg-black/40 p-3 shadow-2xl backdrop-blur-sm">
+              {portraitSlides.map((src, index) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt="Patrick Davidson aerobatic display"
+                  fill
+                  className={`object-contain p-3 transition-all duration-700 ${
+                    active === index
+                      ? "scale-100 opacity-100"
+                      : "scale-95 opacity-0"
+                  }`}
+                />
+              ))}
+            </div>
 
-          <a
-            href="/aerobatics"
-            className="mt-10 inline-flex items-center gap-6 border border-red-600 px-7 py-4 text-xs uppercase tracking-[0.35em] text-red-600 transition hover:bg-red-600 hover:text-white"
-          >
-            Explore Aerobatics <span>→</span>
-          </a>
+            <div className="absolute -bottom-8 right-0 flex gap-3">
+              {portraitSlides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setActive(index)}
+                  className={`h-1.5 w-10 transition ${
+                    active === index ? "bg-red-400" : "bg-white/30"
+                  }`}
+                  aria-label={`Show aerobatics image ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Tag({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="border border-white/15 bg-black/25 px-5 py-3 text-xs uppercase tracking-[0.3em] text-white/70 backdrop-blur-sm">
+      {children}
+    </span>
   );
 }

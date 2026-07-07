@@ -2,6 +2,11 @@ import Image from "next/image";
 
 const mediaSections = [
   {
+    title: "Race Reports",
+    text: "The story behind each race weekend, from preparation to result.",
+    href: "/media/race-reports",
+  },
+  {
     title: "Results",
     text: "Race results, championship standings and season summaries.",
     href: "/media/results",
@@ -10,11 +15,6 @@ const mediaSections = [
     title: "Calendar",
     text: "Upcoming races, displays, appearances and events.",
     href: "/media/calendar",
-  },
-  {
-    title: "Race Reports",
-    text: "The story behind each race weekend, from preparation to result.",
-    href: "/media/race-reports",
   },
   {
     title: "News & Blog",
@@ -44,16 +44,16 @@ export default function MediaCentre() {
           className="object-cover object-center"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/55 to-black/10" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/20" />
 
-        <div className="relative z-10 flex min-h-screen items-end px-8 py-24 md:px-16 lg:px-24">
-          <div className="max-w-5xl">
+        <div className="relative z-10 flex min-h-screen items-end px-8 py-20 md:px-16 lg:px-24">
+          <div className="max-w-7xl">
             <p className="mb-6 text-xs uppercase tracking-[0.55em] text-yellow-500/80">
               Media Centre
             </p>
 
-            <h2 className="text-6xl font-black uppercase leading-[0.9] tracking-tight md:text-8xl">
+            <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-tight md:text-8xl">
               Every Race.
               <br />
               Every Result.
@@ -67,12 +67,31 @@ export default function MediaCentre() {
               flight line.
             </p>
 
-            <a
-              href="/media"
-              className="mt-12 inline-flex items-center gap-6 border border-yellow-500/70 px-7 py-4 text-xs uppercase tracking-[0.35em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
-            >
-              Open Media Centre <span>→</span>
-            </a>
+            <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {mediaSections.map((item) => (
+                <a
+                  key={item.title}
+                  href={item.href}
+                  className="group border border-white/10 bg-black/35 p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:border-yellow-500/70 hover:bg-black/55"
+                >
+                  <p className="text-xs uppercase tracking-[0.35em] text-yellow-400">
+                    Media
+                  </p>
+
+                  <h3 className="mt-3 text-2xl font-black uppercase">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-7 text-white/60">
+                    {item.text}
+                  </p>
+
+                  <div className="mt-6 text-xs uppercase tracking-[0.3em] text-yellow-400">
+                    Explore →
+                  </div>
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -127,12 +127,15 @@ export default function RaceReport2023ARX() {
 }
 
 function Stat({ value, label }: { value: string; label: string }) {
-  return (
-    <div>
-      <p className="text-3xl font-black italic text-white">{value}</p>
-      <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-white/40">
-        {label}
-      </p>
-    </div>
-  );
-}
+    return (
+      <div>
+        <p className="text-3xl font-black italic text-white">
+          {value}
+        </p>
+  
+        <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-white/40">
+          {label}
+        </p>
+      </div>
+    );
+  }

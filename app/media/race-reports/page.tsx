@@ -2,10 +2,17 @@ import Link from "next/link";
 
 const reports = [
   {
+    year: "2026",
+    title: "Grounded, Flooded, And Still Racing",
+    series: "AIR RACE X • Race 1",
+    text: "A grounded GameBird, 100-year floods, damaged roads, late gear, over-Gs and a fight to get points on the board.",
+    href: "/media/race-reports/2026-race-1",
+  },
+  {
     year: "2024",
-    title: "The Race Against The Sun",
+    title: "36 Runs Later",
     series: "AIR RACE X • Race 3",
-    text: "Thirty-six runs, a solar storm, GPS chaos and one unforgettable qualifying lap.",
+    text: "GPS chaos, penalties, a geomagnetic storm and one clean qualifying run after 36 attempts.",
     href: "/media/race-reports/2024-race-3",
   },
   {

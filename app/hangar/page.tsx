@@ -8,7 +8,7 @@ const planes = [
     role: "Championship Racing",
     image: "/images/hangar/edge-540.jpg",
     registration: "N540HA",
-    speed: "220+ mph",
+    speed: "426 km/h",
     power: "400+ hp",
     type: "Race Aircraft",
     ability: "Precision Speed",
@@ -26,9 +26,23 @@ const planes = [
     power: "315 hp",
     type: "Display Aircraft",
     ability: "Unlimited Aerobatics",
-    gallery: "#",
+    gallery: "/hangar/gamebird",
     story:
       "Patrick’s Red Bull GameBird, used for high-energy aerobatic displays and precision flying that turns every performance into a memory.",
+  },
+  {
+    name: "Hawker Sea Fury",
+    model: "Historic Warbird",
+    role: "Airshow Display",
+    image: "/images/hangar/seafury1.jpg",
+    registration: "ZS-TFR",
+    speed: "740 km/h",
+    power: "2,480 hp",
+    type: "Warbird",
+    ability: "Historic Display Flying",
+    gallery: "/hangar/sea-fury",
+    story:
+      "One of the last and fastest piston-engined fighter aircraft ever built. The Hawker Sea Fury combines incredible power with graceful handling and remains one of the stars of Patrick Davidson's display fleet.",
   },
 ];
 

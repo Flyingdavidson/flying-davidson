@@ -7,7 +7,7 @@ const liveSeason = {
   position: "Season in Progress",
   note: "Only Race 1 has been officially broadcast. Championship result is not yet official.",
   races: [
-    ["Race 1", "Published"],
+    ["Race 1", "4th"],
     ["Race 2", "Pending"],
     ["Race 3", "Pending"],
     ["Race 4", "Pending"],
@@ -85,7 +85,7 @@ export default function ResultsPage() {
         <h1 className="text-6xl font-black uppercase leading-[0.9] tracking-tight md:text-8xl">
           Results
           <br />
-          Archive.
+          
         </h1>
 
         <p className="mt-8 max-w-2xl text-xl leading-9 text-white/65">

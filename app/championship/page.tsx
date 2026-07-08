@@ -34,12 +34,12 @@ export default function ChampionshipPage() {
       <section className="px-8 py-24 md:px-16 lg:px-24">
         <div className="mx-auto max-w-7xl">
 
-          <Link
-            href="/"
-            className="text-xs uppercase tracking-[0.35em] text-white/50 hover:text-white"
-          >
-            ← Back Home
-          </Link>
+        <Link
+  href="/#airracex"
+  className="text-xs uppercase tracking-[0.35em] text-white/50 transition hover:text-white"
+>
+  ← Back to AIR RACE X
+</Link>
 
           <p className="mt-12 text-xs uppercase tracking-[0.55em] text-[#62d6aa]">
             AIR RACE X 2026

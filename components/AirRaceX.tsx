@@ -47,7 +47,7 @@ export default function AirRaceX() {
                 href="/championship"
                 className="inline-flex items-center gap-6 border border-[#62d6aa] px-7 py-4 text-xs uppercase tracking-[0.35em] text-[#62d6aa] transition hover:bg-[#62d6aa] hover:text-black"
               >
-                Explore Air Race X <span>→</span>
+                Results for 2026 <span>→</span>
               </a>
             </div>
           </div>

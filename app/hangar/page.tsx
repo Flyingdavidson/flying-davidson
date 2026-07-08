@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import BackButton from "@/components/BackButton";
 
 const planes = [
   {
@@ -17,8 +18,8 @@ const planes = [
       "Patrick’s AIR RACE X machine, built around speed, precision and repeatability. Every setup decision, every line and every fraction of a second matters.",
   },
   {
-    name: "Red Bull One",
-    model: "GameBird GB1",
+    name: "GameBird GB1",
+    model: "RedBull One",
     role: "Unlimited Aerobatics",
     image: "/images/hangar/redbull-one-wing1.jpg",
     registration: "N71PD",
@@ -50,11 +51,11 @@ export default function HangarPage() {
   return (
     <main className="min-h-screen bg-black px-8 py-24 text-white md:px-16 lg:px-24">
       <Link
-        href="/"
-        className="text-xs uppercase tracking-[0.35em] text-white/50 transition hover:text-white"
-      >
-        ← Back Home
-      </Link>
+  href="/"
+  className="text-xs uppercase tracking-[0.35em] text-white/50 transition hover:text-white"
+>
+  ← Back Home
+</Link>
 
       <section className="mx-auto mt-20 max-w-7xl">
         <p className="mb-6 text-xs uppercase tracking-[0.55em] text-yellow-500/80">

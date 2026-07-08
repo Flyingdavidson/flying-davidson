@@ -34,12 +34,22 @@ export default function Hero() {
         }}
       >
         <Image
-          src="/images/hero/hero-main.jpg"
-          alt="Patrick Davidson"
-          fill
-          priority
-          className="object-cover object-[center_18%]"
-        />
+
+src="/images/hero/hero-main.jpg"
+
+alt="Patrick Davidson"
+
+fill
+
+priority
+
+quality={90}
+
+sizes="100vw"
+
+className="object-cover object-[center_18%]"
+
+/>
       </div>
 
       {/* Overlays */}

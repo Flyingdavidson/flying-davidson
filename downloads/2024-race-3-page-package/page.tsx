@@ -28,7 +28,7 @@ export default function RaceReport2024Race3() {
         <div className="relative z-10 flex min-h-screen items-end px-8 py-24 md:px-16 lg:px-24">
           <div className="max-w-6xl">
             <Link
-              href="/media/race-reports"
+              href="/media/results"
               className="mb-10 inline-block text-xs uppercase tracking-[0.35em] text-white/50 hover:text-white"
             >
               ← Back to Race Reports

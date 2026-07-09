@@ -51,10 +51,10 @@ export default function HangarPage() {
   return (
     <main className="min-h-screen bg-black px-8 py-24 text-white md:px-16 lg:px-24">
       <Link
-  href="/"
+  href="/#hangar"
   className="text-xs uppercase tracking-[0.35em] text-white/50 transition hover:text-white"
 >
-  ← Back Home
+  ← Back to Hangar
 </Link>
 
       <section className="mx-auto mt-20 max-w-7xl">
@@ -73,13 +73,13 @@ export default function HangarPage() {
           purposes and one thing in common — they all demand precision.
         </p>
 
-        <div className="mt-20 grid gap-10 lg:grid-cols-2">
+        <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {planes.map((plane) => (
             <article
               key={plane.name}
-              className="group overflow-hidden border border-white/10 bg-white/[0.03] transition duration-500 hover:-translate-y-2 hover:border-yellow-500/50"
+              className="group overflow-hidden border border-white/10 bg-white/[0.03] transition duration-500 hover:-translate-y-1 hover:border-yellow-500/50"
             >
-              <div className="relative h-[380px] overflow-hidden">
+              <div className="relative h-[220px] overflow-hidden">
                 <Image
                   src={plane.image}
                   alt={plane.name}
@@ -87,47 +87,47 @@ export default function HangarPage() {
                   className="object-cover object-center transition duration-700 group-hover:scale-105"
                 />
 
-                <div className="absolute left-6 top-6 border border-yellow-500/60 bg-black/70 px-4 py-2 text-xs font-black uppercase tracking-[0.3em] text-yellow-400">
+                <div className="absolute left-4 top-4 border border-yellow-500/60 bg-black/70 px-3 py-1 text-[10px] font-black uppercase tracking-[0.3em] text-yellow-400">
                   {plane.type}
                 </div>
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
 
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-xs uppercase tracking-[0.35em] text-yellow-400">
+                <div className="absolute bottom-4 left-4 right-4">
+                  <p className="text-[10px] uppercase tracking-[0.35em] text-yellow-400">
                     {plane.model}
                   </p>
-                  <h2 className="mt-2 text-4xl font-black uppercase md:text-5xl">
+                  <h2 className="mt-1 text-xl font-black uppercase md:text-2xl">
                     {plane.name}
                   </h2>
                 </div>
               </div>
 
-              <div className="p-7">
-                <p className="text-sm uppercase tracking-[0.3em] text-white/45">
+              <div className="p-5">
+                <p className="text-xs uppercase tracking-[0.3em] text-white/45">
                   {plane.role}
                 </p>
 
-                <p className="mt-5 text-base leading-7 text-white/65">
+                <p className="mt-3 text-sm leading-6 text-white/65">
                   {plane.story}
                 </p>
 
-                <div className="mt-8 grid grid-cols-2 gap-4">
+                <div className="mt-5 grid grid-cols-2 gap-3">
                   <Stat label="Registration" value={plane.registration} />
                   <Stat label="Speed" value={plane.speed} />
                   <Stat label="Power" value={plane.power} />
                   <Stat label="Special Ability" value={plane.ability} />
                 </div>
 
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="mt-5 flex flex-wrap gap-3">
                   <Link
                     href={plane.gallery}
-                    className="border border-yellow-500/60 px-5 py-3 text-xs uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
+                    className="border border-yellow-500/60 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-500 hover:text-black"
                   >
                     Gallery →
                   </Link>
 
-                  <button className="border border-white/15 px-5 py-3 text-xs uppercase tracking-[0.25em] text-white/60 transition hover:border-white/50 hover:text-white">
+                  <button className="border border-white/15 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-white/60 transition hover:border-white/50 hover:text-white">
                     Videos →
                   </button>
                 </div>
@@ -142,11 +142,11 @@ export default function HangarPage() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="border border-white/10 bg-black/35 p-4">
-      <p className="text-[10px] uppercase tracking-[0.28em] text-white/35">
+    <div className="border border-white/10 bg-black/35 p-3">
+      <p className="text-[9px] uppercase tracking-[0.28em] text-white/35">
         {label}
       </p>
-      <p className="mt-2 text-xl font-black">{value}</p>
+      <p className="mt-1 text-sm font-black">{value}</p>
     </div>
   );
 }

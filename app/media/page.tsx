@@ -8,12 +8,7 @@ const mediaSections = [
     text: "Championship standings, race results and season summaries.",
     href: "/media/results",
   },
-  {
-    title: "Calendar",
-    tag: "Upcoming",
-    text: "Races, airshows, appearances and event dates.",
-    href: "/media/calendar",
-  },
+
   {
     title: "Race Reports",
     tag: "Stories",
@@ -21,7 +16,7 @@ const mediaSections = [
     href: "/media/race-reports",
   },
   {
-    title: "News & Blog",
+    title: "News",
     tag: "Updates",
     text: "Sponsor news, aircraft updates, team announcements and general stories.",
     href: "/media/news",
@@ -58,10 +53,10 @@ export default function MediaPage() {
         <div className="relative z-10 flex min-h-[75vh] items-end px-8 py-20 md:px-16 lg:px-24">
           <div>
             <Link
-              href="/"
+              href="/#media"
               className="mb-10 inline-block text-xs uppercase tracking-[0.35em] text-white/50 transition hover:text-white"
             >
-              ← Back Home
+              ← Back to Media
             </Link>
 
             <p className="mb-6 text-xs uppercase tracking-[0.55em] text-yellow-500/80">

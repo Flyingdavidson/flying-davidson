@@ -12,12 +12,7 @@ const mediaSections = [
     href: "/media/results",
   },
   {
-    title: "Calendar",
-    text: "Upcoming races, displays, appearances and events.",
-    href: "/media/calendar",
-  },
-  {
-    title: "News & Blog",
+    title: "News",
     text: "Updates from the team, sponsors, aircraft and life around flying.",
     href: "/media/news",
   },
@@ -25,11 +20,6 @@ const mediaSections = [
     title: "Gallery",
     text: "Photos from airshows, racing, fans, aircraft and behind the scenes.",
     href: "/media/gallery",
-  },
-  {
-    title: "Downloads",
-    text: "Press images, biography, logos and useful media resources.",
-    href: "/media/downloads",
   },
 ];
 

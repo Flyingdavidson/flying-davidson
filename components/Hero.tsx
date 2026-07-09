@@ -81,6 +81,7 @@ className="object-cover object-[center_18%]"
             <div className="space-y-3 text-sm uppercase tracking-[0.32em] text-white/85">
               <p>Professional Pilot</p>
               <p>Red Bull Athlete</p>
+              <p>2025 Air Race X World Champion </p>
               <p>6× South African Aerobatic Champion</p>
             </div>
 

@@ -13,11 +13,11 @@ const officialImages = [
 ];
 
 const btsImages = [
-  "BTS/01.jpg",
-  "BTS/02.jpg",
-  "BTS/03.jpg",
-  "BTS/04.jpg",
-  "BTS/05.jpg",
+  "bts/01.jpg",
+  "bts/02.jpg",
+  "bts/03.jpg",
+  "bts/04.jpg",
+  "bts/05.jpg",
 ];
 
 export default function AbdoFeghali2021Page() {

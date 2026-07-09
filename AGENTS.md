@@ -1,5 +1,24 @@
-<!-- BEGIN:nextjs-agent-rules -->
-# This is NOT the Next.js you know
+# Flying Davidson Website
 
-This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
-<!-- END:nextjs-agent-rules -->
+## Stack
+- Next.js 16
+- React
+- TypeScript
+- Tailwind CSS
+
+## Design Style
+- Premium aviation aesthetic
+- Black / White / Gold colour palette
+- Large bold typography
+- Full-screen imagery
+- Mobile-first design
+- Smooth animations
+- Fast loading
+
+## Coding Rules
+- Never remove existing functionality unless requested.
+- Keep desktop layouts unchanged when improving mobile.
+- Use dedicated mobile images where appropriate.
+- Optimise all pages for iPhone first.
+- Always use Next/Image.
+- Build must pass before committing.

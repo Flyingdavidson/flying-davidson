@@ -4,10 +4,10 @@ export default function AirRaceXScheduleNewsPage() {
   return (
     <main className="min-h-screen bg-black px-8 py-24 text-white md:px-16 lg:px-24">
       <Link
-        href="/media"
+        href="/media/news"
         className="text-xs uppercase tracking-[0.35em] text-white/50 transition hover:text-white"
       >
-        ← Back to Media Centre
+        ← Back to News
       </Link>
 
       <article className="mx-auto mt-20 max-w-4xl">

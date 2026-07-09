@@ -71,7 +71,7 @@ export default function ResultsPage() {
   return (
     <main className="min-h-screen bg-black px-8 py-24 text-white md:px-16 lg:px-24">
       <Link
-        href="/media"
+        href="/#media"
         className="mb-10 inline-block text-xs uppercase tracking-[0.35em] text-white/50 transition hover:text-white"
       >
         ← Back to Media Centre

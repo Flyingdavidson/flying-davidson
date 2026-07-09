@@ -27,23 +27,40 @@ export default function MediaCentre() {
   return (
     <section id="media" className="bg-black text-white">
       <div className="relative min-h-screen overflow-hidden">
-        <Image
-          src="/images/media/fans-selfie.jpg"
-          alt="Patrick Davidson with fans"
-          fill
-          className="object-cover object-center"
-        />
+        {/* Mobile */}
+        <div className="absolute inset-0 md:hidden">
+          <Image
+            src="/images/media/fans-selfie-mobile.jpg"
+            alt="Patrick Davidson with fans"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center]"
+          />
+        </div>
+
+        {/* Desktop */}
+        <div className="absolute inset-0 hidden md:block">
+          <Image
+            src="/images/media/fans-selfie.jpg"
+            alt="Patrick Davidson with fans"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center"
+          />
+        </div>
 
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/20" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/25 to-black/20" />
 
-        <div className="relative z-10 flex min-h-screen items-end px-8 py-20 md:px-16 lg:px-24">
+        <div className="relative z-10 flex min-h-screen items-end px-6 py-20 md:px-16 lg:px-24">
           <div className="max-w-7xl">
             <p className="mb-6 text-xs uppercase tracking-[0.55em] text-yellow-500/80">
               Media Centre
             </p>
 
-            <h2 className="text-5xl font-black uppercase leading-[0.9] tracking-tight md:text-8xl">
+            <h2 className="text-4xl font-black uppercase leading-[0.9] tracking-tight sm:text-5xl md:text-8xl">
               Every Race.
               <br />
               Every Result.
@@ -51,7 +68,7 @@ export default function MediaCentre() {
               Every Story.
             </h2>
 
-            <p className="mt-8 max-w-2xl text-xl leading-9 text-white/70">
+            <p className="mt-8 max-w-xl text-lg leading-8 text-white/70 md:max-w-2xl md:text-xl md:leading-9">
               Follow Patrick Davidson through race reports, results, upcoming
               events, media resources and the moments that happen beyond the
               flight line.

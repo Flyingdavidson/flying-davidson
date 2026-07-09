@@ -28,11 +28,12 @@ export default function RaceReportsPage() {
   return (
     <main className="min-h-screen bg-black px-8 py-24 text-white md:px-16 lg:px-24">
       <Link
-        href="/"
-        className="text-xs uppercase tracking-[0.35em] text-white/50 hover:text-white"
-      >
-        ← Back Home
-      </Link>
+  href="/#media"
+  scroll={true}
+  className="text-xs uppercase tracking-[0.35em] text-white/50 transition hover:text-white"
+>
+  ← Back to Media Centre
+</Link>
 
       <section className="mx-auto mt-20 max-w-7xl">
         <p className="mb-6 text-xs uppercase tracking-[0.55em] text-[#62d6aa]">

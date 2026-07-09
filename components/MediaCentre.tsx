@@ -17,9 +17,9 @@ const mediaSections = [
     href: "/media/news",
   },
   {
-    title: "Gallery",
-    text: "Photos from airshows, racing, fans, aircraft and behind the scenes.",
-    href: "/media/gallery",
+    title: "Projects",
+    text: "From beginning to end. The stories behind the flying.",
+    href: "/media/projects",
   },
 ];
 

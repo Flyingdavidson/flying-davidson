@@ -63,10 +63,10 @@ className="object-cover object-[center_18%]"
       >
         {/* Name */}
         <div
-          className="flex justify-end px-6 pt-20 md:px-12 lg:px-20"
-          style={{ transform: `translateY(${nameMove}px)` }}
-        >
-          <h1 className="text-right text-5xl font-black uppercase leading-[0.82] tracking-[-0.05em] text-white md:text-7xl xl:text-8xl">
+  className="flex justify-end px-6 pt-32 md:px-12 md:pt-24 lg:px-20"
+  style={{ transform: `translateY(${nameMove}px)` }}
+>
+  <h1 className="text-right text-4xl font-black uppercase leading-[0.88] tracking-[-0.04em] text-white sm:text-5xl md:text-7xl xl:text-8xl">
             Patrick
             <br />
             Davidson
@@ -74,11 +74,11 @@ className="object-cover object-[center_18%]"
         </div>
 
         {/* Bottom Left */}
-        <div className="mt-auto flex justify-start px-8 pb-24 md:px-16 lg:px-24">
+        <div className="mt-auto flex justify-start px-6 pb-28 md:px-16 md:pb-24 lg:px-24">
           <div className="max-w-xl">
             <div className="mb-7 h-px w-24 bg-white/40" />
 
-            <div className="space-y-3 text-sm uppercase tracking-[0.32em] text-white/85">
+            <div className="space-y-3 text-xs uppercase leading-7 tracking-[0.28em] text-white/85 sm:text-sm sm:tracking-[0.32em]">
               <p>Professional Pilot</p>
               <p>Red Bull Athlete</p>
               <p>2025 Air Race X World Champion </p>

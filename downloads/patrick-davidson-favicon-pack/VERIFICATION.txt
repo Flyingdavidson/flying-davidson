@@ -1,0 +1,8 @@
+favicon-16x16.png: 16x16 OK
+favicon-32x32.png: 32x32 OK
+apple-touch-icon.png: 180x180 OK
+android-chrome-192x192.png: 192x192 OK
+android-chrome-512x512.png: 512x512 OK
+icon.png: 512x512 OK
+favicon.ico: readable multi-resolution ICO OK
+site.webmanifest: valid JSON OK

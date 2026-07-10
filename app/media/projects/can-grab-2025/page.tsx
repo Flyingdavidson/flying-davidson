@@ -11,6 +11,8 @@ const officialImages = Array.from(
   (_, index) => `official/${String(index + 1).padStart(2, "0")}.jpg`,
 );
 
+const wideImageIndexes = [0, 4, 9, 14, 18];
+
 export default function CanGrab2025Page() {
   const [activeImage, setActiveImage] = useState<number | null>(null);
 
@@ -43,9 +45,17 @@ export default function CanGrab2025Page() {
     document.body.style.overflow = "hidden";
 
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") closeLightbox();
-      if (event.key === "ArrowLeft") showPrevious();
-      if (event.key === "ArrowRight") showNext();
+      if (event.key === "Escape") {
+        closeLightbox();
+      }
+
+      if (event.key === "ArrowLeft") {
+        showPrevious();
+      }
+
+      if (event.key === "ArrowRight") {
+        showNext();
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
@@ -106,6 +116,7 @@ export default function CanGrab2025Page() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
               Pilot
             </p>
+
             <p className="mt-2 text-lg font-bold md:text-xl">
               Patrick Davidson
             </p>
@@ -115,6 +126,7 @@ export default function CanGrab2025Page() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
               Rider
             </p>
+
             <p className="mt-2 text-lg font-bold md:text-xl">Brian Capper</p>
           </div>
 
@@ -122,6 +134,7 @@ export default function CanGrab2025Page() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
               Aircraft
             </p>
+
             <p className="mt-2 text-lg font-bold md:text-xl">GameBird GB1</p>
           </div>
 
@@ -129,6 +142,7 @@ export default function CanGrab2025Page() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
               Location
             </p>
+
             <p className="mt-2 text-lg font-bold md:text-xl">South Africa</p>
           </div>
 
@@ -136,87 +150,88 @@ export default function CanGrab2025Page() {
             <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
               Year
             </p>
+
             <p className="mt-2 text-lg font-bold md:text-xl">2025</p>
           </div>
         </div>
       </section>
 
-      {/* VIDEO */}
-<section className="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20">
-  <div className="mb-7">
-    <p className="text-xs uppercase tracking-[0.4em] text-yellow-400">
-      Watch the Stunt
-    </p>
+      {/* VIDEO AND STORY */}
+      <section className="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20">
+        <div className="mb-7">
+          <p className="text-xs uppercase tracking-[0.4em] text-yellow-400">
+            Watch the Stunt
+          </p>
 
-    <h2 className="mt-3 text-4xl font-black uppercase italic leading-none md:text-6xl">
-      Precision at Speed
-    </h2>
-  </div>
+          <h2 className="mt-3 text-4xl font-black uppercase italic leading-none md:text-6xl">
+            Precision at Speed
+          </h2>
+        </div>
 
-  <a
-    href="https://www.instagram.com/reel/DKfCrjDNWVq/?igsh=OTF4YWVzeGx3MA=="
-    target="_blank"
-    rel="noopener noreferrer"
-    className="group relative block aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] md:aspect-video md:rounded-3xl"
-  >
-    <Image
-      src={`${basePath}/official/hero.jpg`}
-      alt="Watch the Red Bull Can Grab stunt"
-      fill
-      sizes="(max-width: 768px) 100vw, 1200px"
-      className="object-cover transition duration-700 group-hover:scale-105"
-    />
+        <a
+          href="https://www.instagram.com/reel/DKfCrjDNWVq/?igsh=OTF4YWVzeGx3MA=="
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative block aspect-[16/10] overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] md:aspect-video md:rounded-3xl"
+        >
+          <Image
+            src={`${basePath}/official/hero.jpg`}
+            alt="Watch the Red Bull Can Grab stunt"
+            fill
+            sizes="(max-width: 768px) 100vw, 1200px"
+            className="object-cover transition duration-700 group-hover:scale-105"
+          />
 
-    <div className="absolute inset-0 bg-black/35 transition duration-300 group-hover:bg-black/20" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" />
+          <div className="absolute inset-0 bg-black/35 transition duration-300 group-hover:bg-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/10" />
 
-    <div className="absolute inset-0 flex items-center justify-center">
-      <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/40 bg-black/50 text-3xl text-white backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:bg-yellow-400 group-hover:text-black md:h-24 md:w-24">
-        <span className="ml-1">▶</span>
-      </div>
-    </div>
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="flex h-20 w-20 items-center justify-center rounded-full border border-white/40 bg-black/50 text-3xl text-white backdrop-blur-md transition duration-300 group-hover:scale-110 group-hover:bg-yellow-400 group-hover:text-black md:h-24 md:w-24">
+              <span className="ml-1">▶</span>
+            </div>
+          </div>
 
-    <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8">
-      <p className="text-xs uppercase tracking-[0.3em] text-yellow-400">
-        Instagram Reel
-      </p>
+          <div className="absolute bottom-6 left-6 right-6 md:bottom-8 md:left-8">
+            <p className="text-xs uppercase tracking-[0.3em] text-yellow-400">
+              Instagram Reel
+            </p>
 
-      <p className="mt-2 text-xl font-bold uppercase md:text-3xl">
-        Watch Can Grab
-      </p>
-    </div>
-  </a>
+            <p className="mt-2 text-xl font-bold uppercase md:text-3xl">
+              Watch Can Grab
+            </p>
+          </div>
+        </a>
 
-  {/* STORY BOX */}
-  <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:mt-10 md:rounded-3xl md:p-10">
-    <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
-      <div>
-        <p className="text-xs uppercase tracking-[0.4em] text-yellow-400">
-          Red Bull Story
-        </p>
+        {/* STORY BOX */}
+        <div className="mt-8 rounded-2xl border border-white/10 bg-white/[0.03] p-7 md:mt-10 md:rounded-3xl md:p-10">
+          <div className="flex flex-col gap-7 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="text-xs uppercase tracking-[0.4em] text-yellow-400">
+                Red Bull Story
+              </p>
 
-        <h3 className="mt-3 max-w-3xl text-3xl font-black uppercase leading-tight md:text-5xl">
-          From World Champion to Aerial Stuntman
-        </h3>
+              <h3 className="mt-3 max-w-3xl text-3xl font-black uppercase leading-tight md:text-5xl">
+                From World Champion to Aerial Stuntman
+              </h3>
 
-        <p className="mt-4 max-w-2xl text-base leading-7 text-white/65 md:text-lg">
-          Read how Patrick Davidson and Brian Capper turned a wild idea into a
-          high-speed precision stunt.
-        </p>
-      </div>
+              <p className="mt-4 max-w-2xl text-base leading-7 text-white/65 md:text-lg">
+                Read how Patrick Davidson and Brian Capper turned a wild idea
+                into a high-speed precision stunt.
+              </p>
+            </div>
 
-      <a
-        href="https://www.redbull.com/za-en/stunt-plane-motorbike-can-grab"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex w-fit shrink-0 items-center gap-3 rounded-full border border-yellow-400 px-7 py-4 text-xs font-bold uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
-      >
-        Read Full Story
-        <span aria-hidden="true">→</span>
-      </a>
-    </div>
-  </div>
-</section>
+            <a
+              href="https://www.redbull.com/za-en/stunt-plane-motorbike-can-grab"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-fit shrink-0 items-center gap-3 rounded-full border border-yellow-400 px-7 py-4 text-xs font-bold uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
+            >
+              Read Full Story
+              <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
 
       {/* OFFICIAL GALLERY */}
       <section className="mx-auto max-w-7xl px-4 pb-20 md:px-8 md:pb-28">
@@ -236,10 +251,9 @@ export default function CanGrab2025Page() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+        <div className="grid grid-flow-dense grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
           {officialImages.map((image, index) => {
-            const isWide = [0, 4, 9, 14, 18].includes(index);
-            const isTall = [1, 6, 11, 16].includes(index);
+            const isWide = wideImageIndexes.includes(index);
 
             return (
               <button
@@ -250,9 +264,7 @@ export default function CanGrab2025Page() {
                 className={`group relative overflow-hidden rounded-xl bg-white/5 text-left md:rounded-2xl ${
                   isWide
                     ? "col-span-2 aspect-[16/10]"
-                    : isTall
-                      ? "row-span-2 aspect-[3/5]"
-                      : "aspect-[4/5]"
+                    : "aspect-[4/5]"
                 }`}
               >
                 <Image
@@ -291,6 +303,7 @@ export default function CanGrab2025Page() {
             <p className="text-xs uppercase tracking-[0.4em] text-white/35">
               Continue Exploring
             </p>
+
             <h2 className="mt-3 text-3xl font-black uppercase italic md:text-5xl">
               More Projects
             </h2>

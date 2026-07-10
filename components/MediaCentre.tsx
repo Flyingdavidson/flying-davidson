@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const mediaSections = [
   {
@@ -21,6 +22,11 @@ const mediaSections = [
     text: "From beginning to end. The stories behind the flying.",
     href: "/media/projects",
   },
+  {
+    title: "Media Kit",
+    text: "Official biographies, photography, logos, aircraft information and media resources.",
+    href: "/media/media-kit",
+  },
 ];
 
 export default function MediaCentre() {
@@ -35,7 +41,7 @@ export default function MediaCentre() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center]"
+            className="object-cover object-center"
           />
         </div>
 
@@ -76,7 +82,7 @@ export default function MediaCentre() {
 
             <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {mediaSections.map((item) => (
-                <a
+                <Link
                   key={item.title}
                   href={item.href}
                   className="group border border-white/10 bg-black/35 p-6 backdrop-blur-sm transition duration-300 hover:-translate-y-2 hover:border-yellow-500/70 hover:bg-black/55"
@@ -96,7 +102,7 @@ export default function MediaCentre() {
                   <div className="mt-6 text-xs uppercase tracking-[0.3em] text-yellow-400">
                     Explore →
                   </div>
-                </a>
+                </Link>
               ))}
             </div>
           </div>

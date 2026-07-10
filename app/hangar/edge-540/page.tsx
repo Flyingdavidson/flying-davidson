@@ -4,12 +4,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
 
-const gallery = Array.from({ length: 15 }, (_, index) => {
-  const number = String(index + 1).padStart(2, "0");
-  return `/images/edge/edge${number}.jpg`;
-});
+const gallery = [
+  "/images/edge/edge01.jpg",
+  "/images/edge/edge02.jpg",
+  "/images/edge/edge05.jpg",
+  "/images/edge/edge06.jpg",
+  "/images/edge/edge07.jpg",
+  "/images/edge/edge08.jpg",
+  "/images/edge/edge09.jpg",
+  "/images/edge/edge10.jpg",
+  "/images/edge/edge12.jpg",
+  "/images/edge/edge13.jpg",
+  "/images/edge/edge14.jpg",
+  "/images/edge/edge15.jpg",
+];
 
-const wideImageIndexes = [0, 4, 8, 12, 14];
+const wideImageIndexes = [0, 3, 6, 9, 11];
 
 export default function Edge540Page() {
   const [activeImage, setActiveImage] = useState<number | null>(null);

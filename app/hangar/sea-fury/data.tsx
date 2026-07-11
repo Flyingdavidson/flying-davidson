@@ -35,7 +35,15 @@ export const aircraft = {
   export const currentGallery = [
     "/images/hangar/sea-fury/current/seafury1.jpg",
     "/images/hangar/sea-fury/current/seafury2.jpg",
- 
+    "/images/hangar/sea-fury/current/seafury3.jpg",
+    "/images/hangar/sea-fury/current/seafury4.jpg",
+    "/images/hangar/sea-fury/current/seafury6.jpg",
+    "/images/hangar/sea-fury/current/seafury7.jpg",
+    "/images/hangar/sea-fury/current/seafury8.jpg",
+    "/images/hangar/sea-fury/current/seafury9.jpg",
+    "/images/hangar/sea-fury/current/seafury10.jpg",
+    "/images/hangar/sea-fury/current/seafury11.jpg",
+    "/images/hangar/sea-fury/current/seafury12.jpg",
   ];
   
   export const currentVideos = [

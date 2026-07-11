@@ -38,23 +38,6 @@ const projectDetails = [
   },
 ];
 
-const mediaLinks = [
-  {
-    publication: "Aviation SA",
-    title: "Patrick Davidson lights up Durban’s skyline",
-    href: "https://www.facebook.com/AviationSA/posts/10156771496788637/",
-  },
-  {
-    publication: "Aviation SA",
-    title: "Evening display on Durban’s beachfront",
-    href: "https://www.facebook.com/AviationSA/posts/10156769320918637/",
-  },
-  {
-    publication: "Flying Davidson",
-    title: "Behind the Durban Diwali Festival of Lights display",
-    href: "https://www.facebook.com/flyingdavidson/posts/2199553343401824/",
-  },
-];
 
 export default function DiwaliLightsClient() {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);

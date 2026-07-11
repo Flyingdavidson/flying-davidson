@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 const portraitSlides = [
   "/images/aerobatics/aero-smoke-ring.jpg",
@@ -14,12 +14,31 @@ export default function Aerobatics() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
+  const closeVideo = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.currentTime = 0;
+    }
+
+    setIsVideoOpen(false);
+  }, []);
+
+  const openVideo = () => {
+    setIsVideoOpen(true);
+
+    window.setTimeout(() => {
+      videoRef.current?.play().catch(() => {
+        // Browser may require the visitor to press play manually.
+      });
+    }, 100);
+  };
+
   useEffect(() => {
-    const timer = setInterval(() => {
+    const timer = window.setInterval(() => {
       setActive((current) => (current + 1) % portraitSlides.length);
     }, 3200);
 
-    return () => clearInterval(timer);
+    return () => window.clearInterval(timer);
   }, []);
 
   useEffect(() => {
@@ -38,26 +57,7 @@ export default function Aerobatics() {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "";
     };
-  }, [isVideoOpen]);
-
-  const openVideo = () => {
-    setIsVideoOpen(true);
-
-    window.setTimeout(() => {
-      videoRef.current?.play().catch(() => {
-        // Browser may require the visitor to press play manually.
-      });
-    }, 100);
-  };
-
-  const closeVideo = () => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-
-    setIsVideoOpen(false);
-  };
+  }, [isVideoOpen, closeVideo]);
 
   return (
     <>
@@ -68,6 +68,7 @@ export default function Aerobatics() {
             alt="Patrick Davidson aerobatic display with South African flag"
             fill
             priority
+            sizes="100vw"
             className="object-cover object-center"
           />
 
@@ -119,8 +120,9 @@ export default function Aerobatics() {
                   <Image
                     key={src}
                     src={src}
-                    alt="Patrick Davidson aerobatic display"
+                    alt={`Patrick Davidson aerobatic display ${index + 1}`}
                     fill
+                    sizes="360px"
                     className={`object-contain p-3 transition-all duration-700 ${
                       active === index
                         ? "scale-100 opacity-100"
@@ -180,9 +182,9 @@ export default function Aerobatics() {
                 poster="/images/aerobatics/aero-flag.jpg"
               >
                 <source
-  src="/videos/aerobatics/aerobatics-showreel-web.mp4"
-  type="video/mp4"
-/>
+                  src="/videos/aerobatics/aerobatics-showreel-web.mp4"
+                  type="video/mp4"
+                />
 
                 Your browser does not support the video element.
               </video>

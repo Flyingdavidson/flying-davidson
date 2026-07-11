@@ -72,6 +72,11 @@ export const aircraft = {
     "/images/hangar/sea-fury/classic/10.jpg",
     "/images/hangar/sea-fury/classic/11.jpg",
     "/images/hangar/sea-fury/classic/12.jpg",
+    "/images/hangar/sea-fury/classic/13.jpg",
+    "/images/hangar/sea-fury/classic/14.jpg",
+    "/images/hangar/sea-fury/classic/15.jpg",
+    "/images/hangar/sea-fury/classic/16.jpg",
+    "/images/hangar/sea-fury/classic/17.jpg",
   ];
   
   export const classicVideos = [

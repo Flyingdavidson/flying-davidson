@@ -56,7 +56,24 @@ const projects = [
     href: "/media/projects/sundowns-red-bull-2023",
 
   },
-
+  {
+    title: "Brad Binder",
+  
+    subtitle: "Super Lap",
+  
+    year: "2022",
+  
+    category: "Red Bull Production",
+  
+    location: "Kyalami Grand Prix Circuit",
+  
+    description:
+      "Patrick Davidson featured in the opening sequence of Brad Binder's cinematic SuperLap production, bringing aviation into one of Red Bull South Africa's most iconic motorsport films.",
+  
+    image: "/images/projects/superlap-2022/bts/06.jpg",
+  
+    href: "/media/projects/superlap-2022",
+  },
   {
 
     title: "Giving It Gears",

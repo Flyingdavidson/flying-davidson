@@ -39,3 +39,18 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+# -------------------------------------------------
+# Flying Davidson - Original Media (do not deploy)
+# -------------------------------------------------
+
+# Original videos
+public/images/projects/*/videos/originals/
+
+# Original BTS photos
+public/images/projects/*/bts/originals/
+
+# Temporary processed BTS images
+public/images/projects/*/bts/web/
+
+# Working photography library
+public/images/media/photography/

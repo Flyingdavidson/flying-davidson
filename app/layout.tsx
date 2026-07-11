@@ -147,12 +147,12 @@ export default function RootLayout({
   return (
     <html
       lang="en-ZA"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
         {children}
 
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6X0VWEDYWG"
           strategy="afterInteractive"
@@ -167,10 +167,7 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Vercel Analytics */}
         <Analytics />
-
-        {/* Vercel Speed Insights */}
         <SpeedInsights />
       </body>
     </html>

@@ -8,17 +8,11 @@ const redBullEpisodeUrl =
   "https://www.redbull.com/za-en/episodes/giving-it-gears-with-jason-goliath-s1-e1";
 
   const btsImages = Array.from(
-    { length: 20 },
+    { length: 18 },
     (_, index) => `bts/${String(index + 1).padStart(2, "0")}.jpg`
   );
 
-  const btsVideos = Array.from(
-    { length: 6 },
-    (_, i) => ({
-      src: `${basePath}/videos/${String(i + 1).padStart(2, "0")}.mp4`,
-      title: `Behind the Scenes ${i + 1}`,
-    })
-  );
+  
 
 const projectDetails = [
   {
@@ -271,86 +265,44 @@ export default function GivingItGears2021Page() {
       </section>
 
       {/* BTS PHOTOS */}
-      <section className="mx-auto max-w-7xl px-4 pb-16 md:px-8 md:pb-24">
-        <div className="mb-7 px-2 md:px-0">
-          <p className="text-xs uppercase tracking-[0.35em] text-white/40">
-            Gallery
-          </p>
+<section className="mx-auto max-w-7xl px-4 pb-16 md:px-8 md:pb-24">
+  <div className="mb-7 px-2 md:px-0">
+    <p className="text-xs uppercase tracking-[0.35em] text-white/40">
+      Gallery
+    </p>
 
-          <h2 className="mt-3 text-4xl font-black uppercase italic md:text-6xl">
-            Behind the Scenes
-          </h2>
+    <h2 className="mt-3 text-4xl font-black uppercase italic md:text-6xl">
+      Behind the Scenes
+    </h2>
+  </div>
+
+  <div className="grid gap-4 md:grid-cols-4">
+    {btsImages.map((image, index) => {
+      const isWide = index === 1 || index === 4;
+
+      return (
+        <div
+          key={image}
+          className={`group relative overflow-hidden rounded-2xl bg-white/5 ${
+            isWide
+              ? "aspect-[16/10] md:col-span-2"
+              : "aspect-[4/5]"
+          }`}
+        >
+          <img
+            src={`${basePath}/${image}`}
+            alt={`Giving It Gears behind-the-scenes image ${index + 1}`}
+            loading="lazy"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+          />
+
+          <div className="pointer-events-none absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/10" />
         </div>
-
-        <div className="grid gap-4 md:grid-cols-4">
-          {btsImages.map((image, index) => (
-            <div
-              key={image}
-              className={`group relative overflow-hidden rounded-2xl bg-white/5 ${
-                index === 1 || index === 4
-                  ? "aspect-[16/10] md:col-span-2"
-                  : "aspect-[4/5]"
-              }`}
-            >
-              <Image
-  src={`${basePath}/${image}`}
-  alt={`Giving It Gears behind-the-scenes image ${index + 1}`}
-  fill
-  quality={75}
-  sizes={
-    index === 1 || index === 4
-      ? "(max-width: 768px) 100vw, 50vw"
-      : "(max-width: 768px) 100vw, 25vw"
-  }
-  className="object-cover transition duration-700 group-hover:scale-105"
-/>
-
-              <div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/10" />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* BTS VIDEOS */}
-      <section className="mx-auto max-w-7xl px-6 pb-16 md:px-10 md:pb-24">
-        <div className="mb-8">
-          <p className="text-xs uppercase tracking-[0.35em] text-white/40">
-            Production
-          </p>
-
-          <h2 className="mt-3 text-4xl font-black uppercase italic md:text-6xl">
-            BTS Videos
-          </h2>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-3">
-          {btsVideos.map((video) => (
-            <article
-              key={video.src}
-              className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]"
-            >
-              <div className="aspect-[9/16] bg-black">
-              <video
-  className="h-full w-full object-cover"
-  controls
-  playsInline
-  preload="none"
-  aria-label={video.title}
->
-  <source src={video.src} type="video/mp4" />
-  Your browser does not support the video element.
-</video>
-              </div>
-
-              <div className="p-5">
-                <p className="text-xs font-bold uppercase tracking-[0.25em] text-white/60">
-                  {video.title}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+      );
+    })}
+  </div>
+</section>
 
       {/* PROJECT DETAILS */}
       <section className="border-y border-white/10 bg-white/[0.03]">

@@ -1,6 +1,7 @@
 import Script from "next/script";
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -148,27 +149,26 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-  {children}
+        {children}
 
-  <Script
-    src="https://www.googletagmanager.com/gtag/js?id=G-6X0VWEDYWG"
-    strategy="afterInteractive"
-  />
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6X0VWEDYWG"
+          strategy="afterInteractive"
+        />
 
-  <Script id="google-analytics" strategy="afterInteractive">
-    {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-6X0VWEDYWG');
-      `}
-
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-6X0VWEDYWG');
+          `}
         </Script>
 
+        {/* Vercel Analytics */}
+        <Analytics />
       </body>
-
     </html>
-
   );
-
 }

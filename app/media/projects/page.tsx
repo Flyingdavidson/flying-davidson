@@ -25,7 +25,16 @@ const projects = [
     href: "/media/projects/can-grab-2025",
 
   },
-
+  {
+    title: "HSBC SVNS Trophy Arrival",
+    category: "Red Bull Project",
+    year: "2023",
+    description:
+      "Patrick Davidson and Damian Willemse deliver the HSBC SVNS Cape Town trophy in unmistakable Red Bull style.",
+    image:
+      "/images/projects/hsbc-svns-trophy-2023/bts/13.jpg",
+    href: "/media/projects/hsbc-svns-trophy-2023",
+  },
   {
 
     title: "Mamelodi Sundowns",
@@ -94,7 +103,7 @@ const projects = [
 
 ];
 
-const comingSoon = ["Rugby 7's", "VW Polo"];
+const comingSoon = ["Polo - Project Drift", "TOP SECRET"];
 
 export default function ProjectsPage() {
 

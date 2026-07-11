@@ -3,124 +3,92 @@ import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
+  {
+    title: "Polo",
+    subtitle: "50 Years",
+    year: "2025",
+    category: "Volkswagen Production",
+    location: "Plant Kariega, South Africa",
+    description:
+      "Behind the scenes of Volkswagen's global 50 Years of Polo campaign, featuring Project Drift and seven-time FIA World Rallycross Champion Johan Kristoffersson.",
+    image: "/images/projects/polo-50-years-2025/hero.jpg",
+    href: "/media/projects/polo-50-years-2025",
+  },
 
   {
-
     title: "Can Grab",
-
     subtitle: "Red Bull Precision Stunt",
-
     year: "2025",
-
     category: "Precision Stunt",
-
     location: "South Africa",
-
     description:
-
       "Patrick Davidson and motorcycle stunt rider Brian Capper attempt a high-speed Red Bull can grab with only centimetres separating aircraft and rider.",
-
     image: "/images/projects/can-grab-2025/official/hero.jpg",
-
     href: "/media/projects/can-grab-2025",
-
   },
+
   {
     title: "HSBC SVNS Trophy Arrival",
-    category: "Red Bull Project",
+    subtitle: "",
     year: "2023",
+    category: "Red Bull Project",
+    location: "Cape Town, South Africa",
     description:
       "Patrick Davidson and Damian Willemse deliver the HSBC SVNS Cape Town trophy in unmistakable Red Bull style.",
-    image:
-      "/images/projects/hsbc-svns-trophy-2023/bts/13.jpg",
+    image: "/images/projects/hsbc-svns-trophy-2023/bts/13.jpg",
     href: "/media/projects/hsbc-svns-trophy-2023",
   },
+
   {
-
     title: "Mamelodi Sundowns",
-
     subtitle: "Red Bull Taking Flight",
-
     year: "2023",
-
     category: "Brand Campaign",
-
     location: "South Africa",
-
     description:
-
-      "A high-energy Red Bull partnership launch combining elite football, aviation and Patrick Davidson’s precision flying.",
-
+      "A high-energy Red Bull partnership launch combining elite football, aviation and Patrick Davidson's precision flying.",
     image: "/images/projects/sundowns-red-bull-2023/hero.jpg",
-
     href: "/media/projects/sundowns-red-bull-2023",
-
   },
+
   {
     title: "Brad Binder",
-  
     subtitle: "Super Lap",
-  
     year: "2022",
-  
     category: "Red Bull Production",
-  
     location: "Kyalami Grand Prix Circuit",
-  
     description:
-      "Patrick Davidson featured in the opening sequence of Brad Binder's cinematic SuperLap production, bringing aviation into one of Red Bull South Africa's most iconic motorsport films.",
-  
+      "Patrick Davidson featured in the opening sequence of Brad Binder's cinematic SuperLap production.",
     image: "/images/projects/superlap-2022/bts/06.jpg",
-  
     href: "/media/projects/superlap-2022",
   },
-  {
 
+  {
     title: "Giving It Gears",
-
     subtitle: "Taking to the Skies",
-
     year: "2021",
-
     category: "Red Bull TV",
-
     location: "Eastern Cape, South Africa",
-
     description:
-
-      "Jason Goliath and Nick visit Patrick Davidson to explore his aircraft collection, discover the world of aerobatic flying and challenge him to a race.",
-
+      "Jason Goliath explores Patrick Davidson's world of aerobatics in Red Bull TV's Giving It Gears.",
     image: "/images/projects/giving-it-gears-2021/hero.jpg",
-
     href: "/media/projects/giving-it-gears-2021",
-
   },
 
   {
-
     title: "Abdo Feghali",
-
     subtitle: "2021 Durban Drift",
-
     year: "2021",
-
     category: "Film Production",
-
     location: "Durban, South Africa",
-
     description:
-
-      "A cinematic aviation and motorsport project featuring precision flying, drifting and behind-the-scenes production moments.",
-
+      "A cinematic aviation and motorsport production combining precision flying with drifting.",
     image: "/images/projects/abdo-feghali-2021/hero.jpg",
-
     href: "/media/projects/abdo-feghali-2021-durban-drift",
-
   },
-
 ];
 
-const comingSoon = ["Polo - Project Drift", "TOP SECRET"];
+const comingSoon = ["TOP SECRET"];
 
 export default function ProjectsPage() {
 

@@ -60,3 +60,6 @@ public/videos/**/*.MOV
 public/videos/**/*.mov
 public/videos/**/*.M4V
 public/videos/**/*.m4v
+
+# Original project media
+source-media/

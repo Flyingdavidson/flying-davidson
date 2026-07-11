@@ -47,7 +47,7 @@ export default function MeetPatrick() {
             </p>
 
             <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-2 md:grid-cols-4">
-              <AnimatedStat end={5500} suffix="+" label="Flying Hours" />
+              <AnimatedStat end={4879} suffix="+" label="Flying Hours" />
               <AnimatedStat end={30} suffix="+" label="Years Flying" />
               <AnimatedStat end={6} suffix="×" label="SA Aerobatic Champion" />
               <Stat value="2025" label="AIR RACE X Champion" />

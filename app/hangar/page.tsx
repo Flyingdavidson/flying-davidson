@@ -37,7 +37,7 @@ const planes = [
     image: "/images/hangar/seafury1.jpg",
     registration: "NX425F",
     speed: "740 km/h",
-    power: "2,480 hp",
+    power: "3,000 hp",
     type: "Warbird",
     ability: "Historic Display Flying",
     gallery: "/hangar/sea-fury",

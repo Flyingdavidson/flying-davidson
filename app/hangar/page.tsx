@@ -35,7 +35,7 @@ const planes = [
     model: "Historic Warbird",
     role: "Airshow Display",
     image: "/images/hangar/seafury1.jpg",
-    registration: "ZS-TFR",
+    registration: "NX425F",
     speed: "740 km/h",
     power: "2,480 hp",
     type: "Warbird",

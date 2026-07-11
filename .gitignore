@@ -54,3 +54,9 @@ public/images/projects/*/bts/web/
 
 # Working photography library
 public/images/media/photography/
+# Original media — keep outside the repository
+public/videos/**/originals/
+public/videos/**/*.MOV
+public/videos/**/*.mov
+public/videos/**/*.M4V
+public/videos/**/*.m4v

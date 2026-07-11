@@ -86,6 +86,17 @@ const projects = [
     image: "/images/projects/abdo-feghali-2021/hero.jpg",
     href: "/media/projects/abdo-feghali-2021-durban-drift",
   },
+  {
+    title: "Diwali Lights",
+    subtitle: "Durban Festival of Lights",
+    year: "2018",
+    category: "Night Aerobatic Display",
+    location: "Durban, South Africa",
+    description:
+      "Patrick Davidson lights up Durban’s beachfront with a precision night aerobatic display combining smoke, lights and pyrotechnics.",
+    image: "/images/projects/diwali-lights-2018/official/project-card.jpg",
+    href: "/media/projects/diwali-lights-2018",
+  },
 ];
 
 const comingSoon = ["TOP SECRET"];

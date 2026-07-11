@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const races = [
@@ -44,9 +45,27 @@ export default function ChampionshipPage() {
             AIR RACE X 2026
           </p>
 
-          <h1 className="mt-6 text-6xl font-black uppercase italic leading-[0.9] md:text-8xl">
-            Championship.
-          </h1>
+          <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <h1 className="text-6xl font-black uppercase italic leading-[0.9] md:text-8xl">
+              Championship.
+            </h1>
+
+            <a
+              href="https://www.airrace-x.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit the official AIR RACE X website"
+              className="group self-start lg:mr-10"
+            >
+              <Image
+  src="/images/logos/air-race-x.svg"
+  alt="AIR RACE X"
+  width={1200}
+  height={450}
+  className="h-auto w-[380px] rotate-[320deg] transition duration-300 group-hover:scale-105"
+/>
+            </a>
+          </div>
 
           <p className="mt-8 max-w-3xl text-xl leading-9 text-white/65">
             Follow Patrick Davidson and Team 77 throughout the 2026 AIR RACE X

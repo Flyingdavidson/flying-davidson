@@ -56,7 +56,7 @@ export default function AirRaceXRace2PreviewNewsPage() {
 
             <p>
               AIR RACE X has released its official preview ahead of Race 2 of
-              the 2026 Championship, with the world's best race pilots preparing
+              the 2026 Championship, with the world&apos;s best race pilots preparing
               for another crucial round in one of the closest title fights the
               series has seen.
             </p>
@@ -75,9 +75,9 @@ export default function AirRaceXRace2PreviewNewsPage() {
 
             <p>
               With only four races making up the 2026 championship, every point
-              is critical. AIR RACE X's official preview highlights the depth of
-              this year's field and the incredibly small margins separating the
-              world's leading race pilots.
+              is critical. AIR RACE X&apos;s official preview highlights the depth of
+              this year&apos;s field and the incredibly small margins separating the
+              world&apos;s leading race pilots.
             </p>
 
             <p>
@@ -91,7 +91,7 @@ export default function AirRaceXRace2PreviewNewsPage() {
 
             <p>
               Fans around the world will be able to follow Race 2 through AIR
-              RACE X's official global broadcast on Sunday, 19 July 2026, as
+              RACE X&apos;s official global broadcast on Sunday, 19 July 2026, as
               Patrick Davidson continues his defence of the World Championship
               carrying race number 77.
             </p>

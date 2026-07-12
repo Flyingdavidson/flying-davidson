@@ -27,7 +27,7 @@ export default function ArcadePromo() {
 
             <div className="mt-9">
               <Link
-                href="/game"
+                href="/arcade"
                 className="inline-flex min-h-14 items-center justify-center rounded-full bg-lime-400 px-8 text-sm font-black uppercase tracking-[0.22em] text-black transition hover:scale-[1.02] hover:bg-lime-300"
               >
                 Play Pylon Challenge

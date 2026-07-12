@@ -13,7 +13,7 @@ export default function StickyNav() {
     ["Aerobatics", "#aerobatics"],
     ["Hangar", "#hangar"],
     ["Media", "#media"],
-    ["Arcade", "/game", true],
+    ["Arcade", "/arcade", true],
     ["Contact", "#contact"],
   ] as const;
 

@@ -17,8 +17,8 @@ const PLANE_X = 150;
 const PLANE_WIDTH = 72;
 const PLANE_HEIGHT = 50;
 
-const STARTING_SPEED = 260;
-const PLANE_SPEED = 330;
+const STARTING_SPEED = 200;
+const PLANE_SPEED = 230;
 
 export default function PylonChallengeClient() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -448,7 +448,7 @@ useEffect(() => {
     context.fillStyle = "rgba(255,255,255,0.64)";
     context.font = "14px Arial";
     context.fillText(
-      `${Math.round(speedRef.current)} KM/H`,
+      `${Math.round(speedRef.current)} kts`,
       40,
       82
     );
@@ -553,8 +553,8 @@ useEffect(() => {
             gate.passed = true;
             scoreRef.current += 1;
             speedRef.current = Math.min(
-              470,
-              STARTING_SPEED + scoreRef.current * 10
+              PLANE_SPEED,
+              STARTING_SPEED + scoreRef.current * 1.2
             );
 
             setScore(scoreRef.current);

@@ -13,8 +13,9 @@ export default function StickyNav() {
     ["Aerobatics", "#aerobatics"],
     ["Hangar", "#hangar"],
     ["Media", "#media"],
+    ["Arcade", "/game", true],
     ["Contact", "#contact"],
-  ];
+  ] as const;
 
   return (
     <header className="fixed left-0 top-0 z-[9999] w-full bg-black/40 backdrop-blur-xl">
@@ -27,18 +28,24 @@ export default function StickyNav() {
           Patrick Davidson
         </a>
 
-        {/* Desktop */}
-        <nav className="hidden items-center gap-7 md:flex">
-          {links.map(([label, href]) => (
-            <a
-              key={label}
-              href={href}
-              className="text-[11px] uppercase tracking-[0.25em] text-white/75 transition hover:text-white"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
+      {/* Desktop */}
+<nav className="hidden items-center gap-7 md:flex">
+  {links.map(([label, href, external]) => (
+    <a
+      key={label}
+      href={href}
+      target={external ? "_blank" : undefined}
+      rel={external ? "noopener noreferrer" : undefined}
+      className={`text-[11px] uppercase tracking-[0.25em] transition ${
+        label === "Arcade"
+          ? "font-black text-[#62ff00] hover:text-white"
+          : "text-white/75 hover:text-white"
+      }`}
+    >
+      {label}
+    </a>
+  ))}
+</nav>
 
         {/* Mobile Hamburger */}
         <button
@@ -65,24 +72,30 @@ export default function StickyNav() {
       </div>
 
       {/* Mobile Menu */}
-      <div
-        className={`overflow-hidden bg-black/95 transition-all duration-300 md:hidden ${
-          open ? "max-h-[500px]" : "max-h-0"
+<div
+  className={`overflow-hidden bg-black/95 transition-all duration-300 md:hidden ${
+    open ? "max-h-[600px]" : "max-h-0"
+  }`}
+>
+  <nav className="flex flex-col px-6 py-6">
+    {links.map(([label, href, external]) => (
+      <a
+        key={label}
+        href={href}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        onClick={() => setOpen(false)}
+        className={`border-b border-white/10 py-4 text-sm uppercase tracking-[0.3em] transition ${
+          label === "Arcade"
+            ? "font-black text-[#62ff00]"
+            : "text-white/80 hover:text-[#62d6aa]"
         }`}
       >
-        <nav className="flex flex-col px-6 py-6">
-          {links.map(([label, href]) => (
-            <a
-              key={label}
-              href={href}
-              onClick={() => setOpen(false)}
-              className="border-b border-white/10 py-4 text-sm uppercase tracking-[0.3em] text-white/80 transition hover:text-[#62d6aa]"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-      </div>
+        {label}
+      </a>
+    ))}
+  </nav>
+</div>
     </header>
   );
 }

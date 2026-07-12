@@ -947,42 +947,47 @@ export default function PylonChallengeClient() {
             </div>
 
             <div className="col-span-2 bg-[#090909] p-3 sm:col-span-1 sm:flex sm:items-center sm:px-5">
-              <button
-                type="button"
-                aria-label="Hold to climb"
-                onPointerDown={(event) => {
-                  event.currentTarget.setPointerCapture(
-                    event.pointerId
-                  );
+            <button
+  type="button"
+  aria-label="Hold to climb"
+  onPointerDown={(event) => {
+    event.preventDefault();
 
-                  setClimbing(true);
-                }}
-                onPointerUp={(event) => {
-                  if (
-                    event.currentTarget.hasPointerCapture(
-                      event.pointerId
-                    )
-                  ) {
-                    event.currentTarget.releasePointerCapture(
-                      event.pointerId
-                    );
-                  }
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setClimbing(true);
+  }}
+  onPointerUp={(event) => {
+    event.preventDefault();
 
-                  setClimbing(false);
-                }}
-                onPointerCancel={() =>
-                  setClimbing(false)
-                }
-                onLostPointerCapture={() =>
-                  setClimbing(false)
-                }
-                onContextMenu={(event) =>
-                  event.preventDefault()
-                }
-                className="flex h-20 w-full touch-none select-none items-center justify-center rounded-xl border border-[#62ff00]/40 bg-[#62ff00] px-6 text-sm font-black uppercase tracking-[0.22em] text-black transition active:scale-[0.98] active:bg-[#8aff3d] sm:h-14 sm:min-w-52"
-              >
-                Hold to climb
-              </button>
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    setClimbing(false);
+  }}
+  onPointerCancel={() => setClimbing(false)}
+  onLostPointerCapture={() => setClimbing(false)}
+  onDoubleClick={(event) => event.preventDefault()}
+  onContextMenu={(event) => event.preventDefault()}
+  onSelect={(event) => event.preventDefault()}
+  onSelectCapture={(event) => event.preventDefault()}
+  draggable={false}
+  style={{
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
+    userSelect: "none",
+    touchAction: "none",
+    WebkitTapHighlightColor: "transparent",
+  }}
+  className="flex h-20 w-full cursor-pointer touch-none select-none items-center justify-center rounded-xl border border-[#62ff00]/40 bg-[#62ff00] px-6 text-sm font-black uppercase tracking-[0.22em] text-black transition active:scale-[0.98] active:bg-[#8aff3d] sm:h-14 sm:min-w-52"
+>
+  <span
+    aria-hidden="true"
+    className="pointer-events-none select-none"
+  >
+    Hold to climb
+  </span>
+</button>
             </div>
           </div>
         </div>

@@ -15,11 +15,15 @@ type LeaderboardScore = {
   created_at: string;
 };
 
+type DisplayScore = LeaderboardScore;
+
 type LeaderboardProps = {
   score: number;
   canSubmit: boolean;
   attemptId: number;
 };
+
+const PATRICK_BENCHMARK = 77;
 
 export default function Leaderboard({
   score,
@@ -77,28 +81,28 @@ export default function Leaderboard({
     if (!canSubmit || attemptId === 0) {
       return;
     }
-  
+
     const timer = window.setTimeout(() => {
       setName("");
       setError("");
       setSubmittedAttemptId(null);
-  
+
       sectionRef.current?.scrollIntoView({
         behavior: "smooth",
         block: "start",
       });
-  
+
       const isDesktopPointer = window.matchMedia(
         "(hover: hover) and (pointer: fine)"
       ).matches;
-  
+
       if (isDesktopPointer) {
         window.setTimeout(() => {
           nameInputRef.current?.focus();
         }, 600);
       }
     }, 50);
-  
+
     return () => window.clearTimeout(timer);
   }, [attemptId, canSubmit]);
 
@@ -155,10 +159,22 @@ export default function Leaderboard({
     attemptId > 0 &&
     submittedAttemptId !== attemptId;
 
+  const leaderboard: DisplayScore[] = [
+    {
+      id: -1,
+      name: "Patrick Davidson",
+      score: PATRICK_BENCHMARK,
+      created_at: "",
+    
+    },
+    ...scores,
+  ].slice(0, 10);
+
   const getPositionLabel = (index: number) => {
     if (index === 0) return "🥇";
     if (index === 1) return "🥈";
     if (index === 2) return "🥉";
+
     return String(index + 1).padStart(2, "0");
   };
 
@@ -212,7 +228,9 @@ export default function Leaderboard({
           </div>
 
           {error && (
-            <p className="mt-4 text-sm text-red-400">{error}</p>
+            <p className="mt-4 text-sm text-red-400">
+              {error}
+            </p>
           )}
         </div>
       )}
@@ -222,6 +240,25 @@ export default function Leaderboard({
           <p className="font-bold uppercase tracking-[0.2em] text-green-400">
             Score submitted
           </p>
+        </div>
+      )}
+
+      {canSubmit && score > PATRICK_BENCHMARK && (
+        <div className="mb-6 overflow-hidden rounded-2xl border border-[#62ff00]/40 bg-[#62ff00]/10">
+          <div className="p-6 text-center md:p-8">
+            <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#62ff00]">
+              Team 77 Champion
+            </p>
+
+            <h2 className="mt-3 text-3xl font-black uppercase md:text-5xl">
+              You Beat Patrick!
+            </h2>
+
+            <p className="mt-3 text-white/60">
+              You cleared <strong>{score}</strong> gates and beat Patrick
+              Davidson&apos;s official Team 77 benchmark.
+            </p>
+          </div>
         </div>
       )}
 
@@ -246,38 +283,40 @@ export default function Leaderboard({
           <p className="p-8 text-white/50">
             Loading leaderboard...
           </p>
-        ) : scores.length === 0 ? (
-          <p className="p-8 text-white/50">
-            No scores yet. Be the first pilot on the leaderboard.
-          </p>
         ) : (
           <div>
-            {scores.map((entry, index) => (
-              <div
-                key={entry.id}
-                className="grid grid-cols-[42px_minmax(0,1fr)_auto] items-center gap-3 border-b border-white/10 px-4 py-4 last:border-b-0 sm:grid-cols-[56px_1fr_auto] sm:px-5 sm:py-5 md:grid-cols-[80px_1fr_180px] md:px-8"
-              >
-                <div className="text-xl font-black text-white/55 md:text-2xl">
-                  {getPositionLabel(index)}
-                </div>
+            {leaderboard.map((entry, index) => (
+  <div
+    key={entry.id}
+    className="grid grid-cols-[42px_minmax(0,1fr)_auto] items-center gap-3 border-b border-white/10 px-4 py-4 last:border-b-0 sm:grid-cols-[56px_1fr_auto] sm:px-5 sm:py-5 md:grid-cols-[80px_1fr_180px] md:px-8"
+  >
+    <div className="text-xl font-black text-white/55 md:text-2xl">
+      {getPositionLabel(index)}
+    </div>
 
-                <div className="min-w-0">
-                  <p className="truncate text-sm font-bold uppercase tracking-[0.16em] md:text-base">
-                    {entry.name}
-                  </p>
-                </div>
+    <div className="min-w-0">
+      <p className="truncate text-sm font-bold uppercase tracking-[0.16em] md:text-base">
+        {entry.name}
+      </p>
+    </div>
 
-                <div className="text-right">
-                  <span className="text-2xl font-black tabular-nums sm:text-3xl md:text-4xl">
-                    {String(entry.score).padStart(3, "0")}
-                  </span>
+    <div className="text-right">
+      <span className="text-2xl font-black tabular-nums sm:text-3xl md:text-4xl">
+        {String(entry.score).padStart(3, "0")}
+      </span>
 
-                  <span className="ml-3 hidden text-xs uppercase tracking-[0.2em] text-white/35 sm:inline">
-                    Gates
-                  </span>
-                </div>
-              </div>
-            ))}
+      <span className="ml-3 hidden text-xs uppercase tracking-[0.2em] text-white/35 sm:inline">
+        Gates
+      </span>
+    </div>
+  </div>
+))}
+
+            {scores.length === 0 && (
+              <p className="border-t border-white/10 p-6 text-sm text-white/45 md:px-8">
+                No player scores yet. Be the first pilot to challenge Patrick.
+              </p>
+            )}
           </div>
         )}
       </div>

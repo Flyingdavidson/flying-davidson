@@ -868,20 +868,65 @@ export default function PylonChallengeClient() {
         </div>
 
         <p className="mx-auto mb-8 max-w-2xl text-center text-sm leading-6 text-white/60 md:text-base">
-          Hold the climb control to rise.
-          Release it to descend and fly
-          through the pylons.
+        Hold anywhere on the game screen to climb.
+        Release to descend and fly through the pylons.
         </p>
 
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl">
-          <div className="relative aspect-[900/520] w-full">
+        <div
+  className="overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-2xl touch-none select-none"
+  onPointerDown={(event) => {
+    event.preventDefault();
+
+    if (!runningRef.current) {
+      return;
+    }
+
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setClimbing(true);
+  }}
+  onPointerUp={(event) => {
+    event.preventDefault();
+
+    if (
+      event.currentTarget.hasPointerCapture(event.pointerId)
+    ) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+
+    setClimbing(false);
+  }}
+  onPointerCancel={() => setClimbing(false)}
+  onLostPointerCapture={() => setClimbing(false)}
+  onContextMenu={(event) => event.preventDefault()}
+  onDoubleClick={(event) => event.preventDefault()}
+  style={{
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
+    userSelect: "none",
+    touchAction: "none",
+    WebkitTapHighlightColor: "transparent",
+  }}
+>
+<div className="relative aspect-[900/520] w-full">
             <canvas
               ref={canvasRef}
               width={GAME_WIDTH}
               height={GAME_HEIGHT}
               className="h-full w-full"
             />
-
+{gameState === "running" && (
+  <div
+    aria-hidden="true"
+    className="pointer-events-none absolute bottom-3 left-1/2 whitespace-nowrap rounded-full bg-black/45 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.18em] text-white/60 backdrop-blur-sm sm:hidden"
+    style={{
+      transform: "translateX(-50%)",
+      WebkitUserSelect: "none",
+      userSelect: "none",
+    }}
+  >
+    Hold screen to climb · Release to descend
+  </div>
+)}
             {gameState !== "running" && (
               <div className="absolute inset-0 flex items-center justify-center bg-black/65 px-6 backdrop-blur-sm">
                 <div className="max-w-md text-center">
@@ -925,8 +970,8 @@ export default function PylonChallengeClient() {
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-px border-t border-white/10 bg-white/10 sm:grid-cols-[1fr_1fr_auto] sm:items-stretch">
-            <div className="bg-[#090909] px-4 py-4 sm:px-5">
+          <div className="grid grid-cols-2 gap-px border-t border-white/10 bg-white/10 sm:grid-cols-2 sm:items-stretch">
+          <div className="pointer-events-none bg-[#090909] px-4 py-4 sm:px-5">
               <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 sm:text-xs">
                 Current score
               </p>
@@ -936,7 +981,7 @@ export default function PylonChallengeClient() {
               </p>
             </div>
 
-            <div className="bg-[#090909] px-4 py-4 sm:px-5 sm:text-center">
+            <div className="pointer-events-none bg-[#090909] px-4 py-4 text-right sm:px-5">
               <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 sm:text-xs">
                 Best score
               </p>
@@ -944,50 +989,6 @@ export default function PylonChallengeClient() {
               <p className="mt-1 text-3xl font-black tabular-nums">
                 {bestScore}
               </p>
-            </div>
-
-            <div className="col-span-2 bg-[#090909] p-3 sm:col-span-1 sm:flex sm:items-center sm:px-5">
-            <button
-  type="button"
-  aria-label="Hold to climb"
-  onPointerDown={(event) => {
-    event.preventDefault();
-
-    event.currentTarget.setPointerCapture(event.pointerId);
-    setClimbing(true);
-  }}
-  onPointerUp={(event) => {
-    event.preventDefault();
-
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-
-    setClimbing(false);
-  }}
-  onPointerCancel={() => setClimbing(false)}
-  onLostPointerCapture={() => setClimbing(false)}
-  onDoubleClick={(event) => event.preventDefault()}
-  onContextMenu={(event) => event.preventDefault()}
-  onSelect={(event) => event.preventDefault()}
-  onSelectCapture={(event) => event.preventDefault()}
-  draggable={false}
-  style={{
-    WebkitTouchCallout: "none",
-    WebkitUserSelect: "none",
-    userSelect: "none",
-    touchAction: "none",
-    WebkitTapHighlightColor: "transparent",
-  }}
-  className="flex h-20 w-full cursor-pointer touch-none select-none items-center justify-center rounded-xl border border-[#62ff00]/40 bg-[#62ff00] px-6 text-sm font-black uppercase tracking-[0.22em] text-black transition active:scale-[0.98] active:bg-[#8aff3d] sm:h-14 sm:min-w-52"
->
-  <span
-    aria-hidden="true"
-    className="pointer-events-none select-none"
-  >
-    Hold to climb
-  </span>
-</button>
             </div>
           </div>
         </div>
@@ -1009,7 +1010,7 @@ export default function PylonChallengeClient() {
             </span>
 
             <span className="ml-2 text-white/50">
-              Hold the climb button
+            Hold anywhere on the game screen
             </span>
           </div>
 

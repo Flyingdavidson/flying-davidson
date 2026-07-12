@@ -970,27 +970,28 @@ export default function PylonChallengeClient() {
             )}
           </div>
 
-          <div className="grid grid-cols-2 gap-px border-t border-white/10 bg-white/10 sm:grid-cols-2 sm:items-stretch">
-          <div className="pointer-events-none bg-[#090909] px-4 py-4 sm:px-5">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 sm:text-xs">
-                Current score
-              </p>
+          <div className="grid grid-cols-2 gap-px border-t border-white/10 bg-white/10">
+  <div className="pointer-events-none bg-[#090909] px-4 py-4 sm:px-5">
+    <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 sm:text-xs">
+      Current score
+    </p>
 
-              <p className="mt-1 text-3xl font-black tabular-nums">
-                {score}
-              </p>
-            </div>
+    <p className="mt-1 text-3xl font-black tabular-nums">
+      {score}
+    </p>
+  </div>
 
-            <div className="pointer-events-none bg-[#090909] px-4 py-4 text-right sm:px-5">
-              <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 sm:text-xs">
-                Best score
-              </p>
+  <div className="pointer-events-none bg-[#090909] px-4 py-4 text-right sm:px-5">
+    <p className="text-[10px] uppercase tracking-[0.22em] text-white/40 sm:text-xs">
+      Best score
+    </p>
 
-              <p className="mt-1 text-3xl font-black tabular-nums">
-                {bestScore}
-              </p>
-            </div>
-          </div>
+    <p className="mt-1 text-3xl font-black tabular-nums">
+      {bestScore}
+    </p>
+  </div>
+</div>
+
         </div>
 
         <div className="mt-6 hidden gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 text-sm md:grid md:grid-cols-3">

@@ -126,9 +126,7 @@ export default function HangarPage() {
                     Gallery →
                   </Link>
 
-                  <button className="border border-white/15 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-white/60 transition hover:border-white/50 hover:text-white">
-                    Videos →
-                  </button>
+                  
                 </div>
               </div>
             </article>

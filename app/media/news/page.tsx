@@ -3,6 +3,13 @@ import Link from "next/link";
 
 const articles = [
   {
+    category: "AIR RACE X",
+    date: "12 July 2026",
+    title: "AIR RACE X Previews Race 2 Championship Battle",
+    text: "Patrick Davidson and Team 77 head into Race 2 sitting fourth in the championship as AIR RACE X releases its official preview ahead of the next round.",
+    href: "/media/news/air-race-x-race-2-preview",
+  },
+  {
     category: "Sponsor",
     date: "April 2026",
     title: "Emotive Backs World Champion Patrick Davidson",

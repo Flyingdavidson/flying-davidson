@@ -50,21 +50,7 @@ export default function ChampionshipPage() {
               Championship.
             </h1>
 
-            <a
-              href="https://www.airrace-x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Visit the official AIR RACE X website"
-              className="group self-start lg:mr-10"
-            >
-              <Image
-  src="/images/logos/air-race-x.svg"
-  alt="AIR RACE X"
-  width={1200}
-  height={450}
-  className="h-auto w-[380px] rotate-[320deg] transition duration-300 group-hover:scale-105"
-/>
-            </a>
+           
           </div>
 
           <p className="mt-8 max-w-3xl text-xl leading-9 text-white/65">

@@ -1,23 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
+import Gallery from "@/components/media/Gallery";
 
 const basePath = "/images/projects/abdo-feghali-2021";
 
 const officialImages = [
-  "official/01.jpg",
-  "official/02.jpg",
-  "official/03.jpg",
-  "official/04.jpg",
-  "official/05.jpg",
-  "official/06.jpg",
+  `${basePath}/official/01.jpg`,
+  `${basePath}/official/02.jpg`,
+  `${basePath}/official/03.jpg`,
+  `${basePath}/official/04.jpg`,
+  `${basePath}/official/05.jpg`,
+  `${basePath}/official/06.jpg`,
 ];
 
 const btsImages = [
-  "bts/01.jpg",
-  "bts/02.jpg",
-  "bts/03.jpg",
-  "bts/04.jpg",
-  "bts/05.jpg",
+  `${basePath}/bts/01.jpg`,
+  `${basePath}/bts/02.jpg`,
+  `${basePath}/bts/03.jpg`,
+  `${basePath}/bts/04.jpg`,
+  `${basePath}/bts/05.jpg`,
 ];
 
 export default function AbdoFeghali2021Page() {
@@ -71,20 +72,27 @@ export default function AbdoFeghali2021Page() {
             <p className="text-xs uppercase tracking-[0.3em] text-white/40">
               Location
             </p>
-            <p className="mt-2 text-xl font-bold">Durban, South Africa</p>
+
+            <p className="mt-2 text-xl font-bold">
+              Durban, South Africa
+            </p>
           </div>
 
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-white/40">
               Date
             </p>
-            <p className="mt-2 text-xl font-bold">13 April 2021</p>
+
+            <p className="mt-2 text-xl font-bold">
+              13 April 2021
+            </p>
           </div>
 
           <div>
             <p className="text-xs uppercase tracking-[0.3em] text-white/40">
               Credit
             </p>
+
             <p className="mt-2 text-xl font-bold">
               Craig Kolesky / Red Bull Content Pool
             </p>
@@ -93,120 +101,68 @@ export default function AbdoFeghali2021Page() {
       </section>
 
       {/* VIDEO */}
-<section className="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20">
-  <div className="mb-8">
-    <p className="text-xs uppercase tracking-[0.35em] text-yellow-400">
-      Watch the Project
-    </p>
+      <section className="mx-auto max-w-7xl px-6 py-14 md:px-10 md:py-20">
+        <div className="mb-8">
+          <p className="text-xs uppercase tracking-[0.35em] text-yellow-400">
+            Watch the Project
+          </p>
 
-    <h2 className="mt-3 text-4xl font-black uppercase italic md:text-6xl">
-      Durban Drift
-    </h2>
-  </div>
+          <h2 className="mt-3 text-4xl font-black uppercase italic md:text-6xl">
+            Durban Drift
+          </h2>
+        </div>
 
-  <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-2xl">
-    <div className="relative aspect-video">
-      <iframe
-        className="absolute inset-0 h-full w-full"
-        src="https://www.youtube.com/embed/OsEeDjjCC-4?start=171"
-        title="Abdo Feghali Durban Drift"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerPolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-      />
-    </div>
-  </div>
+        <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-2xl">
+          <div className="relative aspect-video">
+            <iframe
+              className="absolute inset-0 h-full w-full"
+              src="https://www.youtube.com/embed/OsEeDjjCC-4?start=171"
+              title="Abdo Feghali Durban Drift"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+            />
+          </div>
+        </div>
 
-  <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.03] p-8 md:p-10">
-    <p className="text-xs uppercase tracking-[0.35em] text-yellow-400">
-      Read the Full Story
-    </p>
+        <div className="mt-10 rounded-3xl border border-white/10 bg-white/[0.03] p-8 md:p-10">
+          <p className="text-xs uppercase tracking-[0.35em] text-yellow-400">
+            Read the Full Story
+          </p>
 
-    <h3 className="mt-3 text-3xl font-black uppercase">
-      Red Bull Content Pool
-    </h3>
+          <h3 className="mt-3 text-3xl font-black uppercase">
+            Red Bull Content Pool
+          </h3>
 
-    <p className="mt-4 max-w-2xl text-white/70">
-      Discover how the Durban production came together and see the complete
-      behind-the-scenes story from Red Bull.
-    </p>
+          <p className="mt-4 max-w-2xl text-white/70">
+            Discover how the Durban production came together and see the
+            complete behind-the-scenes story from Red Bull.
+          </p>
 
-    <a
-      href="https://www.redbull.com/za-en/drifting-durban"
-      target="_blank"
-      rel="noopener noreferrer"
-      className="mt-8 inline-flex rounded-full border border-yellow-400 px-7 py-4 text-xs font-bold uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
-    >
-      Read Full Story →
-    </a>
-  </div>
-</section>
+          <a
+            href="https://www.redbull.com/za-en/drifting-durban"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex rounded-full border border-yellow-400 px-7 py-4 text-xs font-bold uppercase tracking-[0.25em] text-yellow-400 transition hover:bg-yellow-400 hover:text-black"
+          >
+            Read Full Story →
+          </a>
+        </div>
+      </section>
 
       {/* OFFICIAL PHOTOS */}
-      <section className="mx-auto max-w-7xl px-4 pb-14 md:px-8 md:pb-20">
-        <div className="mb-6 px-2 md:px-0">
-          <p className="text-xs uppercase tracking-[0.35em] text-white/40">
-            Gallery
-          </p>
-          <h2 className="mt-3 text-4xl font-black uppercase italic md:text-6xl">
-            Official
-          </h2>
-        </div>
+      <Gallery
+        title="Official"
+        subtitle="Project Gallery"
+        images={officialImages}
+      />
 
-        <div className="grid gap-4 md:grid-cols-3">
-          {officialImages.map((image, index) => (
-            <div
-              key={image}
-              className={`relative overflow-hidden rounded-2xl bg-white/5 ${
-                index === 0 || index === 3
-                  ? "aspect-[16/10] md:col-span-2"
-                  : "aspect-[4/5]"
-              }`}
-            >
-              <Image
-                src={`${basePath}/${image}`}
-                alt={`Abdo Feghali Durban Drift official image ${index + 1}`}
-                fill
-                sizes="(max-width: 768px) 100vw, 33vw"
-                className="object-cover transition duration-700 hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* BTS PHOTOS */}
-      <section className="mx-auto max-w-7xl px-4 pb-20 md:px-8 md:pb-28">
-        <div className="mb-6 px-2 md:px-0">
-          <p className="text-xs uppercase tracking-[0.35em] text-white/40">
-            Gallery
-          </p>
-          <h2 className="mt-3 text-4xl font-black uppercase italic md:text-6xl">
-            Behind The Scenes
-          </h2>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-4">
-          {btsImages.map((image, index) => (
-            <div
-              key={image}
-              className={`relative overflow-hidden rounded-2xl bg-white/5 ${
-                index === 1 || index === 4
-                  ? "aspect-[16/10] md:col-span-2"
-                  : "aspect-[4/5]"
-              }`}
-            >
-              <Image
-                src={`${basePath}/${image}`}
-                alt={`Behind the scenes Durban Drift image ${index + 1}`}
-                fill
-                sizes="(max-width: 768px) 100vw, 25vw"
-                className="object-cover transition duration-700 hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* BEHIND THE SCENES */}
+      <Gallery
+        title="Behind The Scenes"
+        subtitle="Making The Project"
+        images={btsImages}
+      />
     </main>
   );
 }

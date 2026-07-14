@@ -37,7 +37,7 @@ const timeline = [
 const highlights = [
   { value: "2025", label: "AIR RACE X World Champion" },
   { value: "2016", label: "SkyGP World Champion" },
-  { value: "4×", label: "SA Unlimited Champion" },
+  { value: "6×", label: "SA Unlimited Champion" },
   { value: "4×", label: "SA Advanced Champion" },
   { value: "2×", label: "Aero Club Pilot of the Year" },
   { value: "Global", label: "World Championship Career" },

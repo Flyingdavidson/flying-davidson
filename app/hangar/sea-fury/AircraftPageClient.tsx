@@ -31,9 +31,9 @@ export default function AircraftPageClient({
         <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
           <div className="grid gap-16 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <p className="text-xs uppercase tracking-[0.4em] text-yellow-400">
-                Power &amp; Heritage
-              </p>
+            <p className="text-xs uppercase tracking-[0.4em] text-yellow-400">
+  Power &amp; Evolution
+</p>
 
               <h2 className="mt-5 whitespace-pre-line text-5xl font-black uppercase italic leading-[0.9] md:text-7xl">
                 {aircraft.introTitle}
@@ -48,10 +48,10 @@ export default function AircraftPageClient({
           </div>
 
           <div className="mt-20 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            <Spec title="Engine" value="Bristol Centaurus XVIII" />
-            <Spec title="Power" value="2,480 hp" />
-            <Spec title="Maximum Speed" value="740 km/h" />
-            <Spec title="First Flight" value="1945" />
+          <Spec title="Engine" value="Wright R-3350" />
+<Spec title="Power" value="3,050 hp" />
+<Spec title="Maximum Speed" value="400+ knots" />
+<Spec title="Configuration" value="18-Cylinder Radial" />
           </div>
         </div>
       </section>

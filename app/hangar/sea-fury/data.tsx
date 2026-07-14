@@ -7,10 +7,10 @@ export const aircraft = {
     description:
       "One of the fastest piston-engined fighter aircraft ever built, Patrick Davidson's Hawker Sea Fury represents the pinnacle of propeller-driven fighter design and remains one of the most iconic warbirds flying today.",
   
-    introTitle: "Built For\nPower.",
-  
-    intro:
-      "Powered by the legendary Bristol Centaurus 18-cylinder radial engine producing 2,480 horsepower, the Hawker Sea Fury was one of the fastest piston-engined fighters ever built. Designed as the Royal Navy's ultimate carrier fighter, it combines immense power with graceful handling, making it one of the most spectacular warbirds flying anywhere in the world today.",
+      introTitle: "Power\nRedefined.",
+
+      intro:
+        "Originally designed around the Bristol Centaurus sleeve-valve radial engine, Patrick Davidson's Hawker Sea Fury has been transformed with the legendary Curtiss-Wright R-3350 Duplex-Cyclone. This 18-cylinder, 3,350-cubic-inch radial produces approximately 3,050 horsepower, delivering breathtaking performance while offering improved reliability and maintainability. Capable of exceeding 400 knots, the aircraft is among the fastest and most powerful piston-engined warbirds flying anywhere in the world today.",
   
     specs: [
       {
@@ -27,7 +27,7 @@ export const aircraft = {
       },
       {
         label: "Engine",
-        value: "Bristol Centaurus",
+        value: "Wright R-3350",
       },
     ],
   };

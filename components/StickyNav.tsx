@@ -10,7 +10,7 @@ const links = [
   { label: "AIR RACE X", href: "/#airracex", accent: false },
   { label: "Aerobatics", href: "/#aerobatics", accent: false },
   { label: "Hangar", href: "/hangar", accent: false },
-  { label: "Media", href: "/media", accent: false },
+  { label: "Media", href: "/#media", accent: false },
   { label: "Arcade", href: "/arcade", accent: true },
   { label: "Contact", href: "/#contact", accent: false },
 ] as const;

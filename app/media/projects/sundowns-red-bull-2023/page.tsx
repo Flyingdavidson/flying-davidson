@@ -1,23 +1,24 @@
 import Image from "next/image";
 import Link from "next/link";
+import Gallery from "@/components/media/Gallery";
 
 const basePath = "/images/projects/sundowns-red-bull-2023";
 
 const btsImages = [
-  "bts/01.jpg",
-  "bts/02.jpg",
-  "bts/03.jpg",
-  "bts/04.jpg",
-  "bts/05.jpg",
-  "bts/06.jpg",
-  "bts/07.jpg",
-  "bts/08.jpg",
-  "bts/09.jpg",
-  "bts/10.jpg",
-  "bts/11.jpg",
-  "bts/12.jpg",
-  "bts/13.jpg",
-  "bts/14.jpg",
+  `${basePath}/bts/01.jpg`,
+  `${basePath}/bts/02.jpg`,
+  `${basePath}/bts/03.jpg`,
+  `${basePath}/bts/04.jpg`,
+  `${basePath}/bts/05.jpg`,
+  `${basePath}/bts/06.jpg`,
+  `${basePath}/bts/07.jpg`,
+  `${basePath}/bts/08.jpg`,
+  `${basePath}/bts/09.jpg`,
+  `${basePath}/bts/10.jpg`,
+  `${basePath}/bts/11.jpg`,
+  `${basePath}/bts/12.jpg`,
+  `${basePath}/bts/13.jpg`,
+  `${basePath}/bts/14.jpg`,
 ];
 
 export default function SundownsRedBull2023Page() {
@@ -131,6 +132,12 @@ export default function SundownsRedBull2023Page() {
             Mamelodi Sundowns and Red Bull Take Flight
           </h3>
 
+          <p className="mt-4 max-w-2xl text-white/70">
+            Read the official announcement about the partnership between
+            Mamelodi Sundowns and Red Bull, featuring Patrick Davidson in the
+            campaign launch.
+          </p>
+
           <a
             href="https://sundownsfc.co.za/mamelodi-sundowns-and-red-bull-take-flight-with-new-partnership/"
             target="_blank"
@@ -142,43 +149,12 @@ export default function SundownsRedBull2023Page() {
         </div>
       </section>
 
-      {/* BTS GALLERY */}
-      <section className="mx-auto max-w-7xl px-4 pb-20 md:px-8 md:pb-28">
-        <div className="mb-6 px-2 md:px-0">
-          <p className="text-xs uppercase tracking-[0.35em] text-white/40">
-            Gallery
-          </p>
-
-          <h2 className="mt-3 text-4xl font-black uppercase italic md:text-6xl">
-            Behind The Scenes
-          </h2>
-        </div>
-
-        <div className="grid gap-4 md:grid-cols-4">
-          {btsImages.map((image, index) => (
-            <div
-              key={image}
-              className={`relative overflow-hidden rounded-2xl bg-white/5 ${
-                index === 0 || index === 5 || index === 10
-                  ? "aspect-[16/10] md:col-span-2"
-                  : index === 3 || index === 8 || index === 13
-                    ? "aspect-[3/4]"
-                    : "aspect-[4/5]"
-              }`}
-            >
-              <Image
-                src={`${basePath}/${image}`}
-                alt={`Mamelodi Sundowns Red Bull behind the scenes image ${
-                  index + 1
-                }`}
-                fill
-                sizes="(max-width: 768px) 100vw, 25vw"
-                className="object-cover transition duration-700 hover:scale-105"
-              />
-            </div>
-          ))}
-        </div>
-      </section>
+      {/* GALLERY */}
+      <Gallery
+        title="Behind The Scenes"
+        subtitle="Project Gallery"
+        images={btsImages}
+      />
     </main>
   );
 }

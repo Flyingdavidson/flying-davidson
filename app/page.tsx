@@ -1,6 +1,3 @@
-import StickyNav from "@/components/StickyNav";
-import ScrollProgress from "@/components/ScrollProgress";
-
 import Hero from "@/components/Hero";
 import Story from "@/components/Story";
 import MeetPatrick from "@/components/MeetPatrick";
@@ -12,12 +9,10 @@ import Contact from "@/components/Contact";
 
 export default function Home() {
   return (
-    <main className="bg-black text-white overflow-x-hidden">
-      {/* Navigation */}
-      <StickyNav />
-      <ScrollProgress />
-
-      {/* Sections */}
+    <main
+      id="top"
+      className="overflow-x-hidden bg-black text-white"
+    >
       <Hero />
       <Story />
       <MeetPatrick />

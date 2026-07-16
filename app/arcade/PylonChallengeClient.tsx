@@ -262,7 +262,7 @@ export default function PylonChallengeClient() {
     context.translate(PLANE_X, planeY);
 
     const white = "#f5f5f2";
-    const green = "#62ff00";
+    const green = "#39FF14";
     const red = "#ef1b24";
     const black = "#050505";
 

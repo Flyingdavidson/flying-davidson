@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
+  
+
   {
     title: "Polo",
     subtitle: "50 Years",
@@ -96,6 +98,17 @@ const projects = [
       "Patrick Davidson lights up Durban’s beachfront with a precision night aerobatic display combining smoke, lights and pyrotechnics.",
     image: "/images/projects/diwali-lights-2018/official/project-card.jpg",
     href: "/media/projects/diwali-lights-2018",
+  },
+  {
+    title: "Jordy Smith",
+    subtitle: "Takes Flight",
+    year: "2018",
+    category: "Athlete Experience",
+    location: "Jeffreys Bay, South Africa",
+    description:
+      "South African surfing icon Jordy Smith joins Patrick Davidson for an aerobatic flight during the 2018 Corona Open J-Bay.",
+    image: "/images/projects/jordy-smith-2018/gallery/01.jpg",
+    href: "/media/projects/jordy-smith-2018",
   },
 ];
 

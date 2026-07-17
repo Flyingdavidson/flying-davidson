@@ -12,13 +12,16 @@ export default function Hero({ aircraft }: HeroProps) {
   return (
     <section className="relative min-h-[72vh] overflow-hidden md:min-h-screen">
       <Image
-        src={aircraft.hero}
-        alt={aircraft.name}
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center"
-      />
+  src={aircraft.hero}
+  alt={aircraft.name}
+  fill
+  priority
+  sizes="100vw"
+  className="object-cover"
+  style={{
+    objectPosition: aircraft.heroPosition ?? "center",
+  }}
+/>
 
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/10 to-black" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-black/5" />

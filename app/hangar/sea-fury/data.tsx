@@ -32,19 +32,6 @@ export const aircraft = {
     ],
   };
   
-  export const currentGallery = [
-    "/images/hangar/sea-fury/current/seafury1.jpg",
-    "/images/hangar/sea-fury/current/seafury2.jpg",
-    "/images/hangar/sea-fury/current/seafury3.jpg",
-    "/images/hangar/sea-fury/current/seafury4.jpg",
-    "/images/hangar/sea-fury/current/seafury6.jpg",
-    "/images/hangar/sea-fury/current/seafury7.jpg",
-    "/images/hangar/sea-fury/current/seafury8.jpg",
-    "/images/hangar/sea-fury/current/seafury9.jpg",
-    "/images/hangar/sea-fury/current/seafury10.jpg",
-    "/images/hangar/sea-fury/current/seafury11.jpg",
-    "/images/hangar/sea-fury/current/seafury12.jpg",
-  ];
   
   export const currentVideos = [
     {
@@ -59,25 +46,6 @@ export const aircraft = {
     },
   ];
   
-  export const classicGallery = [
-    "/images/hangar/sea-fury/classic/01.jpg",
-    "/images/hangar/sea-fury/classic/02.jpg",
-    "/images/hangar/sea-fury/classic/03.jpg",
-    "/images/hangar/sea-fury/classic/04.jpg",
-    "/images/hangar/sea-fury/classic/05.jpg",
-    "/images/hangar/sea-fury/classic/06.jpg",
-    "/images/hangar/sea-fury/classic/07.jpg",
-    "/images/hangar/sea-fury/classic/08.jpg",
-    "/images/hangar/sea-fury/classic/09.jpg",
-    "/images/hangar/sea-fury/classic/10.jpg",
-    "/images/hangar/sea-fury/classic/11.jpg",
-    "/images/hangar/sea-fury/classic/12.jpg",
-    "/images/hangar/sea-fury/classic/13.jpg",
-    "/images/hangar/sea-fury/classic/14.jpg",
-    "/images/hangar/sea-fury/classic/15.jpg",
-    "/images/hangar/sea-fury/classic/16.jpg",
-    "/images/hangar/sea-fury/classic/17.jpg",
-  ];
   
   export const classicVideos = [
     {

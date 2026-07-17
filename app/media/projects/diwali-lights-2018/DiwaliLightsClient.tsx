@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const basePath = "/images/projects/diwali-lights-2018";
 
@@ -40,7 +40,21 @@ const projectDetails = [
 
 
 export default function DiwaliLightsClient() {
+  const heroVideoRef = useRef<HTMLVideoElement>(null);
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
+
+  useEffect(() => {
+    const video = heroVideoRef.current;
+
+    if (!video) return;
+
+    video.muted = true;
+    video.volume = 0;
+
+    void video.play().catch(() => {
+      // Some browsers may delay autoplay until the video is ready.
+    });
+  }, []);
 
   useEffect(() => {
     if (selectedImage === null) {
@@ -96,16 +110,28 @@ export default function DiwaliLightsClient() {
     <main className="min-h-screen bg-[#060606] text-white">
       <section className="relative min-h-[92vh] overflow-hidden">
         <video
+          ref={heroVideoRef}
           autoPlay
           muted
           loop
           playsInline
-          preload="metadata"
+          controls={false}
+          disablePictureInPicture
+          preload="auto"
           poster={`${basePath}/official/hero.jpg`}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+          onLoadedData={(event) => {
+            const video = event.currentTarget;
+            video.muted = true;
+            video.volume = 0;
+
+            void video.play().catch(() => {
+              // Autoplay may be delayed by the browser.
+            });
+          }}
         >
           <source
-            src={`${basePath}/video/web/diwali-lights-display-web.mp4`}
+            src={`${basePath}/video/web/diwali-lights-hero-silent.mp4`}
             type="video/mp4"
           />
         </video>

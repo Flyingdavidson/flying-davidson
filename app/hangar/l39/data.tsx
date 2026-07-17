@@ -35,23 +35,6 @@ export const aircraft = {
   ],
 };
 
-export const gallery = [
-  "/images/hangar/l39/gallery/01.jpg",
-  "/images/hangar/l39/gallery/02.jpg",
-  "/images/hangar/l39/gallery/03.jpg",
-  "/images/hangar/l39/gallery/04.jpg",
-  "/images/hangar/l39/gallery/05.jpg",
-  "/images/hangar/l39/gallery/06.jpg",
-  "/images/hangar/l39/gallery/07.jpg",
-  "/images/hangar/l39/gallery/08.jpg",
-  "/images/hangar/l39/gallery/09.jpg",
-  "/images/hangar/l39/gallery/010.jpg",
-  "/images/hangar/l39/gallery/011.jpg",
-  "/images/hangar/l39/gallery/012.jpg",
-  "/images/hangar/l39/gallery/013.jpg",
-  "/images/hangar/l39/gallery/014.jpg",
-  "/images/hangar/l39/gallery/015.jpg",
-];
 
 export const videos: AircraftVideo[] = [
   {

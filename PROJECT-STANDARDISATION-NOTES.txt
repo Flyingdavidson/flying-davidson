@@ -1,0 +1,22 @@
+PROJECTS STANDARDISATION PATCH
+
+This patch adds:
+- app/types/project.ts
+- components/projects/ProjectPageClient.tsx
+- page.tsx + data.tsx for all nine project folders
+
+It does not change the Projects listing page or any media files.
+
+After verifying the new pages, the old project-specific client components can be deleted:
+
+rm app/media/projects/diwali-lights-2018/DiwaliLightsClient.tsx
+rm app/media/projects/giving-it-gears-2021/GivingItGearsClient.tsx
+rm app/media/projects/hsbc-svns-trophy-2023/HSBCProjectClient.tsx
+rm app/media/projects/jordy-smith-2018/JordySmithProjectClient.tsx
+rm app/media/projects/polo-50-years-2025/Polo50ProjectClient.tsx
+rm app/media/projects/superlap-2022/SuperLapProjectClient.tsx
+
+Then run:
+npm run lint
+npm run build
+npm run dev

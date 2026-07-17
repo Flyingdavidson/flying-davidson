@@ -3,53 +3,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useState } from "react";
+import {
+  basePath,
+  btsImages,
+  project,
+  quote,
+  redBullEpisodeUrl,
+  relatedProjects,
+  wideImageIndexes,
+} from "./data";
 
-const basePath = "/images/projects/giving-it-gears-2021";
-
-const redBullEpisodeUrl =
-  "https://www.redbull.com/za-en/episodes/giving-it-gears-with-jason-goliath-s1-e1";
-
-const btsImages = Array.from(
-  { length: 18 },
-  (_, index) => `bts/${String(index + 1).padStart(2, "0")}.jpg`,
-);
-
-const wideImageIndexes = [0, 3, 7, 11, 15];
-
-const projectDetails = [
-  {
-    label: "Client",
-    value: "Red Bull",
-  },
-  {
-    label: "Series",
-    value: "Giving It Gears",
-  },
-  {
-    label: "Episode",
-    value: "Season 1, Episode 1",
-  },
-  {
-    label: "Episode Title",
-    value: "Taking to the Skies",
-  },
-  {
-    label: "Featuring",
-    value: "Patrick Davidson & Jason Goliath",
-  },
-  {
-    label: "Location",
-    value: "Eastern Cape, South Africa",
-  },
-  {
-    label: "Release Year",
-    value: "2021",
-  },
-  {
-    label: "Duration",
-    value: "23 Minutes",
-  },
-];
+const projectDetails = project.facts;
 
 export default function GivingItGearsClient() {
   const [activeImage, setActiveImage] = useState<number | null>(null);
@@ -397,12 +361,11 @@ export default function GivingItGearsClient() {
           <p className="text-6xl font-black leading-none text-yellow-400">“</p>
 
           <blockquote className="mt-4 text-3xl font-black uppercase italic leading-tight text-white md:text-5xl">
-            Aviation is about far more than speed. It takes precision,
-            preparation and complete commitment.
+            {quote.text}
           </blockquote>
 
           <p className="mt-8 text-xs font-bold uppercase tracking-[0.35em] text-white/45">
-            Patrick Davidson
+            {quote.author}
           </p>
         </div>
       </section>
@@ -419,62 +382,25 @@ export default function GivingItGearsClient() {
           </h2>
 
           <div className="mt-8 grid gap-4 md:grid-cols-3">
-            <Link
-              href="/media/projects/abdo-feghali-2021-durban-drift"
-              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-yellow-400/50"
-            >
-              <p className="text-[10px] uppercase tracking-[0.3em] text-yellow-400">
-                2021
-              </p>
+            {relatedProjects.map((relatedProject) => (
+              <Link
+                key={relatedProject.href}
+                href={relatedProject.href}
+                className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-yellow-400/50"
+              >
+                <p className="text-[10px] uppercase tracking-[0.3em] text-yellow-400">
+                  {relatedProject.year}
+                </p>
 
-              <h3 className="mt-3 text-xl font-black uppercase italic">
-                Abdo Feghali
-                <br />
-                Durban Drift
-              </h3>
+                <h3 className="mt-3 whitespace-pre-line text-xl font-black uppercase italic">
+                  {relatedProject.title}
+                </h3>
 
-              <p className="mt-5 text-xs font-bold uppercase tracking-[0.25em] text-white/45 transition group-hover:text-yellow-400">
-                View Project →
-              </p>
-            </Link>
-
-            <Link
-              href="/media/projects/sundowns-red-bull-2023"
-              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-yellow-400/50"
-            >
-              <p className="text-[10px] uppercase tracking-[0.3em] text-yellow-400">
-                2023
-              </p>
-
-              <h3 className="mt-3 text-xl font-black uppercase italic">
-                Mamelodi Sundowns
-                <br />
-                Red Bull Taking Flight
-              </h3>
-
-              <p className="mt-5 text-xs font-bold uppercase tracking-[0.25em] text-white/45 transition group-hover:text-yellow-400">
-                View Project →
-              </p>
-            </Link>
-
-            <Link
-              href="/media/projects/can-grab-2025"
-              className="group rounded-2xl border border-white/10 bg-white/[0.03] p-6 transition hover:-translate-y-1 hover:border-yellow-400/50"
-            >
-              <p className="text-[10px] uppercase tracking-[0.3em] text-yellow-400">
-                2025
-              </p>
-
-              <h3 className="mt-3 text-xl font-black uppercase italic">
-                Can Grab
-                <br />
-                Precision Stunt
-              </h3>
-
-              <p className="mt-5 text-xs font-bold uppercase tracking-[0.25em] text-white/45 transition group-hover:text-yellow-400">
-                View Project →
-              </p>
-            </Link>
+                <p className="mt-5 text-xs font-bold uppercase tracking-[0.25em] text-white/45 transition group-hover:text-yellow-400">
+                  View Project →
+                </p>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

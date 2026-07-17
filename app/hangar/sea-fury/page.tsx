@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+
+import { getGalleryImages } from "@/lib/media/getGalleryImages";
+
 import AircraftPageClient from "./AircraftPageClient";
 import {
   aircraft,
-  currentGallery,
   currentVideos,
-  classicGallery,
   classicVideos,
 } from "./data";
 
@@ -14,6 +15,14 @@ export const metadata: Metadata = {
 };
 
 export default function SeaFuryPage() {
+  const currentGallery = getGalleryImages(
+    "images/hangar/sea-fury/current"
+  );
+
+  const classicGallery = getGalleryImages(
+    "images/hangar/sea-fury/classic"
+  );
+
   return (
     <AircraftPageClient
       aircraft={aircraft}

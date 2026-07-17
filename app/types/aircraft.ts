@@ -18,4 +18,5 @@ export interface AircraftSpec {
     introTitle: string;
     intro: string;
     specs: AircraftSpec[];
+    heroPosition?: string;
   }

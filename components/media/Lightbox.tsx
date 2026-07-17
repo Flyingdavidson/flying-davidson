@@ -26,9 +26,11 @@ export default function Lightbox({
         case "Escape":
           onClose();
           break;
+
         case "ArrowLeft":
           onPrevious();
           break;
+
         case "ArrowRight":
           onNext();
           break;
@@ -56,52 +58,94 @@ export default function Lightbox({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 backdrop-blur-sm md:p-8"
+      className="fixed inset-0 z-[9999] flex bg-black/95 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Aircraft photo gallery"
       onClick={onClose}
     >
-      <button
-        onClick={onClose}
-        className="absolute top-6 right-6 z-20 h-12 w-12 rounded-full border border-white/20 bg-black/60 text-3xl text-white hover:bg-white hover:text-black"
-      >
-        ×
-      </button>
+      <div className="relative flex h-full w-full flex-col">
+        <div
+          className="relative z-50 flex min-h-20 items-center justify-between border-b border-white/10 bg-black/80 px-4 backdrop-blur-md md:px-8"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <button
+            type="button"
+            onClick={onClose}
+            className="inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-xs font-bold uppercase tracking-[0.25em] text-white transition hover:bg-white hover:text-black"
+            aria-label="Close gallery"
+          >
+            <span aria-hidden="true">←</span>
+            Back
+          </button>
 
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onPrevious();
-        }}
-        className="absolute left-6 top-1/2 z-20 h-12 w-12 -translate-y-1/2 rounded-full border border-white/20 bg-black/60 text-3xl text-white hover:bg-white hover:text-black"
-      >
-        ‹
-      </button>
+          <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/60">
+            {activeIndex + 1} / {images.length}
+          </p>
 
-      <div
-        className="relative h-[82vh] w-full max-w-7xl"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <Image
-          src={images[activeIndex]}
-          alt=""
-          fill
-          priority
-          sizes="100vw"
-          className="object-contain"
-        />
-      </div>
+          <button
+            type="button"
+            onClick={onClose}
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-white/10 text-3xl leading-none text-white transition hover:bg-white hover:text-black"
+            aria-label="Close gallery"
+          >
+            ×
+          </button>
+        </div>
 
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          onNext();
-        }}
-        className="absolute right-6 top-1/2 z-20 h-12 w-12 -translate-y-1/2 rounded-full border border-white/20 bg-black/60 text-3xl text-white hover:bg-white hover:text-black"
-      >
-        ›
-      </button>
+        <div
+          className="relative flex min-h-0 flex-1 items-center justify-center px-3 py-4 md:px-20 md:py-8"
+          onClick={onClose}
+        >
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              onPrevious();
+            }}
+            className="absolute left-3 top-1/2 z-40 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/70 text-3xl text-white transition hover:bg-white hover:text-black md:left-8 md:h-14 md:w-14"
+            aria-label="Previous image"
+          >
+            ‹
+          </button>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-xs uppercase tracking-[0.3em] text-white/60">
-        {activeIndex + 1} / {images.length}
+          <div
+            className="relative h-full w-full max-w-7xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <Image
+              src={images[activeIndex]}
+              alt={`Aircraft gallery image ${activeIndex + 1} of ${
+                images.length
+              }`}
+              fill
+              priority
+              sizes="100vw"
+              className="object-contain"
+            />
+          </div>
+
+          <button
+            type="button"
+            onClick={(event) => {
+              event.stopPropagation();
+              onNext();
+            }}
+            className="absolute right-3 top-1/2 z-40 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/70 text-3xl text-white transition hover:bg-white hover:text-black md:right-8 md:h-14 md:w-14"
+            aria-label="Next image"
+          >
+            ›
+          </button>
+        </div>
+
+        <div
+          className="relative z-50 flex min-h-14 items-center justify-center border-t border-white/10 bg-black/80 px-4"
+          onClick={(event) => event.stopPropagation()}
+        >
+          <p className="text-[10px] uppercase tracking-[0.3em] text-white/40">
+            Use arrow keys to navigate · Press Escape to close
+          </p>
+        </div>
       </div>
     </div>
   );

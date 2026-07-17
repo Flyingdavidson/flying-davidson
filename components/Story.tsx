@@ -114,6 +114,7 @@ function PhotoCard({
           src={src}
           alt={alt}
           fill
+          sizes="(min-width: 1024px) 42vw, (min-width: 768px) 50vw, 100vw"
           className="object-cover grayscale-[20%] transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
         />
       </div>

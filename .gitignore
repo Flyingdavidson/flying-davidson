@@ -63,3 +63,7 @@ public/videos/**/*.m4v
 
 # Original project media
 source-media/
+
+# macOS
+.DS_Store
+**/.DS_Store

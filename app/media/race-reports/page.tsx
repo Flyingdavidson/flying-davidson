@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { isRace2Published } from "@/lib/race2Publication";
 
-const reports = [
+export const dynamic = "force-dynamic";
+
+const existingReports = [
   {
     year: "2026",
     title: "Grounded, Flooded, And Still Racing",
@@ -25,6 +28,19 @@ const reports = [
 ];
 
 export default function RaceReportsPage() {
+  const reports = isRace2Published()
+    ? [
+        {
+          year: "2026",
+          title: "Never Count Out Team 77",
+          series: "AIR RACE X • Race 2",
+          text: "A difficult start, a missing engineer, a rebuilt track and a final decided by just 0.129 seconds.",
+          href: "/media/race-reports/2026-race-2",
+        },
+        ...existingReports,
+      ]
+    : existingReports;
+
   return (
     <main className="min-h-screen bg-black px-8 py-24 text-white md:px-16 lg:px-24">
       <Link

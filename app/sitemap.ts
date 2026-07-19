@@ -1,9 +1,12 @@
 import type { MetadataRoute } from "next";
+import { isRace2Published } from "@/lib/race2Publication";
+
+export const dynamic = "force-dynamic";
 
 const baseUrl = "https://flyingdavidson.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
+  const routes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
       lastModified: new Date(),
@@ -71,4 +74,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     },
   ];
+
+  if (isRace2Published()) {
+    routes.push({
+      url: `${baseUrl}/media/race-reports/2026-race-2`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    });
+  }
+
+  return routes;
 }

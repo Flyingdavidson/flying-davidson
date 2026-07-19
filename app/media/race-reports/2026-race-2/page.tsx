@@ -1,5 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { isRace2Published } from "@/lib/race2Publication";
+
+export const dynamic = "force-dynamic";
 
 const gallery = [
   {
@@ -177,6 +181,10 @@ const paragraphs = [
 ];
 
 export default function RaceReport2026Race2() {
+  if (!isRace2Published()) {
+    notFound();
+  }
+
   return (
     <main className="bg-black text-white">
       <section className="relative min-h-screen overflow-hidden">

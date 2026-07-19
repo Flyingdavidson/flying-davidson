@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { isRace2Published } from "@/lib/race2Publication";
 
-const liveSeason = {
+export const dynamic = "force-dynamic";
+
+const liveSeasonBeforeRace2 = {
   year: "2026",
   series: "AIR RACE X",
   title: "Live Season",
@@ -9,6 +12,17 @@ const liveSeason = {
   races: [
     ["Race 1", "4th"],
     ["Race 2", "Pending"],
+    ["Race 3", "Pending"],
+    ["Race 4", "Pending"],
+  ],
+};
+
+const liveSeasonAfterRace2 = {
+  ...liveSeasonBeforeRace2,
+  note: "Race 2 is complete, with Patrick Davidson and Team 77 finishing second after qualifying third.",
+  races: [
+    ["Race 1", "4th"],
+    ["Race 2", "2nd"],
     ["Race 3", "Pending"],
     ["Race 4", "Pending"],
   ],
@@ -106,6 +120,10 @@ export default function ResultsPage() {
 }
 
 function LiveSeasonCard() {
+  const liveSeason = isRace2Published()
+    ? liveSeasonAfterRace2
+    : liveSeasonBeforeRace2;
+
   return (
     <section className="mt-20 border border-yellow-500/40 bg-yellow-500/[0.06] p-8 md:p-10">
       <p className="text-xs uppercase tracking-[0.45em] text-yellow-400">

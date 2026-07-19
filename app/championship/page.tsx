@@ -45,7 +45,7 @@ export default function ChampionshipPage() {
           result: "2nd",
           points: "21 Points",
           report: "/media/race-reports/2026-race-2",
-          video: "https://www.youtube.com/@AIRRACEX",
+          video: "https://youtu.be/Y4IbnE2OAcI?si=_YAQ-gzLSoQ0Ujmp",
         },
         ...racesBeforeRace2.slice(2),
       ]

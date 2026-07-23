@@ -45,6 +45,20 @@ const planes = [
       "Military heritage, elegant lines and unmistakable jet performance. The Aero L-39 Albatros brings a completely different energy to the Flying Davidson fleet.",
   },
   {
+    name: "North American Harvard",
+    model: "Historic Advanced Trainer",
+    role: "Warbird Display",
+    image: "/images/hangar/zu-agk/hero.jpg",
+    registration: "ZU-AGK",
+    speed: "335 km/h",
+    power: "600 hp",
+    type: "Historic Trainer",
+    ability: "Radial-Engine Heritage",
+    gallery: "/hangar/zu-agk",
+    story:
+      "A defining military trainer with an unmistakable radial-engine note. ZU-AGK carries former South African Air Force serial 7544 and generations of training heritage.",
+  },
+  {
     name: "Hawker Sea Fury",
     model: "Historic Warbird",
     role: "Airshow Display",

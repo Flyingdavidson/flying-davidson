@@ -25,6 +25,10 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  outputFileTracingExcludes: {
+    "/*": ["./public/**/*"],
+  },
+
   images: {
     qualities: [75, 90],
   },

@@ -123,7 +123,25 @@ export default function HangarPage() {
         ← Back to Hangar
       </Link>
 
-      <section className="mx-auto mt-20 max-w-7xl">
+      <nav
+        aria-label="Hangar sections"
+        className="mx-auto mt-10 flex max-w-7xl gap-3"
+      >
+        <Link
+          href="#fleet"
+          className="border border-yellow-500 bg-yellow-500 px-5 py-3 text-xs font-black uppercase tracking-[0.25em] text-black transition hover:bg-yellow-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-yellow-400"
+        >
+          Fleet
+        </Link>
+        <Link
+          href="#equipment"
+          className="border border-white/25 px-5 py-3 text-xs font-black uppercase tracking-[0.25em] text-white transition hover:border-yellow-500 hover:text-yellow-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-yellow-400"
+        >
+          Equipment
+        </Link>
+      </nav>
+
+      <section id="fleet" className="mx-auto mt-20 max-w-7xl scroll-mt-8">
         <p className="mb-6 text-xs uppercase tracking-[0.55em] text-yellow-500/80">
           Patrick Davidson
         </p>
@@ -198,7 +216,10 @@ export default function HangarPage() {
           ))}
         </div>
 
-        <section className="mt-28 border-t border-white/10 pt-20">
+        <section
+          id="equipment"
+          className="mt-28 scroll-mt-8 border-t border-white/10 pt-20"
+        >
           <p className="text-xs uppercase tracking-[0.55em] text-yellow-500/80">
             Ground Support
           </p>

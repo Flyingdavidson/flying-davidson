@@ -100,6 +100,17 @@ const groundSupport = [
     story:
       "The workhorse of the Flying Davidson hangar. Used every day to safely position aircraft before and after flight.",
   },
+  {
+    name: "AC TrackTech T1X2",
+    model: "Remote Aircraft Tug",
+    role: "Precision Ground Handling",
+    image: "/images/hangar/ac-tracktech-t1x2/hero.jpg",
+    type: "Ground Support",
+    ability: "Remote Aircraft Positioning",
+    gallery: "/hangar/ac-tracktech-t1x2",
+    story:
+      "Compact electric ground support with an adjustable wheel cradle, tracked drive and remote control for precise aircraft positioning inside the hangar.",
+  },
 ];
 
 export default function HangarPage() {

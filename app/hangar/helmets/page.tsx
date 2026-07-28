@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 const facebookVideo = "https://www.facebook.com/reel/329592072821055";
 const facebookEmbed =
-  "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F329592072821055&show_text=false&width=500";
+  "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F329592072821055&show_text=false&width=900";
 
 export default function HelmetsPage() {
   const doodleGallery = getGalleryImages(
@@ -138,8 +138,8 @@ export default function HelmetsPage() {
       />
 
       <section className="border-y border-white/10 bg-white/[0.03]">
-        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:px-10 lg:grid-cols-[minmax(300px,460px)_1fr] lg:items-center lg:gap-20">
-          <div className="relative mx-auto aspect-[9/16] w-full max-w-[460px] overflow-hidden rounded-3xl border border-white/10 bg-black shadow-2xl shadow-black">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:px-10 lg:grid-cols-[minmax(0,1.4fr)_minmax(300px,0.6fr)] lg:items-center lg:gap-16">
+          <div className="relative aspect-video w-full overflow-hidden rounded-3xl border border-white/10 bg-black shadow-2xl shadow-black">
             <iframe
               src={facebookEmbed}
               title="Patrick Davidson talks about flying helmets and headsets"

@@ -139,6 +139,17 @@ const groundSupport = [
     story:
       "Compact electric ground support with an adjustable wheel cradle, tracked drive and remote control for precise aircraft positioning inside the hangar.",
   },
+  {
+    name: "AVGAS 100LL Fuel Bowser",
+    model: "Towable Aviation Refueller",
+    role: "Flight Operations",
+    image: "/images/hangar/fuel-bowser/hero.jpg",
+    type: "Ground Support",
+    ability: "On-Site Aircraft Refuelling",
+    gallery: "/hangar/fuel-bowser",
+    story:
+      "The mobile refuelling station that keeps the Flying Davidson fleet supplied with AVGAS 100LL and ready for the next flight.",
+  },
 ];
 
 export default function HangarPage() {

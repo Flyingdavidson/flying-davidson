@@ -59,6 +59,20 @@ const planes = [
       "A defining military trainer with an unmistakable radial-engine note. ZU-AGK carries former South African Air Force serial 7544 and generations of training heritage.",
   },
   {
+    name: "North American Harvard",
+    model: "Davidson Family Warbird",
+    role: "Warbird Display",
+    image: "/images/hangar/zu-azx/gallery/04.jpg",
+    registration: "ZU-AZX",
+    speed: "335 km/h",
+    power: "600 hp",
+    type: "Historic Trainer",
+    ability: "Radial-Engine Heritage",
+    gallery: "/hangar/zu-azx",
+    story:
+      "The Harvard in which Patrick earned his private pilot licence at just 17, before he had finished school. ZU-AZX holds a defining place in the Davidson family’s aviation story.",
+  },
+  {
     name: "Hawker Sea Fury",
     model: "Historic Warbird",
     role: "Airshow Display",

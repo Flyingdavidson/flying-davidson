@@ -49,7 +49,7 @@ export default function AircraftPageClient({
 
       <Gallery
         title="Harvard Gallery"
-        subtitle="ZU-AGK"
+        subtitle={aircraft.specs.find((spec) => spec.label === "Registration")?.value}
         images={gallery}
       />
 
@@ -68,8 +68,8 @@ export default function AircraftPageClient({
           The Harvard became one of the defining advanced trainers of its
           generation. Its demanding handling, tandem cockpit and unmistakable
           radial-engine note created a bridge between basic trainers and
-          frontline aircraft. Today, ZU-AGK carries that experience into a new
-          generation of flying.
+          frontline aircraft. Today, {aircraft.name} carries that experience
+          into a new generation of flying.
         </p>
       </section>
 

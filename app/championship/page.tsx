@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { isRace2Published } from "@/lib/race2Publication";
+import { isRace3Published } from "@/lib/race3Publication";
 
 export const dynamic = "force-dynamic";
 
@@ -11,7 +12,18 @@ export const metadata: Metadata = {
   alternates: { canonical: "/championship" },
 };
 
-const racesBeforeRace2 = [
+type ChampionshipRace = {
+  title: string;
+  date: string;
+  headline: string;
+  qualifying?: string;
+  result?: string;
+  points?: string;
+  report?: string;
+  video?: string;
+};
+
+const racesBeforeRace2: ChampionshipRace[] = [
   {
     title: "Race 1",
     date: "Completed",
@@ -41,7 +53,8 @@ const racesBeforeRace2 = [
 
 export default function ChampionshipPage() {
   const race2Published = isRace2Published();
-  const races = race2Published
+  const race3Published = isRace3Published();
+  let races: ChampionshipRace[] = race2Published
     ? [
         racesBeforeRace2[0],
         {
@@ -57,6 +70,24 @@ export default function ChampionshipPage() {
         ...racesBeforeRace2.slice(2),
       ]
     : racesBeforeRace2;
+
+  if (race3Published) {
+    races = [
+      races[0],
+      races[1],
+      {
+        title: "Race 3",
+        date: "Completed",
+        headline: "A Change Of Fortune",
+        qualifying: "1st",
+        result: "1st",
+        points: "33 Points",
+        report: "/media/race-reports/2026-race-3",
+        video: "https://www.youtube.com/@AIRRACEX/videos",
+      },
+      races[3],
+    ];
+  }
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -88,9 +119,9 @@ export default function ChampionshipPage() {
           </p>
 
           <div className="mt-16 grid gap-6 md:grid-cols-3">
-            <Stat value={race2Published ? "In Progress" : "4th"} label="Current Position" />
-            <Stat value={race2Published ? "33" : "12"} label="Championship Points" />
-            <Stat value={race2Published ? "2 / 4" : "1 / 4"} label="Races Completed" />
+            <Stat value={race3Published ? "2nd" : race2Published ? "In Progress" : "4th"} label="Current Position" />
+            <Stat value={race3Published ? "66" : race2Published ? "33" : "12"} label="Championship Points" />
+            <Stat value={race3Published ? "3 / 4" : race2Published ? "2 / 4" : "1 / 4"} label="Races Completed" />
           </div>
 
           <div className="mt-10">
@@ -100,7 +131,7 @@ export default function ChampionshipPage() {
               </p>
 
               <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#62d6aa]">
-                {race2Published ? "2" : "1"} of 4 races completed
+                {race3Published ? "3" : race2Published ? "2" : "1"} of 4 races completed
               </p>
             </div>
 
@@ -110,17 +141,17 @@ export default function ChampionshipPage() {
               aria-label="2026 AIR RACE X season progress"
               aria-valuemin={0}
               aria-valuemax={100}
-              aria-valuenow={race2Published ? 50 : 25}
+              aria-valuenow={race3Published ? 75 : race2Published ? 50 : 25}
             >
               <div
                 className={`h-full rounded-full bg-[#62d6aa] ${
-                  race2Published ? "w-1/2" : "w-1/4"
+                  race3Published ? "w-3/4" : race2Published ? "w-1/2" : "w-1/4"
                 }`}
               />
             </div>
 
             <p className="mt-3 text-right text-[10px] uppercase tracking-[0.25em] text-white/40">
-              {race2Published ? "50%" : "75%"} of the season remaining
+              {race3Published ? "25%" : race2Published ? "50%" : "75%"} of the season remaining
             </p>
           </div>
 

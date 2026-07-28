@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { isRace3Published } from "@/lib/race3Publication";
 const baseUrl = "https://flyingdavidson.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -43,6 +44,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/media/race-reports/2026-race-2",
     "/media/results",
   ];
+
+  if (isRace3Published()) {
+    routes.push("/media/race-reports/2026-race-3");
+  }
 
   return routes.map((path) => ({
     url: `${baseUrl}${path}`,

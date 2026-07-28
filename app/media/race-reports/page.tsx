@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { isRace2Published } from "@/lib/race2Publication";
+import { isRace3Published } from "@/lib/race3Publication";
 
 export const dynamic = "force-dynamic";
 
@@ -36,7 +37,7 @@ const existingReports = [
 ];
 
 export default function RaceReportsPage() {
-  const reports = isRace2Published()
+  let reports = isRace2Published()
     ? [
         {
           year: "2026",
@@ -48,6 +49,19 @@ export default function RaceReportsPage() {
         ...existingReports,
       ]
     : existingReports;
+
+  if (isRace3Published()) {
+    reports = [
+      {
+        year: "2026",
+        title: "A Change Of Fortune",
+        series: "AIR RACE X • Race 3",
+        text: "A new venue, a new helmet and a huge logistical gamble put Team 77 back on top.",
+        href: "/media/race-reports/2026-race-3",
+      },
+      ...reports,
+    ];
+  }
 
   return (
     <main className="min-h-screen bg-black px-8 py-24 text-white md:px-16 lg:px-24">

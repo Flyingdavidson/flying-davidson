@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isRace2Published } from "@/lib/race2Publication";
+import { isRace3Published } from "@/lib/race3Publication";
 
 export const dynamic = "force-dynamic";
 
@@ -302,9 +303,18 @@ export default function RaceReport2026Race2() {
             ← Previous Report
           </Link>
 
-          <span className="text-center text-xs uppercase tracking-[0.35em] text-white/35">
-            Race 3 Coming Soon
-          </span>
+          {isRace3Published() ? (
+            <Link
+              href="/media/race-reports/2026-race-3"
+              className="inline-flex items-center justify-center border border-[#62d6aa]/40 px-7 py-4 text-xs uppercase tracking-[0.35em] text-[#62d6aa] transition hover:border-[#62d6aa]"
+            >
+              Race 3 Report →
+            </Link>
+          ) : (
+            <span className="text-center text-xs uppercase tracking-[0.35em] text-white/35">
+              Race 3 Coming Soon
+            </span>
+          )}
         </div>
       </section>
     </main>

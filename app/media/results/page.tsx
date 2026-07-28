@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { isRace2Published } from "@/lib/race2Publication";
+import { isRace3Published } from "@/lib/race3Publication";
 
 export const dynamic = "force-dynamic";
 
@@ -32,6 +33,18 @@ const liveSeasonAfterRace2 = {
     ["Race 1", "4th"],
     ["Race 2", "2nd"],
     ["Race 3", "Pending"],
+    ["Race 4", "Pending"],
+  ],
+};
+
+const liveSeasonAfterRace3 = {
+  ...liveSeasonBeforeRace2,
+  position: "P2 Overall • 66 Points",
+  note: "Patrick Davidson and Team 77 qualified fastest in 62.108 seconds and won Race 3 with a 62.218-second final run, moving to second in the championship.",
+  races: [
+    ["Race 1", "4th • 12 pts"],
+    ["Race 2", "2nd • 21 pts"],
+    ["Race 3", "1st • 33 pts"],
     ["Race 4", "Pending"],
   ],
 };
@@ -128,9 +141,11 @@ export default function ResultsPage() {
 }
 
 function LiveSeasonCard() {
-  const liveSeason = isRace2Published()
-    ? liveSeasonAfterRace2
-    : liveSeasonBeforeRace2;
+  const liveSeason = isRace3Published()
+    ? liveSeasonAfterRace3
+    : isRace2Published()
+      ? liveSeasonAfterRace2
+      : liveSeasonBeforeRace2;
 
   return (
     <section className="mt-20 border border-yellow-500/40 bg-yellow-500/[0.06] p-8 md:p-10">

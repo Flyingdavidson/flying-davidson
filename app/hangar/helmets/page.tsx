@@ -12,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 const facebookVideo = "https://www.facebook.com/reel/329592072821055";
+const facebookEmbed =
+  "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F329592072821055&show_text=false&width=500";
 
 export default function HelmetsPage() {
   const doodleGallery = getGalleryImages(
@@ -135,23 +137,20 @@ export default function HelmetsPage() {
         images={doodleGallery}
       />
 
-      <section className="mx-auto max-w-7xl px-4 py-12 md:px-8 md:py-20">
-        <a
-          href={facebookVideo}
-          target="_blank"
-          rel="noreferrer"
-          className="group relative block min-h-[420px] overflow-hidden rounded-3xl border border-white/10 md:min-h-[520px]"
-        >
-          <Image
-            src="/images/hangar/helmets/doodle-gallery/05.jpg"
-            alt="Patrick Davidson wearing his Red Bull Doodle helmet in the cockpit"
-            fill
-            sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover object-center transition duration-700 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/10" />
+      <section className="border-y border-white/10 bg-white/[0.03]">
+        <div className="mx-auto grid max-w-7xl gap-12 px-6 py-24 md:px-10 lg:grid-cols-[minmax(300px,460px)_1fr] lg:items-center lg:gap-20">
+          <div className="relative mx-auto aspect-[9/16] w-full max-w-[460px] overflow-hidden rounded-3xl border border-white/10 bg-black shadow-2xl shadow-black">
+            <iframe
+              src={facebookEmbed}
+              title="Patrick Davidson talks about flying helmets and headsets"
+              loading="lazy"
+              allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
 
-          <div className="relative z-10 flex min-h-[420px] max-w-2xl flex-col justify-end p-8 md:min-h-[520px] md:p-14">
+          <div>
             <p className="text-xs uppercase tracking-[0.45em] text-yellow-400">
               From The Archive
             </p>
@@ -164,14 +163,24 @@ export default function HelmetsPage() {
               Watch Patrick&apos;s original video about the equipment that
               protects a pilot and keeps communication clear in the cockpit.
             </p>
-            <span className="mt-8 inline-flex w-fit items-center gap-4 rounded-full bg-white px-7 py-4 text-xs font-black uppercase tracking-[0.25em] text-black transition group-hover:bg-yellow-400">
-              <span className="text-base" aria-hidden="true">
-                ▶
-              </span>
+
+            <p className="mt-5 max-w-xl text-sm leading-7 text-white/45">
+              If the player is hidden by your browser&apos;s privacy settings,
+              the original public video is still available directly on
+              Facebook.
+            </p>
+
+            <a
+              href={facebookVideo}
+              target="_blank"
+              rel="noreferrer"
+              className="mt-8 inline-flex w-fit items-center gap-4 rounded-full bg-white px-7 py-4 text-xs font-black uppercase tracking-[0.25em] text-black transition hover:bg-yellow-400"
+            >
               Watch On Facebook
-            </span>
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
-        </a>
+        </div>
       </section>
 
       <HelmetStory

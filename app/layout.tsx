@@ -5,6 +5,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import StickyNav from "@/components/StickyNav";
 import ScrollProgress from "@/components/ScrollProgress";
+import Footer from "@/components/Footer";
 
 import "./globals.css";
 
@@ -150,6 +151,8 @@ export default function RootLayout({
         <div id="main-content" className="contents">
           {children}
         </div>
+
+        <Footer />
 
         <script
           id="flying-davidson-structured-data"

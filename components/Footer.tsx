@@ -1,10 +1,12 @@
 export default function Footer() {
-    return (
-      <footer className="bg-black px-8 py-10 text-white">
-        <div className="mx-auto flex max-w-6xl flex-col justify-between gap-6 text-sm text-white/45 md:flex-row">
-          <p>© 2026 Patrick Davidson</p>
-          <p>Air Race X • Aerobatics • Team 77</p>
-        </div>
-      </footer>
-    );
-  }
+  return (
+    <footer className="border-t border-white/10 bg-black px-6 py-10 text-white md:px-8">
+      <div className="mx-auto flex max-w-7xl flex-col gap-3 text-xs leading-6 text-white/45 md:flex-row md:items-center md:justify-between">
+        <p>
+          © 2026 Patrick Davidson Aerobatics (Pty) Ltd. All rights reserved.
+        </p>
+        <p>Designed and developed by Greg Ritz.</p>
+      </div>
+    </footer>
+  );
+}

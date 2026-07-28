@@ -150,6 +150,17 @@ const groundSupport = [
     story:
       "The mobile refuelling station that keeps the Flying Davidson fleet supplied with AVGAS 100LL and ready for the next flight.",
   },
+  {
+    name: "Patrick's Red Bull Helmets",
+    model: "Helmet Collection",
+    role: "Pilot Equipment & Heritage",
+    image: "/images/hangar/helmets/card.jpg",
+    type: "Pilot Equipment",
+    ability: "Protection & Communication",
+    gallery: "/hangar/helmets",
+    story:
+      "From the 2017 Doodle helmet to the 2022 glitter design—and a third chapter coming soon with LIFT Aviation.",
+  },
 ];
 
 export default function HangarPage() {
@@ -260,7 +271,7 @@ export default function HangarPage() {
           className="mt-28 scroll-mt-8 border-t border-white/10 pt-20"
         >
           <p className="text-xs uppercase tracking-[0.55em] text-yellow-500/80">
-            Ground Support
+            Beyond The Aircraft
           </p>
 
           <h2 className="mt-4 text-4xl font-black uppercase md:text-5xl">
@@ -268,11 +279,12 @@ export default function HangarPage() {
           </h2>
 
           <p className="mt-6 max-w-2xl leading-8 text-white/65">
-            The machines used behind the scenes to keep the Flying Davidson
-            fleet moving safely and efficiently.
+            The ground-support machines and personal equipment that keep the
+            Flying Davidson operation moving safely and give each flying era
+            its own identity.
           </p>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {groundSupport.map((equipment) => (
               <Link
                 key={equipment.name}
@@ -284,7 +296,7 @@ export default function HangarPage() {
                     src={equipment.image}
                     alt={equipment.name}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     className="object-cover object-center transition duration-700 group-hover:scale-105"
                   />
 

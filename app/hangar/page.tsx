@@ -150,6 +150,9 @@ const groundSupport = [
     story:
       "The mobile refuelling station that keeps the Flying Davidson fleet supplied with AVGAS 100LL and ready for the next flight.",
   },
+];
+
+const pilotGear = [
   {
     name: "Patrick's Red Bull Helmets",
     model: "Helmet Collection",
@@ -188,6 +191,12 @@ export default function HangarPage() {
           className="border border-white/25 px-5 py-3 text-xs font-black uppercase tracking-[0.25em] text-white transition hover:border-yellow-500 hover:text-yellow-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-yellow-400"
         >
           Equipment
+        </Link>
+        <Link
+          href="#gear"
+          className="border border-white/25 px-5 py-3 text-xs font-black uppercase tracking-[0.25em] text-white transition hover:border-yellow-500 hover:text-yellow-400 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-yellow-400"
+        >
+          Gear
         </Link>
       </nav>
 
@@ -271,7 +280,7 @@ export default function HangarPage() {
           className="mt-28 scroll-mt-8 border-t border-white/10 pt-20"
         >
           <p className="text-xs uppercase tracking-[0.55em] text-yellow-500/80">
-            Beyond The Aircraft
+            Ground Support
           </p>
 
           <h2 className="mt-4 text-4xl font-black uppercase md:text-5xl">
@@ -279,12 +288,11 @@ export default function HangarPage() {
           </h2>
 
           <p className="mt-6 max-w-2xl leading-8 text-white/65">
-            The ground-support machines and personal equipment that keep the
-            Flying Davidson operation moving safely and give each flying era
-            its own identity.
+            The machines used behind the scenes to keep the Flying Davidson
+            fleet moving safely and efficiently.
           </p>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {groundSupport.map((equipment) => (
               <Link
                 key={equipment.name}
@@ -296,7 +304,7 @@ export default function HangarPage() {
                     src={equipment.image}
                     alt={equipment.name}
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     className="object-cover object-center transition duration-700 group-hover:scale-105"
                   />
 
@@ -331,6 +339,81 @@ export default function HangarPage() {
                       label="Special Ability"
                       value={equipment.ability}
                     />
+                  </div>
+
+                  <div className="mt-5">
+                    <span className="inline-block border border-yellow-500/60 px-4 py-2 text-[10px] uppercase tracking-[0.25em] text-yellow-400 transition group-hover:bg-yellow-500 group-hover:text-black">
+                      Explore →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+        <section
+          id="gear"
+          className="mt-28 scroll-mt-8 border-t border-white/10 pt-20"
+        >
+          <p className="text-xs uppercase tracking-[0.55em] text-yellow-500/80">
+            Pilot Equipment
+          </p>
+
+          <h2 className="mt-4 text-4xl font-black uppercase md:text-5xl">
+            The Gear.
+          </h2>
+
+          <p className="mt-6 max-w-2xl leading-8 text-white/65">
+            The personal equipment that protects the pilot, keeps
+            communication clear and gives each chapter of Patrick&apos;s flying
+            career its own identity.
+          </p>
+
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {pilotGear.map((gear) => (
+              <Link
+                key={gear.name}
+                href={gear.gallery}
+                className="group block overflow-hidden border border-white/10 bg-white/[0.03] transition duration-500 hover:-translate-y-1 hover:border-yellow-500/50"
+              >
+                <div className="relative h-[260px] overflow-hidden">
+                  <Image
+                    src={gear.image}
+                    alt={gear.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover object-center transition duration-700 group-hover:scale-105"
+                  />
+
+                  <div className="absolute left-4 top-4 z-10 border border-yellow-500/60 bg-black/70 px-3 py-1 text-[10px] font-black uppercase tracking-[0.3em] text-yellow-400">
+                    {gear.type}
+                  </div>
+
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
+
+                  <div className="absolute bottom-4 left-4 right-4 z-10">
+                    <p className="text-[10px] uppercase tracking-[0.35em] text-yellow-400">
+                      {gear.model}
+                    </p>
+
+                    <h3 className="mt-1 text-xl font-black uppercase md:text-2xl">
+                      {gear.name}
+                    </h3>
+                  </div>
+                </div>
+
+                <div className="p-5">
+                  <p className="text-xs uppercase tracking-[0.3em] text-white/45">
+                    {gear.role}
+                  </p>
+
+                  <p className="mt-3 text-sm leading-6 text-white/65">
+                    {gear.story}
+                  </p>
+
+                  <div className="mt-5">
+                    <Stat label="Special Ability" value={gear.ability} />
                   </div>
 
                   <div className="mt-5">

@@ -73,6 +73,20 @@ const planes = [
       "The Harvard in which Patrick earned his private pilot licence at just 17, before he had finished school. ZU-AZX holds a defining place in the Davidson family’s aviation story.",
   },
   {
+    name: "Boeing Super Stearman",
+    model: "The Magic One",
+    role: "Aerobatic Display",
+    image: "/images/hangar/zu-bed/gallery/10.jpg",
+    registration: "ZU-BED",
+    speed: "200 km/h",
+    power: "450 hp",
+    type: "Display Biplane",
+    ability: "Wing-Walking Heritage",
+    gallery: "/hangar/zu-bed",
+    story:
+      "Built as a trainer, transformed into a 450 hp airshow machine and once known in America as The Magic One. ZU-BED carries a remarkable wing-walking legacy into the Davidson hangar.",
+  },
+  {
     name: "Hawker Sea Fury",
     model: "Historic Warbird",
     role: "Airshow Display",

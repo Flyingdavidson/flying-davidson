@@ -2,6 +2,8 @@ import type { MetadataRoute } from "next";
 import { isRace3Published } from "@/lib/race3Publication";
 const baseUrl = "https://flyingdavidson.com";
 
+export const dynamic = "force-dynamic";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",

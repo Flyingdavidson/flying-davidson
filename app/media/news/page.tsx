@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -115,3 +116,9 @@ export default function NewsPage() {
     </main>
   );
 }
+export const metadata: Metadata = {
+  title: "Latest News",
+  description:
+    "Latest news from Patrick Davidson, Team 77, AIR RACE X, sponsors and the Flying Davidson hangar.",
+  alternates: { canonical: "/media/news" },
+};

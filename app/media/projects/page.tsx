@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 
 import Link from "next/link";
@@ -307,3 +308,9 @@ export default function ProjectsPage() {
   );
 
 }
+export const metadata: Metadata = {
+  title: "Flying Projects",
+  description:
+    "Films, stunts and aviation projects featuring Patrick Davidson, Red Bull and leading athletes and brands.",
+  alternates: { canonical: "/media/projects" },
+};

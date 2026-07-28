@@ -57,7 +57,7 @@ export default function StickyNav() {
         <button
           type="button"
           onClick={() => setOpen((current) => !current)}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 md:hidden"
+          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 md:hidden"
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-navigation"
@@ -85,6 +85,8 @@ export default function StickyNav() {
       {/* Mobile Navigation */}
       <div
         id="mobile-navigation"
+        aria-hidden={!open}
+        inert={!open ? true : undefined}
         className={`overflow-hidden border-t border-white/10 bg-black/95 transition-all duration-300 md:hidden ${
           open ? "max-h-[700px]" : "max-h-0 border-transparent"
         }`}

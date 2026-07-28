@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -571,3 +572,9 @@ export default function BiographyPage() {
     </main>
   );
 }
+export const metadata: Metadata = {
+  title: "Patrick Davidson Biography",
+  description:
+    "The official biography of South African aerobatic champion, Red Bull athlete and AIR RACE X champion Patrick Davidson.",
+  alternates: { canonical: "/media/biography" },
+};

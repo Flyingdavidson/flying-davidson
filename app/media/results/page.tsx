@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { isRace2Published } from "@/lib/race2Publication";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "Career Results",
+  description:
+    "Patrick Davidson's AIR RACE X, Red Bull Air Race and aerobatic championship results and career highlights.",
+  alternates: { canonical: "/media/results" },
+};
 
 const liveSeasonBeforeRace2 = {
   year: "2026",

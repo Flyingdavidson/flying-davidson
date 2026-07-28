@@ -1,4 +1,12 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "2023 AIR RACE X: Baptism by Fire",
+  description:
+    "Team 77's first AIR RACE X campaign: weather, technical problems, penalties and three wins.",
+  alternates: { canonical: "/media/race-reports/2023-air-race-x" },
+};
 
 export default function RaceReport2023ARX() {
   return (

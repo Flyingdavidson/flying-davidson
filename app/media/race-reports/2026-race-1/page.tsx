@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
+
+export const metadata: Metadata = {
+  title: "2026 AIR RACE X Race 1: Grounded, Flooded, Still Racing",
+  description:
+    "Patrick Davidson and Team 77 fight aircraft grounding, floods and over-G runs in the opening race of 2026.",
+  alternates: { canonical: "/media/race-reports/2026-race-1" },
+};
 
 const timeline = [
   ["18 Days Out", "Red Bull One is grounded in Upington by DOT/ACSA."],

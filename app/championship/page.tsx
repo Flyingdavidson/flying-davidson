@@ -1,8 +1,15 @@
-
+import type { Metadata } from "next";
 import Link from "next/link";
 import { isRace2Published } from "@/lib/race2Publication";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "2026 AIR RACE X Championship",
+  description:
+    "Follow Patrick Davidson and Team 77 through every round of the 2026 AIR RACE X Championship.",
+  alternates: { canonical: "/championship" },
+};
 
 const racesBeforeRace2 = [
   {

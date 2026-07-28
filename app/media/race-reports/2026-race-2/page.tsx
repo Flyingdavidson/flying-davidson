@@ -1,9 +1,17 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { isRace2Published } from "@/lib/race2Publication";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "2026 AIR RACE X Race 2: Never Count Out Team 77",
+  description:
+    "Patrick Davidson and Team 77 recover from a difficult start to finish second in AIR RACE X Race 2.",
+  alternates: { canonical: "/media/race-reports/2026-race-2" },
+};
 
 const gallery = [
   {

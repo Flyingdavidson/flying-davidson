@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "AIR RACE X 2026 Race 2 Preview",
+  description:
+    "Patrick Davidson and Team 77 prepare for Race 2 of the 2026 AIR RACE X championship.",
+  alternates: { canonical: "/media/news/air-race-x-race-2-preview" },
+};
 
 export default function AirRaceXRace2PreviewNewsPage() {
   return (

@@ -1,6 +1,5 @@
 import Script from "next/script";
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -8,18 +7,6 @@ import StickyNav from "@/components/StickyNav";
 import ScrollProgress from "@/components/ScrollProgress";
 
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 const siteUrl = "https://flyingdavidson.com";
 
@@ -65,10 +52,6 @@ export const metadata: Metadata = {
   ],
 
   category: "Aviation",
-
-  alternates: {
-    canonical: "/",
-  },
 
   openGraph: {
     type: "website",
@@ -152,13 +135,58 @@ export default function RootLayout({
     <html
       lang="en-ZA"
       data-scroll-behavior="smooth"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className="h-full antialiased"
     >
       <body className="flex min-h-full flex-col">
+        <a
+          href="#main-content"
+          className="fixed left-4 top-4 z-[10000] -translate-y-24 bg-white px-4 py-3 text-sm font-bold text-black transition focus:translate-y-0"
+        >
+          Skip to content
+        </a>
         <StickyNav />
         <ScrollProgress />
 
-        {children}
+        <div id="main-content" className="contents">
+          {children}
+        </div>
+
+        <script
+          id="flying-davidson-structured-data"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebSite",
+                "@id": `${siteUrl}/#website`,
+                url: siteUrl,
+                name: "Flying Davidson",
+                description:
+                  "The official website of Patrick Davidson, Red Bull athlete, aerobatic pilot and AIR RACE X champion.",
+                inLanguage: "en-ZA",
+              },
+              {
+                "@type": "Person",
+                "@id": `${siteUrl}/#patrick-davidson`,
+                name: "Patrick Davidson",
+                url: siteUrl,
+                image: `${siteUrl}/images/media-kit/patrick-davidson-portrait.jpg`,
+                jobTitle: "Professional aerobatic and air race pilot",
+                nationality: {
+                  "@type": "Country",
+                  name: "South Africa",
+                },
+                sameAs: [
+                  "https://www.instagram.com/flying_davidson",
+                  "https://youtube.com/@flyingdavidson",
+                ],
+              },
+            ],
+            }),
+          }}
+        />
 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6X0VWEDYWG"

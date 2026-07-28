@@ -1,7 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { isRace2Published } from "@/lib/race2Publication";
 
 export const dynamic = "force-dynamic";
+
+export const metadata: Metadata = {
+  title: "AIR RACE X Race Reports",
+  description:
+    "Behind the scenes with Patrick Davidson and Team 77: preparation, strategy, challenges and results from AIR RACE X.",
+  alternates: { canonical: "/media/race-reports" },
+};
 
 const existingReports = [
   {

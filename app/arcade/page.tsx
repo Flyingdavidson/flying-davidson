@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "Pylon Challenge",
   description:
     "Fly through the pylons in the Flying Davidson Pylon Challenge browser game.",
+  alternates: { canonical: "/arcade" },
 };
 
 export default function PylonChallengePage() {

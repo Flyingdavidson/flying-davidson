@@ -1,4 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -287,3 +288,9 @@ export default function MediaKitPage() {
     </main>
   );
 }
+export const metadata: Metadata = {
+  title: "Official Media Kit",
+  description:
+    "Official Patrick Davidson biography, high-resolution photography, social links and media contact information.",
+  alternates: { canonical: "/media/media-kit" },
+};

@@ -1,6 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Emotive Backs Patrick Davidson and Team 77",
+  description:
+    "Emotive joins Patrick Davidson and Team 77 as principal partner for the 2026 AIR RACE X championship.",
+  alternates: { canonical: "/media/news/emotive-backs-patrick-davidson" },
+};
 
 export default function EmotiveNewsPage() {
   return (

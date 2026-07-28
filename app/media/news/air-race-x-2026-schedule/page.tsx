@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "AIR RACE X 2026 Championship Schedule",
+  description:
+    "The official 2026 AIR RACE X championship schedule, with four race dates and broadcast information.",
+  alternates: { canonical: "/media/news/air-race-x-2026-schedule" },
+};
 
 export default function AirRaceXScheduleNewsPage() {
   return (

@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "2024 AIR RACE X Race 3: The Race Against the Sun",
+  description:
+    "Team 77 battles GPS penalties, a geomagnetic storm and 36 runs in AIR RACE X Race 3.",
+  alternates: { canonical: "/media/race-reports/2024-race-3" },
+};
 
 const timeline = [
   ["Tuesday", "Arrived in Grahamstown with limited time and a full race window still to complete."],

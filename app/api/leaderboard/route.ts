@@ -1,4 +1,4 @@
-import { neon } from "@neondatabase/serverless";
+import { neon, type NeonQueryFunction } from "@neondatabase/serverless";
 import { NextResponse } from "next/server";
 
 type ScoreRow = {
@@ -7,6 +7,38 @@ type ScoreRow = {
   score: number;
   created_at: string;
 };
+
+const PATRICK_STARTING_SCORE = 77;
+
+async function getLeaderboard(sql: NeonQueryFunction<false, false>) {
+  const [scores, patrickResult] = await Promise.all([
+    sql`
+      SELECT id, name, score, created_at
+      FROM leaderboard
+      ORDER BY score DESC, created_at ASC
+      LIMIT 10
+    `,
+    sql`
+      SELECT MAX(score) AS highest_score
+      FROM leaderboard
+      WHERE created_at <= NOW() - INTERVAL '1 day'
+    `,
+  ]);
+
+  const patrickRows = patrickResult as Array<{
+    highest_score: number | string | null;
+  }>;
+  const highestEligibleScore = Number(patrickRows[0]?.highest_score ?? 0);
+  const patrickScore = Math.max(
+    PATRICK_STARTING_SCORE,
+    highestEligibleScore + 7
+  );
+
+  return {
+    scores: scores as ScoreRow[],
+    patrickScore,
+  };
+}
 
 function getDatabase() {
   const databaseUrl = process.env.DATABASE_URL;
@@ -43,16 +75,9 @@ export async function GET() {
       )
     `;
 
-    const scores = await sql`
-      SELECT id, name, score, created_at
-      FROM leaderboard
-      ORDER BY score DESC, created_at ASC
-      LIMIT 10
-    `;
+    const leaderboard = await getLeaderboard(sql);
 
-    return NextResponse.json({
-      scores: scores as ScoreRow[],
-    });
+    return NextResponse.json(leaderboard);
   } catch (error) {
     console.error("Leaderboard GET error:", error);
 
@@ -107,17 +132,12 @@ export async function POST(request: Request) {
       VALUES (${name}, ${score})
     `;
 
-    const scores = await sql`
-      SELECT id, name, score, created_at
-      FROM leaderboard
-      ORDER BY score DESC, created_at ASC
-      LIMIT 10
-    `;
+    const leaderboard = await getLeaderboard(sql);
 
     return NextResponse.json(
       {
         success: true,
-        scores: scores as ScoreRow[],
+        ...leaderboard,
       },
       { status: 201 }
     );

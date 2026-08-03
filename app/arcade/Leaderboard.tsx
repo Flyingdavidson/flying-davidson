@@ -23,7 +23,7 @@ type LeaderboardProps = {
   attemptId: number;
 };
 
-const PATRICK_BENCHMARK = 77;
+const PATRICK_STARTING_SCORE = 77;
 
 export default function Leaderboard({
   score,
@@ -31,6 +31,7 @@ export default function Leaderboard({
   attemptId,
 }: LeaderboardProps) {
   const [scores, setScores] = useState<LeaderboardScore[]>([]);
+  const [patrickScore, setPatrickScore] = useState(PATRICK_STARTING_SCORE);
   const [name, setName] = useState("");
   const [submittedAttemptId, setSubmittedAttemptId] = useState<number | null>(
     null
@@ -50,6 +51,7 @@ export default function Leaderboard({
 
       const data = (await response.json()) as {
         scores?: LeaderboardScore[];
+        patrickScore?: number;
         error?: string;
       };
 
@@ -58,6 +60,7 @@ export default function Leaderboard({
       }
 
       setScores(data.scores ?? []);
+      setPatrickScore(data.patrickScore ?? PATRICK_STARTING_SCORE);
     } catch (loadError) {
       setError(
         loadError instanceof Error
@@ -133,6 +136,7 @@ export default function Leaderboard({
 
       const data = (await response.json()) as {
         scores?: LeaderboardScore[];
+        patrickScore?: number;
         error?: string;
       };
 
@@ -141,6 +145,7 @@ export default function Leaderboard({
       }
 
       setScores(data.scores ?? []);
+      setPatrickScore(data.patrickScore ?? PATRICK_STARTING_SCORE);
       setSubmittedAttemptId(attemptId);
       setName("");
     } catch (submitError) {
@@ -163,12 +168,13 @@ export default function Leaderboard({
     {
       id: -1,
       name: "Patrick Davidson",
-      score: PATRICK_BENCHMARK,
+      score: patrickScore,
       created_at: "",
-    
     },
     ...scores,
-  ].slice(0, 10);
+  ]
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10);
 
   const getPositionLabel = (index: number) => {
     if (index === 0) return "🥇";
@@ -243,7 +249,7 @@ export default function Leaderboard({
         </div>
       )}
 
-      {canSubmit && score > PATRICK_BENCHMARK && (
+      {canSubmit && score > patrickScore && (
         <div className="mb-6 overflow-hidden rounded-2xl border border-[#62ff00]/40 bg-[#62ff00]/10">
           <div className="p-6 text-center md:p-8">
             <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#62ff00]">

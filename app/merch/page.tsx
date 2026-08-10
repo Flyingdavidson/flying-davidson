@@ -12,21 +12,21 @@ const collection = [
   {
     name: "Team 77 Hoodie",
     type: "Heavyweight teamwear",
-    image: "/images/merch/concepts/team-77-minimal-teamwear-v3.png",
+    image: "/images/merch/concepts/team-77-minimal-teamwear-v3.webp",
     alt: "Black Team 77 hoodie shown from the front and back",
     details: "Black / heavyweight cotton / embroidered chest detail",
   },
   {
     name: "Aircraft Graphic Tee",
     type: "Signature graphic",
-    image: "/images/merch/concepts/team-77-bold-race-v3.png",
+    image: "/images/merch/concepts/team-77-bold-race-v3.webp",
     alt: "Black and off-white Team 77 aircraft graphic T-shirts",
     details: "Black or off-white / heavyweight cotton / back print",
   },
   {
     name: "Technical Tee",
     type: "Limited artwork",
-    image: "/images/merch/concepts/team-77-technical-aircraft-v3.png",
+    image: "/images/merch/concepts/team-77-technical-aircraft-v3.webp",
     alt: "Team 77 technical aircraft graphic T-shirt and hoodie",
     details: "Off-white / heavyweight cotton / technical line artwork",
   },
@@ -38,7 +38,7 @@ export default function MerchPage() {
       <section className="relative flex min-h-[92svh] items-end border-b border-white/10 px-6 pb-14 pt-32 md:px-12 md:pb-20 lg:px-20">
         <div className="pointer-events-none absolute inset-0 overflow-hidden">
           <Image
-            src="/images/merch/team-77-hero.png"
+            src="/images/merch/team-77-hero.webp"
             alt="Team 77 supporters wearing Flying Davidson merchandise beside the aircraft"
             fill
             priority

@@ -22,6 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/hangar/zu-agk",
     "/hangar/zu-azx",
     "/hangar/zu-bed",
+    "/merch",
     "/media",
     "/media/biography",
     "/media/media-kit",

@@ -8,12 +8,14 @@ import { getGalleryImages } from "@/lib/media/getGalleryImages";
 export const metadata: Metadata = {
   title: "Patrick Davidson Helmet Collection",
   description:
-    "Explore Patrick Davidson's Red Bull flying helmets, from the original 2017 Doodle helmet to the 2022 glitter design and the next chapter with LIFT Aviation.",
+    "Explore Patrick Davidson's three Red Bull flying helmets, including the custom LIFT Aviation AV-2.1 KOR fixed-wing helmet introduced in 2026.",
 };
 
 const facebookVideo = "https://www.facebook.com/reel/329592072821055";
 const facebookEmbed =
   "https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F329592072821055&show_text=false&width=900";
+const liftProduct =
+  "https://liftaviationusa.com/products/av-2-1-kor-fixed-wing-helmet-customizable";
 
 export default function HelmetsPage() {
   const doodleGallery = getGalleryImages(
@@ -21,6 +23,9 @@ export default function HelmetsPage() {
   );
   const glitterGallery = getGalleryImages(
     "images/hangar/helmets/glitter-gallery",
+  );
+  const liftGallery = getGalleryImages(
+    "images/hangar/helmets/lift-gallery",
   );
 
   return (
@@ -40,10 +45,10 @@ export default function HelmetsPage() {
         <div className="relative z-10 flex min-h-[78vh] items-end md:min-h-screen">
           <div className="mx-auto w-full max-w-7xl px-6 pb-14 md:px-10 md:pb-20">
             <Link
-              href="/hangar#equipment"
+              href="/hangar#gear"
               className="mb-8 inline-block text-xs uppercase tracking-[0.3em] text-white/60 transition hover:text-white"
             >
-              ← Back to Equipment
+              ← Back to Gear
             </Link>
 
             <p className="mb-4 text-xs uppercase tracking-[0.45em] text-yellow-400">
@@ -82,8 +87,9 @@ export default function HelmetsPage() {
               A flying helmet is one of the most personal pieces of equipment
               a pilot owns. It protects, carries vital communications and
               becomes part of the pilot&apos;s visual identity. Patrick&apos;s
-              collection tells that story across two Red Bull designs, with a
-              new chapter now taking shape.
+              collection tells that story across three Red Bull designs, from
+              the original Doodle helmet to the lightweight LIFT AV-2.1 built
+              for his latest chapter of Air Race X competition.
             </p>
           </div>
 
@@ -102,9 +108,9 @@ export default function HelmetsPage() {
             />
             <Milestone
               number="03"
-              year="Coming Soon"
-              title="The LIFT Chapter"
-              copy="A third helmet is on the way and will be revealed with Flying Davidson's newest partner, LIFT Aviation."
+              year="2026"
+              title="The LIFT AV-2.1"
+              copy="The third Red Bull helmet brings a custom race identity to LIFT Aviation's lightweight AV-2.1 KOR fixed-wing platform."
             />
           </div>
         </div>
@@ -210,30 +216,93 @@ export default function HelmetsPage() {
         images={glitterGallery}
       />
 
-      <section className="relative border-y border-yellow-400/20 bg-yellow-400 px-6 py-24 text-black md:px-10 md:py-32">
+      <HelmetStory
+        id="lift-av21"
+        number="03"
+        year="2026"
+        title="The LIFT AV-2.1"
+        image="/images/hangar/helmets/lift-gallery/01.webp"
+        imageAlt="Patrick Davidson's custom Red Bull LIFT Aviation AV-2.1 helmet"
+      >
+        <p>
+          Helmet number three is a custom{" "}
+          <strong className="text-white">LIFT Aviation AV-2.1 KOR</strong>,
+          built on a carbon-fibre fixed-wing platform with an EPS and Koroyd
+          impact liner, active airflow and a single-pivot visor system.
+        </p>
+        <p>
+          Its Red Bull finish carries aircraft linework across the silver and
+          blue shell, while a Lightspeed H-Mod handles cockpit communications.
+          The complete helmet was painted, assembled, wired and tested in just
+          twelve days before helping Patrick return to the top step in Air Race
+          X Race 3.
+        </p>
+        <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+          <a
+            href={liftProduct}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex w-fit items-center gap-3 rounded-full bg-yellow-400 px-6 py-3 text-xs font-black uppercase tracking-[0.22em] text-black transition hover:bg-white"
+          >
+            Explore At LIFT
+            <span aria-hidden="true">↗</span>
+          </a>
+          <Link
+            href="/media/race-reports/2026-race-3"
+            className="inline-flex w-fit items-center gap-3 rounded-full border border-white/20 px-6 py-3 text-xs font-black uppercase tracking-[0.22em] text-white transition hover:border-yellow-400 hover:text-yellow-400"
+          >
+            Read The Race Story
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      </HelmetStory>
+
+      <section className="relative overflow-hidden border-y border-yellow-400/20 bg-yellow-400 px-6 py-24 text-black md:px-10 md:py-28">
         <div
-          className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 text-[14rem] font-black italic leading-none text-black/[0.05] md:text-[24rem]"
+          className="pointer-events-none absolute -right-8 top-1/2 -translate-y-1/2 text-[13rem] font-black italic leading-none text-black/[0.05] md:text-[24rem]"
           aria-hidden="true"
         >
-          03
+          2.1
         </div>
 
         <div className="relative mx-auto max-w-7xl">
-          <p className="text-xs font-black uppercase tracking-[0.45em]">
-            The Next Chapter · Coming Soon
-          </p>
-          <h2 className="mt-6 max-w-5xl text-5xl font-black uppercase italic leading-[0.86] md:text-8xl">
-            A New Helmet.
-            <br />
-            A New Partnership.
-          </h2>
-          <p className="mt-9 max-w-2xl text-lg font-medium leading-9 text-black/70">
-            Helmet number three will be revealed with Flying Davidson&apos;s
-            newest partner, LIFT Aviation. When it lands, it will take its
-            place here as the next piece of Patrick&apos;s flying history.
+          <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.45em]">
+                AV-2.1 KOR · Fixed Wing
+              </p>
+              <h2 className="mt-6 text-5xl font-black uppercase italic leading-[0.86] md:text-7xl">
+                Built Lighter.
+                <br />
+                Made To Race.
+              </h2>
+            </div>
+            <p className="max-w-2xl text-lg font-medium leading-9 text-black/70">
+              The AV-2.1 combines a lightweight shell, adjustable fit and
+              cooling-focused impact protection—giving Patrick a lower-fatigue
+              helmet for repeated high-G flying.
+            </p>
+          </div>
+
+          <div className="mt-16 grid gap-px overflow-hidden border border-black/15 bg-black/15 sm:grid-cols-2 lg:grid-cols-4">
+            <HelmetFeature value="1,350 g" label="Average with communications" />
+            <HelmetFeature value="Carbon Fibre" label="Lightweight outer shell" />
+            <HelmetFeature value="EPS + Koroyd" label="Ventilated impact liner" />
+            <HelmetFeature value="600 KEAS" label="Rated single-pivot visor" />
+          </div>
+
+          <p className="mt-5 text-xs leading-6 text-black/55">
+            Manufacturer-listed specifications; final weight varies by size
+            and communications configuration.
           </p>
         </div>
       </section>
+
+      <Gallery
+        title="The LIFT AV-2.1"
+        subtitle="Red Bull Helmet 03 · 2026"
+        images={liftGallery}
+      />
 
       <section className="border-t border-white/10">
         <Link
@@ -286,6 +355,7 @@ function Milestone({
 }
 
 function HelmetStory({
+  id,
   number,
   year,
   title,
@@ -294,6 +364,7 @@ function HelmetStory({
   reverse = false,
   children,
 }: {
+  id?: string;
   number: string;
   year: string;
   title: string;
@@ -303,7 +374,10 @@ function HelmetStory({
   children: React.ReactNode;
 }) {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 md:px-10 md:py-32">
+    <section
+      id={id}
+      className="mx-auto max-w-7xl scroll-mt-8 px-6 py-24 md:px-10 md:py-32"
+    >
       <div className="grid items-center gap-14 lg:grid-cols-2 lg:gap-20">
         <div
           className={`relative aspect-[4/5] overflow-hidden rounded-3xl bg-white/5 ${
@@ -337,5 +411,18 @@ function HelmetStory({
         </div>
       </div>
     </section>
+  );
+}
+
+function HelmetFeature({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="bg-yellow-400 p-7 md:p-8">
+      <p className="text-2xl font-black uppercase italic md:text-3xl">
+        {value}
+      </p>
+      <p className="mt-3 text-[10px] font-bold uppercase tracking-[0.25em] text-black/55">
+        {label}
+      </p>
+    </div>
   );
 }

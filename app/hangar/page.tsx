@@ -167,7 +167,18 @@ const pilotGear = [
     ability: "Protection & Communication",
     gallery: "/hangar/helmets",
     story:
-      "From the 2017 Doodle helmet to the 2022 glitter design—and a third chapter coming soon with LIFT Aviation.",
+      "Three Red Bull designs spanning the 2017 Doodle helmet, the 2022 glitter finish and the new LIFT Aviation chapter.",
+  },
+  {
+    name: "LIFT Aviation AV-2.1",
+    model: "KOR Fixed-Wing Helmet",
+    role: "Air Race X Flight Equipment",
+    image: "/images/hangar/helmets/lift-gallery/04.webp",
+    type: "Pilot Equipment",
+    ability: "Lightweight Impact Protection",
+    gallery: "/hangar/helmets#lift-av21",
+    story:
+      "Patrick's third Red Bull helmet combines LIFT's carbon-fibre AV-2.1 platform, Koroyd impact technology and custom race communications.",
   },
 ];
 
@@ -224,7 +235,7 @@ export default function HangarPage() {
         <div className="mt-20 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {planes.map((plane) => (
             <Link
-              key={plane.name}
+              key={plane.registration}
               href={plane.gallery}
               className="group block overflow-hidden border border-white/10 bg-white/[0.03] transition duration-500 hover:-translate-y-1 hover:border-yellow-500/50"
             >

@@ -22,6 +22,18 @@ const securityHeaders = [
     value:
       "camera=(), microphone=(), geolocation=(), payment=(), usb=(), browsing-topics=()",
   },
+  {
+    key: "Cross-Origin-Opener-Policy",
+    value: "same-origin",
+  },
+  {
+    key: "Origin-Agent-Cluster",
+    value: "?1",
+  },
+  {
+    key: "X-Permitted-Cross-Domain-Policies",
+    value: "none",
+  },
 ];
 
 const nextConfig: NextConfig = {
@@ -30,7 +42,7 @@ const nextConfig: NextConfig = {
   },
 
   images: {
-    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
     qualities: [75, 90],
   },
 

@@ -9,10 +9,9 @@ export default function Hangar() {
       {/* Mobile */}
 <div className="absolute inset-0 md:hidden">
   <Image
-    src="/images/hangar/hangar-mobile.jpg"
+    src="/images/hangar/hangar-mobile.webp"
     alt="Inside Patrick Davidson's hangar"
     fill
-    priority
     sizes="100vw"
     className="object-cover"
   />
@@ -21,10 +20,9 @@ export default function Hangar() {
 {/* Desktop */}
 <div className="absolute inset-0 hidden md:block">
   <Image
-    src="/images/hangar/redbull-one-wing.jpg"
+    src="/images/hangar/redbull-one-wing.webp"
     alt="Inside Patrick Davidson's hangar"
     fill
-    priority
     sizes="100vw"
     className="object-cover object-center"
   />

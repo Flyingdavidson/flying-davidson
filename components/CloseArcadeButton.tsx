@@ -1,13 +1,17 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 export default function CloseArcadeButton() {
+  const router = useRouter();
+
   const closeArcade = () => {
     if (window.opener) {
       window.close();
       return;
     }
 
-    window.location.href = "/";
+    router.push("/");
   };
 
   return (

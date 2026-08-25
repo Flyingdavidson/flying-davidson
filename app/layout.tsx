@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 
 import "./globals.css";
 
-const siteUrl = "https://flyingdavidson.com";
+const siteUrl = "https://www.flyingdavidson.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

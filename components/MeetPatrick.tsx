@@ -10,10 +10,10 @@ export default function MeetPatrick() {
       className="relative min-h-screen overflow-hidden bg-black text-white"
     >
       <Image
-        src="/images/patrick/meet-patrick.jpg"
+        src="/images/patrick/meet-patrick.webp"
         alt="Patrick Davidson"
         fill
-        priority
+        sizes="100vw"
         className="object-cover object-center"
       />
 

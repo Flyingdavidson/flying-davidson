@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { isRace3Published } from "@/lib/race3Publication";
-const baseUrl = "https://flyingdavidson.com";
+const baseUrl = "https://www.flyingdavidson.com";
 
 export const dynamic = "force-dynamic";
 

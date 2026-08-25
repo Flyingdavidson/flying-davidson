@@ -11,8 +11,8 @@ export default function AirRaceX() {
           src="/images/air-race-x/arx-hero.jpg"
           alt="Patrick Davidson Air Race X aircraft"
           fill
+          sizes="100vw"
           className="object-cover object-[75%_32%]"
-          priority
         />
 
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/65 to-black/5" />

@@ -1,7 +1,7 @@
 "use client";
 
-import Image from "next/image";
-import { useEffect, useState } from "react";
+import { getImageProps } from "next/image";
+import { useEffect, useState, type CSSProperties } from "react";
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
@@ -21,44 +21,58 @@ export default function Hero() {
   const nameMove = Math.min(scrollY * 0.08, 45);
   const fade = Math.max(1 - scrollY / 600, 0);
 
+  const {
+    props: { srcSet: mobileSrcSet, ...mobileImageProps },
+  } = getImageProps({
+    src: "/images/hero/hero-mobile.jpg",
+    alt: "Patrick Davidson",
+    fill: true,
+    fetchPriority: "high",
+    loading: "eager",
+    quality: 90,
+    sizes: "100vw",
+  });
+
+  const {
+    props: { srcSet: desktopSrcSet },
+  } = getImageProps({
+    src: "/images/hero/hero-main.webp",
+    alt: "Patrick Davidson",
+    fill: true,
+    fetchPriority: "high",
+    loading: "eager",
+    quality: 90,
+    sizes: "100vw",
+  });
+
   return (
     <section
       id="top"
       className="relative min-h-screen overflow-hidden bg-black text-white"
     >
-      {/* Mobile Hero Image */}
-      <div className="absolute inset-0 md:hidden">
-        <Image
-          src="/images/hero/hero-mobile.jpg"
-          alt="Patrick Davidson"
-          fill
-          priority
-          quality={90}
-          sizes="100vw"
-          className="object-cover object-[center_top]"
-        />
-      </div>
-
-      {/* Desktop Hero Image */}
       <div
-        className="absolute inset-0 hidden scale-105 md:block"
+        className="hero-media absolute inset-0"
         style={{
-          transform: `translateY(${imageMove + 40}px) scale(1.05)`,
-        }}
+          "--hero-image-offset": `${imageMove + 40}px`,
+        } as CSSProperties}
       >
-        <Image
-          src="/images/hero/hero-main.jpg"
-          alt="Patrick Davidson"
-          fill
-          priority
-          quality={90}
-          sizes="100vw"
-          className="object-cover object-[center_18%]"
-        />
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcSet={desktopSrcSet}
+            sizes="100vw"
+          />
+          <img
+            {...mobileImageProps}
+            srcSet={mobileSrcSet}
+            alt="Patrick Davidson"
+            className="object-cover object-[center_top] md:object-[center_18%]"
+          />
+        </picture>
       </div>
 
       {/* Overlays */}
-      <div className="pointer-event-none absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-black/20" />
       <div className="pointer-events-none absolute inset-0 bg-black/20" />
 

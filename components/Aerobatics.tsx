@@ -64,10 +64,9 @@ export default function Aerobatics() {
       <section id="aerobatics" className="bg-black text-white">
         <div className="relative min-h-screen overflow-hidden">
           <Image
-            src="/images/aerobatics/aero-flag.jpg"
+            src="/images/aerobatics/aero-flag.webp"
             alt="Patrick Davidson aerobatic display with South African flag"
             fill
-            priority
             sizes="100vw"
             className="object-cover object-center"
           />

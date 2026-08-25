@@ -5,7 +5,18 @@ export default function Footer() {
         <p>
           © 2026 Patrick Davidson Aerobatics (Pty) Ltd. All rights reserved.
         </p>
-        <p>Designed and developed by Greg Ritz.</p>
+        <p>
+          Designed, developed and built by{" "}
+          <a
+            href="https://hola4.co.za/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-white/70 underline decoration-white/20 underline-offset-4 transition hover:text-yellow-400 hover:decoration-yellow-400/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+          >
+            hola4
+          </a>
+          .
+        </p>
       </div>
     </footer>
   );

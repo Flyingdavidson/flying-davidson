@@ -10,10 +10,9 @@ export default function Contact() {
       {/* Mobile Background */}
       <div className="absolute inset-0 bg-black/45 md:hidden">
         <Image
-          src="/images/contact/connect-mobile.jpg"
+          src="/images/contact/connect-mobile.webp"
           alt="Patrick Davidson and Greg Ritz planning"
           fill
-          priority
           sizes="100vw"
           className="object-cover object-center"
         />
@@ -25,7 +24,6 @@ export default function Contact() {
           src="/images/contact/connect-planning.jpeg"
           alt="Patrick Davidson and Greg Ritz planning"
           fill
-          priority
           sizes="100vw"
           className="object-cover object-center"
         />

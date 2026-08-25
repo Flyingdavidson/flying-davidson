@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/"],
     },
-    host: "https://flyingdavidson.com",
-    sitemap: "https://flyingdavidson.com/sitemap.xml",
+    host: "https://www.flyingdavidson.com",
+    sitemap: "https://www.flyingdavidson.com/sitemap.xml",
   };
 }

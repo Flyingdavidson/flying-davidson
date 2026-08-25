@@ -36,10 +36,9 @@ export default function MediaCentre() {
         {/* Mobile */}
         <div className="absolute inset-0 md:hidden">
           <Image
-            src="/images/media/fans-selfie-mobile.jpg"
+            src="/images/media/fans-selfie-mobile.webp"
             alt="Patrick Davidson with fans"
             fill
-            priority
             sizes="100vw"
             className="object-cover object-center"
           />
@@ -48,10 +47,9 @@ export default function MediaCentre() {
         {/* Desktop */}
         <div className="absolute inset-0 hidden md:block">
           <Image
-            src="/images/media/fans-selfie.jpg"
+            src="/images/media/fans-selfie.webp"
             alt="Patrick Davidson with fans"
             fill
-            priority
             sizes="100vw"
             className="object-cover object-center"
           />

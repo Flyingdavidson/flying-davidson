@@ -9,6 +9,9 @@ import MediaCentre from "@/components/MediaCentre";
 import Contact from "@/components/Contact";
 
 export const metadata: Metadata = {
+  title: {
+    absolute: "Flying Davidson | Patrick Davidson",
+  },
   alternates: {
     canonical: "/",
   },

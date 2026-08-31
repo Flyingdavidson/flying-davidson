@@ -21,7 +21,8 @@ import {
   shuffle,
 } from "./quizData";
 
-type GameState = "intro" | "playing" | "results";
+type GameState = "intro" | "countdown" | "playing" | "results";
+type CountdownValue = 3 | 2 | 1 | "GO";
 
 type GameResult = {
   score: number;
@@ -38,6 +39,8 @@ export default function CockpitChallengeClient() {
     Partial<Record<AircraftId, AircraftId>>
   >({});
   const [elapsedMs, setElapsedMs] = useState(0);
+  const [countdownValue, setCountdownValue] =
+    useState<CountdownValue>(3);
   const [result, setResult] = useState<GameResult | null>(null);
   const [scores, setScores] = useState<CockpitLeaderboardScore[]>([]);
   const [leaderboardLoading, setLeaderboardLoading] = useState(true);
@@ -47,6 +50,10 @@ export default function CockpitChallengeClient() {
 
   const startedAtRef = useRef(0);
   const resultRef = useRef<HTMLDivElement | null>(null);
+  const questionRefs = useRef<
+    Partial<Record<AircraftId, HTMLElement | null>>
+  >({});
+  const autoScrollTimeoutRef = useRef<number | null>(null);
 
   const loadLeaderboard = useCallback(async () => {
     try {
@@ -95,6 +102,41 @@ export default function CockpitChallengeClient() {
     return () => window.clearInterval(timer);
   }, [gameState]);
 
+  useEffect(() => {
+    if (gameState !== "countdown") {
+      return;
+    }
+
+    const sequence: CountdownValue[] = [2, 1, "GO"];
+    let sequenceIndex = 0;
+
+    const timer = window.setInterval(() => {
+      const nextValue = sequence[sequenceIndex];
+
+      if (nextValue !== undefined) {
+        setCountdownValue(nextValue);
+        sequenceIndex += 1;
+        return;
+      }
+
+      window.clearInterval(timer);
+      startedAtRef.current = Date.now();
+      setElapsedMs(0);
+      setGameState("playing");
+    }, 800);
+
+    return () => window.clearInterval(timer);
+  }, [gameState]);
+
+  useEffect(
+    () => () => {
+      if (autoScrollTimeoutRef.current !== null) {
+        window.clearTimeout(autoScrollTimeoutRef.current);
+      }
+    },
+    []
+  );
+
   const beginGame = useCallback(() => {
     const shuffledQuestions = shuffle(cockpitQuestions).map((question) => ({
       ...question,
@@ -105,11 +147,11 @@ export default function CockpitChallengeClient() {
     setSelections({});
     setResult(null);
     setElapsedMs(0);
+    setCountdownValue(3);
     setNameError("");
     setLeaderboardError("");
     setLatestEntryId(null);
-    startedAtRef.current = Date.now();
-    setGameState("playing");
+    setGameState("countdown");
 
     window.requestAnimationFrame(() => {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -130,6 +172,41 @@ export default function CockpitChallengeClient() {
 
   const answeredCount = Object.keys(selections).length;
   const remainingCount = questions.length - answeredCount;
+
+  const selectAircraft = (
+    questionIndex: number,
+    questionId: AircraftId,
+    choiceId: AircraftId
+  ) => {
+    const nextSelections = {
+      ...selections,
+      [questionId]: choiceId,
+    };
+
+    setSelections(nextSelections);
+
+    const nextQuestion = questions
+      .slice(questionIndex + 1)
+      .find((question) => !nextSelections[question.aircraftId]);
+
+    if (!nextQuestion) {
+      return;
+    }
+
+    if (autoScrollTimeoutRef.current !== null) {
+      window.clearTimeout(autoScrollTimeoutRef.current);
+    }
+
+    autoScrollTimeoutRef.current = window.setTimeout(() => {
+      questionRefs.current[nextQuestion.aircraftId]?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+        block: "start",
+      });
+      autoScrollTimeoutRef.current = null;
+    }, 120);
+  };
 
   const submitAnswers = async () => {
     if (remainingCount > 0 || gameState !== "playing" || isSaving) {
@@ -289,7 +366,37 @@ export default function CockpitChallengeClient() {
           </section>
         )}
 
-        {gameState !== "intro" && (
+        {gameState === "countdown" && (
+          <section
+            aria-live="assertive"
+            aria-atomic="true"
+            className="relative mt-10 flex min-h-[65vh] items-center justify-center overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#080808] px-5 text-center md:mt-14"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(215,180,106,0.18),transparent_48%)]" />
+            <div
+              key={countdownValue}
+              className="relative animate-pulse py-16"
+            >
+              <p className="text-[10px] font-black uppercase tracking-[0.36em] text-[#d7b46a] sm:text-xs">
+                Get ready, {pilotName}
+              </p>
+              <p
+                className={`mt-5 font-black uppercase leading-none tracking-[-0.08em] ${
+                  countdownValue === "GO"
+                    ? "text-[clamp(7rem,32vw,16rem)] text-[#d7b46a]"
+                    : "text-[clamp(10rem,45vw,24rem)] text-white"
+                }`}
+              >
+                {countdownValue}
+              </p>
+              <p className="mt-6 text-[10px] font-bold uppercase tracking-[0.28em] text-white/40">
+                The clock starts when the cockpit cards appear
+              </p>
+            </div>
+          </section>
+        )}
+
+        {(gameState === "playing" || gameState === "results") && (
           <>
             <div
               ref={resultRef}
@@ -368,7 +475,10 @@ export default function CockpitChallengeClient() {
                 return (
                   <article
                     key={question.aircraftId}
-                    className="overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#080808]"
+                    ref={(element) => {
+                      questionRefs.current[question.aircraftId] = element;
+                    }}
+                    className="scroll-mt-44 overflow-hidden rounded-[1.5rem] border border-white/10 bg-[#080808]"
                   >
                     <div className="grid lg:grid-cols-[0.95fr_1.05fr]">
                       <div className="relative aspect-[4/3] overflow-hidden border-b border-white/10 lg:min-h-[430px] lg:border-b-0 lg:border-r">
@@ -408,10 +518,11 @@ export default function CockpitChallengeClient() {
                                 key={choiceId}
                                 type="button"
                                 onClick={() =>
-                                  setSelections((current) => ({
-                                    ...current,
-                                    [question.aircraftId]: choiceId,
-                                  }))
+                                  selectAircraft(
+                                    questionIndex,
+                                    question.aircraftId,
+                                    choiceId
+                                  )
                                 }
                                 disabled={gameState === "results"}
                                 aria-pressed={isSelected}
@@ -500,7 +611,7 @@ export default function CockpitChallengeClient() {
           </>
         )}
 
-        {gameState !== "playing" && (
+        {(gameState === "intro" || gameState === "results") && (
           <CockpitLeaderboard
             scores={scores}
             isLoading={leaderboardLoading}

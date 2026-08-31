@@ -854,7 +854,7 @@ const green = "#ffffff";
     <section className="min-h-screen bg-black px-3 pb-16 pt-10 text-white sm:px-4 md:px-8 md:py-20">
       <div className="mx-auto max-w-6xl">
         <div className="mb-8 flex items-center justify-between gap-4">
-          <CloseArcadeButton />
+          <CloseArcadeButton href="/arcade" label="All Games" />
 
           <div className="text-right">
             <p className="text-xs uppercase tracking-[0.4em] text-[#62ff00]">

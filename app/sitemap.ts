@@ -8,6 +8,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "",
     "/arcade",
+    "/arcade/cockpit-challenge",
+    "/arcade/pylon-challenge",
     "/championship",
     "/hangar",
     "/hangar/ac-tracktech-t1x2",

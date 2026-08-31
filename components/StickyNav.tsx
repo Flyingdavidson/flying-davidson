@@ -134,9 +134,12 @@ export default function StickyNav() {
         id="mobile-navigation"
         aria-hidden={!open}
         inert={!open ? true : undefined}
-        className={`overflow-hidden border-t border-white/10 bg-black/95 transition-all duration-300 md:hidden ${
-          open ? "max-h-[700px]" : "max-h-0 border-transparent"
+        className={`border-t border-white/10 bg-black/95 transition-[max-height,border-color] duration-300 md:hidden ${
+          open
+            ? "max-h-[calc(100dvh-85px)] overflow-y-auto overscroll-contain"
+            : "max-h-0 overflow-hidden border-transparent"
         }`}
+        style={{ WebkitOverflowScrolling: "touch" }}
       >
         <nav
           aria-label="Mobile navigation"
@@ -173,7 +176,7 @@ export default function StickyNav() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={closeMenu}
+                  onNavigate={closeMenu}
                   className="block py-3 text-xs font-bold uppercase tracking-[0.24em] text-white/60 transition hover:text-white"
                 >
                   {link.label}

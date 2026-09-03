@@ -12,10 +12,19 @@ const PATRICK_STARTING_SCORE = 77;
 
 async function getLeaderboard(sql: NeonQueryFunction<false, false>) {
   const [scores, patrickResult] = await Promise.all([
+    // Keep attempts for Patrick's delayed benchmark, but rank each name once.
     sql`
       SELECT id, name, score, created_at
-      FROM leaderboard
-      ORDER BY score DESC, created_at ASC
+      FROM (
+        SELECT id, name, score, created_at,
+          ROW_NUMBER() OVER (
+            PARTITION BY LOWER(TRIM(REGEXP_REPLACE(name, '[[:space:]]+', ' ', 'g')))
+            ORDER BY score DESC, created_at ASC, id ASC
+          ) AS player_rank
+        FROM leaderboard
+      ) AS personal_bests
+      WHERE player_rank = 1
+      ORDER BY score DESC, created_at ASC, id ASC
       LIMIT 10
     `,
     sql`

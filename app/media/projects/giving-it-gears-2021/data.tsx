@@ -3,7 +3,7 @@ import type { ProjectData } from "@/app/types/project";
 export const basePath = "/images/projects/giving-it-gears-2021";
 
 export const redBullEpisodeUrl =
-  "https://www.redbull.com/za-en/episodes/giving-it-gears-with-jason-goliath-s1-e1";
+  "https://www.redbull.tv/en_GB/page/rrn:content:episode-videos:cc2d75b7-155d-4a42-84b1-b696b8f0f311/giving-it-gears-with-jason-goliath-s1-e1?cid=top_results";
 
 export const btsImages = Array.from(
   { length: 18 },

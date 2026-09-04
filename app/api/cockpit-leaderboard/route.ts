@@ -53,8 +53,16 @@ async function ensureTable(sql: NeonQueryFunction<false, false>) {
 async function getLeaderboard(sql: NeonQueryFunction<false, false>) {
   const scores = await sql`
     SELECT id, name, score, duration_ms, created_at
-    FROM cockpit_leaderboard
-    ORDER BY score DESC, duration_ms ASC, created_at ASC
+    FROM (
+      SELECT id, name, score, duration_ms, created_at,
+        ROW_NUMBER() OVER (
+          PARTITION BY LOWER(TRIM(REGEXP_REPLACE(name, '[[:space:]]+', ' ', 'g')))
+          ORDER BY score DESC, duration_ms ASC, created_at ASC, id ASC
+        ) AS player_rank
+      FROM cockpit_leaderboard
+    ) AS personal_bests
+    WHERE player_rank = 1
+    ORDER BY score DESC, duration_ms ASC, created_at ASC, id ASC
     LIMIT 10
   `;
 

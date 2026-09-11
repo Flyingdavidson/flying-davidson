@@ -111,7 +111,7 @@
   .page { padding-top:85px; } .roomHeader { padding:21px 6%; font-size:10px; gap:12px; }
   .embargo { padding:12px 6%; font-size:12px; }
   .hero { display:flex; flex-direction:column; align-items:stretch; min-height:0; }
-  .heroDesktop { display:none; } .heroMobile { display:block; position:relative; height:280px; }
+  .heroDesktop { display:none; } .heroMobile { display:block; position:relative; height:clamp(280px,72vw,480px); }
   .heroMobile::after { content:""; position:absolute; inset:0; background:linear-gradient(0deg,#0b0d0e 0%,transparent 24%); }
   .mobilePhoto { object-fit:cover; object-position:center 57%; }
   .heroCopy { padding:10px 6% 42px; width:100%; }

@@ -43,9 +43,10 @@ export default function PressAccess({ admin = false }: { admin?: boolean }) {
 
   return <main className={styles.gate}>
     <div className={styles.gateInner}>
-      <p className={styles.eyebrow}>Flying Davidson / Team 77</p>
-      <h1>{admin ? "Your press dashboard." : "The official press room."}</h1>
-      <p className={styles.gateIntro}>{admin ? "Open your private management link to view media activity." : "Official stories, photographs and media resources. Public access opens Sunday 13 September 2026 at 15:30 SAST."}</p>
+      <p className={styles.eyebrow}>{admin ? "Flying Davidson / Team 77" : "Gqeberha, South Africa / AIR RACE X 2026"}</p>
+      <h1 className={admin ? undefined : styles.gateHeadline}>{admin ? "Your press dashboard." : <>Local pilot.<span>Global story.</span></>}</h1>
+      <p className={styles.gateIntro}>{admin ? "Open your private management link to view media activity." : "Red Bull pilot Patrick Davidson takes Gqeberha to the AIR RACE X world stage. Get the official story behind his 2026 finale with Emotive-backed Team 77 before it goes public."}</p>
+      {!admin && <p className={styles.gateResources}>Press release <span aria-hidden="true">·</span> 9 photographs <span aria-hidden="true">·</span> Media pack</p>}
       {!ready && <p>Preparing access…</p>}
       {ready && token && <form onSubmit={submit} className={styles.accessForm}>
         {!admin && <>
@@ -54,10 +55,10 @@ export default function PressAccess({ admin = false }: { admin?: boolean }) {
           <label className={styles.check}><input type="checkbox" name="embargo" required /><span>I agree not to publish or share the result or embargoed materials before <strong>Sunday 13 September 2026 at 15:30 SAST / 13:30 UTC</strong>.</span></label>
           <p className={styles.formNote}>Team 77 uses your details to record embargo acceptance and respond to media enquiries. Your access is remembered on this browser.</p>
         </>}
-        <button className={styles.primary} disabled={pending}>{pending ? "Opening…" : admin ? "Open dashboard" : "Open press room"}</button>
+        <button className={styles.primary} disabled={pending}>{pending ? "Opening…" : admin ? "Open dashboard" : "Get the story"}</button>
         {error && <p role="alert" className={styles.error}>{error}</p>}
       </form>}
-      {ready && !token && <p className={styles.formNote}>{admin ? "Please use the private dashboard link supplied to Greg." : "If you have a media invitation, open the link Greg sent you. For early access or an interview, contact Greg below."}</p>}
+      {ready && !token && <p className={styles.formNote}>{admin ? "Please use the private dashboard link supplied to Greg." : "Public access opens Sunday 13 September 2026 at 15:30 SAST. For your media preview, use the invitation Greg sent you, or contact him below."}</p>}
       <a className={styles.contactLink} href="mailto:greg@flyingdavidson.com">greg@flyingdavidson.com ↗</a>
     </div>
   </main>;

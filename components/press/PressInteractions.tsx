@@ -30,6 +30,13 @@ export default function PressInteractions({ enabled }: { enabled: boolean }) {
     }
     if (!viewId.current) viewId.current = crypto.randomUUID();
     record("view", "", viewId.current);
+    let videoRecorded = false;
+    function played(event: Event) {
+      if (!videoRecorded && event.target instanceof HTMLVideoElement && event.target.dataset.pressVideo) {
+        videoRecorded = true;
+        record("link", "video-play");
+      }
+    }
     async function clicked(event: MouseEvent) {
       const button = (event.target as Element).closest<HTMLElement>("[data-press-action]");
       if (!button) return;
@@ -44,7 +51,11 @@ export default function PressInteractions({ enabled }: { enabled: boolean }) {
       }
     }
     document.addEventListener("click", clicked);
-    return () => document.removeEventListener("click", clicked);
+    document.addEventListener("play", played, true);
+    return () => {
+      document.removeEventListener("click", clicked);
+      document.removeEventListener("play", played, true);
+    };
   }, [enabled]);
 
   return <p className={styles.copyNotice} role="status" aria-live="polite">{notice}</p>;

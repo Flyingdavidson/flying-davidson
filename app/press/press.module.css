@@ -49,6 +49,9 @@
 .photoActions { display:flex; flex-wrap:wrap; gap:12px 20px; margin-top:16px; font-size:12px; color:#d6b56d; }
 .photoActions button { color:#d4d9db; cursor:pointer; text-decoration:underline; text-underline-offset:4px; }
 .usageNote { color:#97a4aa; font-size:12px; line-height:1.8; margin:36px 0 0; max-width:940px; }
+.cockpitVideo { padding:0 5% 73px; max-width:1500px; margin:auto; }
+.videoPlayer { display:block; width:100%; height:auto; aspect-ratio:16/9; background:#080a0b; object-fit:contain; }
+.videoDetails { display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px 20px; margin-top:18px; font-size:12px; line-height:1.7; color:#aebbc1; }
 .textLink { color:#d6b56d; font-size:13px; text-decoration:underline; text-underline-offset:5px; }
 .story { display:grid; grid-template-columns:1fr 2.2fr; gap:65px; padding:75px 5%; background:#101415; border-block:1px solid #ffffff12; }
 .storyAside { max-width:270px; margin-left:auto; }
@@ -124,6 +127,7 @@
   .actions { gap:12px; margin-top:26px; } .primary,.secondary { min-height:48px; padding:14px 17px; gap:13px; font-size:12px; }
   .sectionNav { padding:22px 6%; justify-content:flex-start; gap:16px 26px; }
   .downloads,.photographs { padding:45px 6%; } .sectionHeading h2 { font-size:34px; letter-spacing:-1.1px; }
+  .cockpitVideo { padding:0 6% 45px; } .cockpitVideo .sectionHeading { align-items:flex-start; }
   .downloadGrid { grid-template-columns:1fr; gap:30px; } .number { margin-bottom:18px; } .downloadCard p { max-width:100%; }
   .photoGrid { grid-template-columns:1fr; gap:34px; } .photoCard figcaption>p { font-size:13px; }
   .photoActions { gap:18px; font-size:13px; } .photoActions>a,.photoActions>button { padding-block:7px; }

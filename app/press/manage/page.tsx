@@ -40,6 +40,7 @@ export default async function PressDashboard() {
       {!stats.sources.length && <tr><td colSpan={6}>No newsroom activity has been recorded yet.</td></tr>}
     </tbody></table></div>
     <h2>Resources requested</h2>
+    <p>Cockpit video plays: {Number(stats.totals.video_plays).toLocaleString("en-ZA")}. Counted once per page visit when playback starts; video downloads appear in the table below.</p>
     <div className={styles.tableWrap}><table><thead><tr><th>Resource</th><th>Files served</th></tr></thead><tbody>{stats.assets.map((row) => <tr key={String(row.asset)}><td>{findPressAsset(String(row.asset))?.title ?? String(row.asset)}</td><td>{Number(row.downloads)}</td></tr>)}{!stats.assets.length && <tr><td colSpan={2}>No files have been requested yet.</td></tr>}</tbody></table></div>
     <h2>Early-access registrations</h2>
     <p>Names and email addresses are self-reported. The time records acknowledgement of the embargo. Keep this information within Team 77.</p>

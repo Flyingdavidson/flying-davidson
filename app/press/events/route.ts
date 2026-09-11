@@ -5,7 +5,7 @@ import { getPressAccess, isSameOrigin, normalizePressSource, SOURCE_COOKIE, VISI
 import { isPressPublished } from "@/lib/press/publication";
 import { isAutomatedRequest, recordPressEvent } from "@/lib/press/analytics";
 
-const links = new Set(["release", "downloads", "photos", "broadcast", "email", "phone", "contact-section", "copy-release", "copy-caption", "copy-link", "biography", "emotive", "red-bull", "instagram", "facebook", "youtube", "arx"]);
+const links = new Set(["release", "downloads", "photos", "video", "video-play", "broadcast", "email", "phone", "contact-section", "copy-release", "copy-caption", "copy-link", "biography", "emotive", "red-bull", "instagram", "facebook", "youtube", "arx"]);
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 export async function POST(request: Request) {

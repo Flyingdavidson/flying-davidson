@@ -46,7 +46,7 @@ export default function PressAccess({ admin = false }: { admin?: boolean }) {
       <p className={styles.eyebrow}>{admin ? "Flying Davidson / Team 77" : "Gqeberha, South Africa / AIR RACE X 2026"}</p>
       <h1 className={admin ? undefined : styles.gateHeadline}>{admin ? "Your press dashboard." : <>Local pilot.<span>Global story.</span></>}</h1>
       <p className={styles.gateIntro}>{admin ? "Open your private management link to view media activity." : "Red Bull pilot Patrick Davidson takes Gqeberha to the AIR RACE X world stage. Get the official story behind his 2026 finale with Emotive-backed Team 77 before it goes public."}</p>
-      {!admin && <p className={styles.gateResources}>Press release <span aria-hidden="true">·</span> 9 photographs <span aria-hidden="true">·</span> Media pack</p>}
+      {!admin && <p className={styles.gateResources}>Press release <span aria-hidden="true">·</span> 9 photographs <span aria-hidden="true">·</span> Cockpit video <span aria-hidden="true">·</span> Media pack</p>}
       {!ready && <p>Preparing access…</p>}
       {ready && token && <form onSubmit={submit} className={styles.accessForm}>
         {!admin && <>

@@ -1,5 +1,6 @@
 import "server-only";
 import photos from "./photos.json";
+import { cockpitVideo } from "./video";
 
 export { photos };
 export type PressAsset = { id: string; title: string; file: string; type: string };
@@ -10,6 +11,7 @@ export const pressAssets: PressAsset[] = [
   { id: "media-pack-pdf", title: "Media pack PDF", file: "Patrick_Davidson_ARX_2026_Media_Pack.pdf", type: "application/pdf" },
   { id: "complete-pack", title: "Complete media resources", file: "Patrick_Davidson_ARX_2026_Media_Resources.zip", type: "application/zip" },
   { id: "captions", title: "Photograph captions", file: "Captions_and_usage.txt", type: "text/plain; charset=utf-8" },
+  cockpitVideo,
   ...photos.map((photo) => ({ id: photo.id, title: photo.title, file: photo.file, type: "image/jpeg" })),
 ];
 

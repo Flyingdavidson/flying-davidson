@@ -7,6 +7,7 @@ import { getPressAccess } from "@/lib/press/access";
 import { getPressContent } from "@/lib/press/storage";
 import { isPressPublished, PRESS_PUBLICATION_LABEL } from "@/lib/press/publication";
 import { photos } from "@/lib/press/assets";
+import { cockpitVideo } from "@/lib/press/video";
 import styles from "./press.module.css";
 
 export const dynamic = "force-dynamic";
@@ -60,6 +61,7 @@ export default async function PressPage() {
     <nav className={styles.sectionNav} aria-label="Press room sections">
       <a href="#downloads" data-press-action="downloads">Downloads</a>
       <a href="#photographs" data-press-action="photos">Photographs</a>
+      <a href="#cockpit-video" data-press-action="video">Cockpit video</a>
       <a href="#release" data-press-action="release">The story</a>
       <a href="#contact" data-press-action="contact-section">Media enquiries</a>
     </nav>
@@ -68,17 +70,27 @@ export default async function PressPage() {
       <div className={styles.downloadGrid}>
         <article className={styles.downloadCard}><span className={styles.number}>01 / The story</span><h3>Press release</h3><p>The result, the background and the details your newsroom needs.</p><div className={styles.fileLinks}><a download href="/press/download/release-pdf">PDF ↓</a><a download href="/press/download/release-word">Word ↓</a><a download href="/press/download/release-text">Text ↓</a></div></article>
         <article className={styles.downloadCard}><span className={styles.number}>02 / The background</span><h3>Media pack</h3><p>Patrick’s profile, Emotive, the AIR RACE X format and interview angles.</p><div className={styles.fileLinks}><a download href="/press/download/media-pack-pdf">Six-page PDF ↓</a></div></article>
-        <article className={styles.downloadCard}><span className={styles.number}>03 / Everything together</span><h3>Complete resources</h3><p>The release, media pack, nine supplied photographs and captions.</p><div className={styles.fileLinks}><a download href="/press/download/complete-pack">Download ZIP · 23.2 MB ↓</a></div></article>
+        <article className={styles.downloadCard}><span className={styles.number}>03 / Media files</span><h3>Photos &amp; footage</h3><p>The release, media pack, nine supplied photographs and captions in one ZIP. Download the cockpit video separately below.</p><div className={styles.fileLinks}><a download href="/press/download/complete-pack">Media ZIP · 23.2 MB ↓</a><a download href="/press/download/cockpit-video">Cockpit video · MP4 ↓</a></div></article>
       </div>
     </section>
     <section id="photographs" className={styles.photographs}>
       <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>The aircraft. The pilot. The detail.</p><h2>Pictures that tell the story.</h2></div><a download className={styles.textLink} href="/press/download/captions">Download all captions ↓</a></div>
-      <p className={styles.sectionIntro}>Nine photographs supplied by Team 77 for editorial use. Download the original files individually, or get everything in the media pack.</p>
+      <p className={styles.sectionIntro}>Nine photographs supplied by Team 77 for editorial use. Download the original files individually, or get all nine in the media pack.</p>
       <div className={styles.photoGrid}>{photos.map((photo, index) => <figure key={photo.id} className={styles.photoCard}>
         <div className={styles.photoFrame}><Image src={`/press/image/${photo.id}`} alt={photo.caption} fill unoptimized sizes="(max-width: 640px) 100vw, (max-width: 1000px) 50vw, 33vw" className={styles.galleryPhoto} /></div>
         <figcaption><div className={styles.photoTitle}><h3>{photo.title}</h3><span>{String(index + 1).padStart(2, "0")}</span></div><p id={`caption-${photo.id}`}>{photo.caption} {photo.credit}.</p><span className={styles.dimensions}>{photo.width.toLocaleString("en-ZA")} × {photo.height.toLocaleString("en-ZA")} px · JPG</span><div className={styles.photoActions}><a download href={`/press/download/${photo.id}`}>Download original ↓</a><button type="button" data-press-action="copy-caption" data-copy-target={`caption-${photo.id}`}>Copy caption</button></div></figcaption>
       </figure>)}</div>
       <p className={styles.usageNote}>Background photographs supplied by Team 77; these are not photographs of the finale result or celebrations. For photographer credit or further usage enquiries, contact Greg Ritz.</p>
+    </section>
+    <section id="cockpit-video" className={styles.cockpitVideo}>
+      <div className={styles.sectionHeading}><div><p className={styles.eyebrow}>Inside the cockpit / Team 77</p><h2>Watch the final cockpit run.</h2></div><a download className={styles.primary} href="/press/download/cockpit-video">Download HD video <span aria-hidden="true">↓</span></a></div>
+      <p id="cockpit-video-description" className={styles.sectionIntro}>Ride on board with Patrick Davidson for the final AIR RACE X run. Watch the supplied footage here or download the full-HD MP4 for your coverage.</p>
+      <video className={styles.videoPlayer} controls playsInline preload="none" poster="/press/image/final-run" width={1920} height={1080} aria-label="Patrick Davidson’s final AIR RACE X cockpit run" aria-describedby="cockpit-video-description" data-press-video="final-run">
+        <source src="/press/video/final-run" type="video/mp4" />
+        Your browser cannot play this video. Use the Download HD video link above.
+      </video>
+      <div className={styles.videoDetails}><span>{cockpitVideo.duration} · 1920 × 1080 · MP4 · {cockpitVideo.size}</span><span>Footage supplied by Team 77.</span></div>
+      {!published && <p className={styles.usageNote}>Video is under the same embargo: {PRESS_PUBLICATION_LABEL}.</p>}
     </section>
     <section id="release" className={styles.story}>
       <aside className={styles.storyAside}><p className={styles.eyebrow}>Official press release</p><p>13 September 2026<br />Gqeberha, South Africa</p><button className={styles.secondary} type="button" data-press-action="copy-release" data-copy-target="press-release-copy">Copy release</button><a download className={styles.textLink} href="/press/download/release-pdf">Download PDF ↓</a></aside>

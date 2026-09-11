@@ -46,6 +46,7 @@ const nextConfig: NextConfig = {
     "/media/news": ["./assets/press/2026/content.json.enc"],
     "/press/download/*": ["./assets/press/2026/**/*.enc"],
     "/press/image/*": ["./assets/press/2026/web/*.enc"],
+    "/press/video/*": ["./assets/press/2026/Patrick_Davidson_ARX_2026_Cockpit_HD.mp4.enc"],
   },
 
   images: {

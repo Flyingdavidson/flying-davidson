@@ -77,6 +77,7 @@ export async function getPressStats() {
     sql`SELECT asset, COUNT(*)::int AS downloads FROM press_events
       WHERE event = 'download' GROUP BY asset ORDER BY downloads DESC`,
     sql`SELECT COUNT(*) FILTER (WHERE event = 'view')::int AS views,
+      COUNT(*) FILTER (WHERE event = 'link' AND asset = 'video-play')::int AS video_plays,
       COUNT(DISTINCT visitor) FILTER (WHERE event = 'view')::int AS visitors,
       COUNT(*) FILTER (WHERE event = 'download')::int AS downloads,
       COUNT(*) FILTER (WHERE event = 'link' AND asset IN ('email', 'phone'))::int AS contact_clicks

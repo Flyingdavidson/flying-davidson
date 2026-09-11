@@ -1,0 +1,101 @@
+[
+  {
+    "id": "smoke-turn",
+    "title": "Emotive in flight",
+    "file": "photos/Patrick_Davidson_smoke_turn.jpg",
+    "preview": "web/smoke-turn.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 484593,
+    "caption": "Patrick Davidson’s Emotive-liveried number 77 Edge 540 V3 banking in flight with smoke trailing behind.",
+    "credit": "Photograph supplied by Team 77"
+  },
+  {
+    "id": "portrait",
+    "title": "Patrick Davidson",
+    "file": "photos/Patrick_Davidson_portrait.jpg",
+    "preview": "web/portrait.webp",
+    "width": 6623,
+    "height": 4415,
+    "bytes": 3250280,
+    "caption": "Red Bull pilot Patrick Davidson in flying suit and cap, holding his helmet beside the race aircraft in a hangar.",
+    "credit": "Photograph supplied by Team 77"
+  },
+  {
+    "id": "cockpit",
+    "title": "In the cockpit",
+    "file": "photos/Patrick_Davidson_cockpit.jpg",
+    "preview": "web/cockpit.webp",
+    "width": 4284,
+    "height": 5712,
+    "bytes": 4076176,
+    "caption": "Patrick Davidson in the cockpit of the Emotive-liveried race aircraft with the canopy open.",
+    "credit": "Photograph supplied by Team 77"
+  },
+  {
+    "id": "smoke-head-on",
+    "title": "Head-on with smoke",
+    "file": "photos/Patrick_Davidson_smoke_head_on.jpg",
+    "preview": "web/smoke-head-on.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 497350,
+    "caption": "Head-on view of Patrick Davidson’s Emotive-liveried number 77 race aircraft in flight with a smoke trail.",
+    "credit": "Photograph supplied by Team 77"
+  },
+  {
+    "id": "vertical-turn",
+    "title": "Banking through the sky",
+    "file": "photos/Patrick_Davidson_vertical_turn.jpg",
+    "preview": "web/vertical-turn.webp",
+    "width": 1065,
+    "height": 1598,
+    "bytes": 294003,
+    "caption": "Patrick Davidson’s Emotive-liveried number 77 race aircraft banking against a blue sky.",
+    "credit": "Photograph supplied by Team 77"
+  },
+  {
+    "id": "helmet",
+    "title": "The pilot’s perspective",
+    "file": "photos/Patrick_Davidson_helmet.jpg",
+    "preview": "web/helmet.webp",
+    "width": 2400,
+    "height": 1600,
+    "bytes": 494428,
+    "caption": "Rear view of Patrick Davidson in flying gear, with Red Bull and Emotive branding on his helmet.",
+    "credit": "Photograph supplied by Team 77"
+  },
+  {
+    "id": "banked",
+    "title": "Emotive from below",
+    "file": "photos/Patrick_Davidson_banked.jpg",
+    "preview": "web/banked.webp",
+    "width": 6000,
+    "height": 4000,
+    "bytes": 1915206,
+    "caption": "Underside view of Patrick Davidson’s Emotive-liveried number 77 Edge 540 V3 in flight, with Red Bull branding visible.",
+    "credit": "Photograph supplied by Team 77"
+  },
+  {
+    "id": "head-on",
+    "title": "On the centreline",
+    "file": "photos/Patrick_Davidson_head_on.jpg",
+    "preview": "web/head-on.webp",
+    "width": 5454,
+    "height": 3636,
+    "bytes": 2222756,
+    "caption": "Head-on view of Patrick Davidson’s Emotive-liveried number 77 race aircraft in flight.",
+    "credit": "Photograph supplied by Team 77"
+  },
+  {
+    "id": "turn",
+    "title": "A wider perspective",
+    "file": "photos/Patrick_Davidson_turn.jpg",
+    "preview": "web/turn.webp",
+    "width": 6000,
+    "height": 4000,
+    "bytes": 3165200,
+    "caption": "Patrick Davidson’s Emotive-liveried race aircraft banking in flight.",
+    "credit": "Photograph supplied by Team 77"
+  }
+]

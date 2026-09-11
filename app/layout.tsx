@@ -1,7 +1,5 @@
-import Script from "next/script";
 import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import SiteAnalytics from "@/components/SiteAnalytics";
 
 import StickyNav from "@/components/StickyNav";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -191,22 +189,7 @@ export default function RootLayout({
           }}
         />
 
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-6X0VWEDYWG"
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-6X0VWEDYWG');
-          `}
-        </Script>
-
-        <Analytics />
-        <SpeedInsights />
+        <SiteAnalytics />
       </body>
     </html>
   );

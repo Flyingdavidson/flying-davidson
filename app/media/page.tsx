@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { isPressPublished } from "@/lib/press/publication";
+import { getPressContent } from "@/lib/press/storage";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/media" },
@@ -23,7 +27,8 @@ const articles = [
   },
 ];
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const visibleArticles = isPressPublished() ? [(await getPressContent()).news, ...articles] : articles;
   return (
     <main className="bg-black text-white">
       <section className="relative min-h-screen overflow-hidden">
@@ -71,7 +76,7 @@ export default function NewsPage() {
           </p>
 
           <div className="grid gap-6">
-            {articles.map((article) => (
+            {visibleArticles.map((article) => (
               <Link
                 key={article.title}
                 href={article.href}

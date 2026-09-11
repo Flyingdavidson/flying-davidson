@@ -1,0 +1,184 @@
+[
+  {
+    "id": "algoa-fm",
+    "label": "Algoa FM",
+    "role": "press",
+    "hash": "29c8c67dd6e10303ed44cb3c7d4a919dc628644b5a4de535605807734ebb1799",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "the-herald",
+    "label": "The Herald",
+    "role": "press",
+    "hash": "d0863bfa1c02a6c5cf20e63346253b12a89e0a212e83f3b67f7af32ba7ed22cf",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "news24-sport",
+    "label": "News24 Sport",
+    "role": "press",
+    "hash": "35c1facb4ed80ce955aa37678236329ad69bea2f9f6e05d1989533163b963ff0",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "sabc-sport",
+    "label": "SABC Sport",
+    "role": "press",
+    "hash": "256f1f7f58828cfcfb792f7a7f38667236933529e7fa9d87732c1e953c032f52",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "enca",
+    "label": "eNCA",
+    "role": "press",
+    "hash": "4c35e94abdabcbc95f302d3f323485880effa16509107dddb9adf203de003f3a",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "newzroom-afrika",
+    "label": "Newzroom Afrika",
+    "role": "press",
+    "hash": "6171da29e159197924dbb1e83b26d6b7e1cb4fbfd361b6f5cce829d0ad5a541d",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "ewn-702-capetalk",
+    "label": "EWN / 702 / CapeTalk",
+    "role": "press",
+    "hash": "bf207b07a0ff9aac2714ba264b544f9c4dbd68e3c02ea88951230db287af86b8",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "good-things-guy",
+    "label": "Good Things Guy",
+    "role": "press",
+    "hash": "dcb3b2dd8870d4ac67d69439f2166390102a3abc9efbf4258a4314efdf3287cc",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "timeslive-sport",
+    "label": "TimesLIVE Sport",
+    "role": "press",
+    "hash": "fb2f01ffa89cca273e5a4dc1423ff58d1c41c15529b6b195d434393eb27424f1",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "daily-dispatch",
+    "label": "Daily Dispatch",
+    "role": "press",
+    "hash": "d03ff9d18d2ee8c448f04607ebdb009b66326b1dd0445316af780dc0667e5141",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "pe-express",
+    "label": "PE Express",
+    "role": "press",
+    "hash": "9a03daf1dc2e459fc670b1abd46d510f35fa2c6b7342ec3f5499910f9927bc8d",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "umhlobo-wenene-fm",
+    "label": "Umhlobo Wenene FM",
+    "role": "press",
+    "hash": "9e429a5040e779c1d4f6df854f6b4dc1dddf6aed71190a3bd120f592cc65ad21",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "safm",
+    "label": "SAfm",
+    "role": "press",
+    "hash": "990aa5c05688814ad367a4215a38f785dc187b310d5123962b7a96b8999e8d12",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "rsg",
+    "label": "RSG",
+    "role": "press",
+    "hash": "c4f109c14e75d4ef79fe395143886312be197c3dcd398c4548bc8d58861bbc50",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "african-pilot",
+    "label": "African Pilot",
+    "role": "press",
+    "hash": "cbed0d39ca21370c30ff947f2c79e16f98e5aa2ea587f6f5205e4225a1ea8f00",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "daily-maverick",
+    "label": "Daily Maverick",
+    "role": "press",
+    "hash": "e9636051bf2a1f9802c727ed64dab59ed036619ce6554e2de119050b7e1f9dae",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "sunday-times-sport",
+    "label": "Sunday Times Sport",
+    "role": "press",
+    "hash": "709d08c0b736471b3fe560e7c5ad3945ca62f8e69ce212f251e27cccb8ecdd63",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "supersport",
+    "label": "SuperSport",
+    "role": "press",
+    "hash": "df095145f6cd40e215ddb096ff48fd79114c0020e30252e75933a99020bba163",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "reuters",
+    "label": "Reuters",
+    "role": "press",
+    "hash": "e73b5583e8329a2880daff9f625052b3b719c4199d06e8b9e7a5cb67c4a85a7b",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "afp-johannesburg",
+    "label": "AFP Johannesburg",
+    "role": "press",
+    "hash": "a08d2c75451cf62b99277d21ec30a1f4267eba4f56551990aac9e139ca165019",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "associated-press",
+    "label": "Associated Press",
+    "role": "press",
+    "hash": "aaed1d64e7aff843d5616a0188df8626c0f35a836d96cebe7935d11c54b4938d",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "pa-media",
+    "label": "PA Media",
+    "role": "press",
+    "hash": "3cd70440e6327836bae67f0d50f2d41b83ae8d943820ea6546264974a8e6c5e5",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "pilot-magazine-uk",
+    "label": "Pilot magazine (UK)",
+    "role": "press",
+    "hash": "d3b7cd889ea79421f3d93866df0a759ade3a6d5e1aa5a8e9e0dccfee3582f1b7",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "garage-wire-europe",
+    "label": "Garage Wire Europe",
+    "role": "press",
+    "hash": "49b5753afa7a9b888e719b49c8e42fc33f9e0655a281b1fe76787b41cbdacd1f",
+    "expires": "2026-10-31T23:59:59+02:00"
+  },
+  {
+    "id": "greg",
+    "label": "Greg Ritz",
+    "role": "admin",
+    "hash": "34ff2b8e6a1d50f861b740470b520c6e06fb2431f957deb6dcbaacaab41c3d5b",
+    "expires": "2027-09-13T23:59:59+02:00"
+  },
+  {
+    "id": "media-invitation",
+    "label": "Shared media invitation",
+    "role": "press",
+    "hash": "44fac9d71632ead55d8ae01a018ae2e6358df20fe12b724493e10443039525be",
+    "expires": "2026-10-31T23:59:59+02:00"
+  }
+]

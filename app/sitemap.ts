@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { isRace3Published } from "@/lib/race3Publication";
+import { isPressPublished } from "@/lib/press/publication";
 const baseUrl = "https://www.flyingdavidson.com";
 
 export const dynamic = "force-dynamic";
@@ -53,6 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   if (isRace3Published()) {
     routes.push("/media/race-reports/2026-race-3");
   }
+
+  if (isPressPublished()) routes.push("/press");
 
   return routes.map((path) => ({
     url: `${baseUrl}${path}`,

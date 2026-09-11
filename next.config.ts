@@ -40,6 +40,13 @@ const nextConfig: NextConfig = {
   outputFileTracingExcludes: {
     "/*": ["./public/**/*"],
   },
+  outputFileTracingIncludes: {
+    "/press": ["./assets/press/2026/content.json.enc"],
+    "/media": ["./assets/press/2026/content.json.enc"],
+    "/media/news": ["./assets/press/2026/content.json.enc"],
+    "/press/download/*": ["./assets/press/2026/**/*.enc"],
+    "/press/image/*": ["./assets/press/2026/web/*.enc"],
+  },
 
   images: {
     formats: ["image/avif", "image/webp"],
@@ -57,6 +64,13 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: securityHeaders,
+      },
+      {
+        source: "/press/:path*",
+        headers: [
+          { key: "Cache-Control", value: "private, no-store" },
+          { key: "Referrer-Policy", value: "no-referrer" },
+        ],
       },
     ];
   },

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import NewsArticleList from "@/components/media/NewsArticleList";
+import { newsArticles } from "@/lib/news";
 import { isPressPublished } from "@/lib/press/publication";
 import { getPressContent } from "@/lib/press/storage";
 
@@ -10,25 +12,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/media" },
 };
 
-const articles = [
-  {
-    category: "Sponsor",
-    date: "April 2026",
-    title: "Emotive Backs World Champion Patrick Davidson",
-    text: "Emotive becomes Team 77's principal partner as Patrick Davidson begins his defence of the 2026 AIR RACE X Championship.",
-    href: "/media/news/emotive-backs-patrick-davidson",
-  },
-  {
-    category: "AIR RACE X",
-    date: "17 June 2026",
-    title: "AIR RACE X Announces 2026 Championship Schedule",
-    text: "AIR RACE X officially unveils the 2026 season, confirming four championship races and a new broadcast schedule.",
-    href: "/media/news/air-race-x-2026-schedule",
-  },
-];
-
 export default async function NewsPage() {
-  const visibleArticles = isPressPublished() ? [(await getPressContent()).news, ...articles] : articles;
+  const visibleArticles = isPressPublished() ? [(await getPressContent()).news, ...newsArticles] : newsArticles;
   return (
     <main className="bg-black text-white">
       <section className="relative min-h-screen overflow-hidden">
@@ -75,35 +60,7 @@ export default async function NewsPage() {
             Latest Stories
           </p>
 
-          <div className="grid gap-6">
-            {visibleArticles.map((article) => (
-              <Link
-                key={article.title}
-                href={article.href}
-                className="group border border-white/10 bg-white/[0.04] p-8 transition hover:border-[#62d6aa]/60"
-              >
-                <p className="text-xs uppercase tracking-[0.35em] text-[#62d6aa]">
-                  {article.category}
-                </p>
-
-                <p className="mt-3 text-xs uppercase tracking-[0.3em] text-white/35">
-                  {article.date}
-                </p>
-
-                <h2 className="mt-6 text-4xl font-black uppercase italic leading-tight md:text-5xl">
-                  {article.title}
-                </h2>
-
-                <p className="mt-6 max-w-3xl text-base leading-7 text-white/60">
-                  {article.text}
-                </p>
-
-                <p className="mt-8 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
-                  Read Story →
-                </p>
-              </Link>
-            ))}
-          </div>
+          <NewsArticleList articles={visibleArticles} />
         </div>
       </section>
     </main>

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { isRace3Published } from "@/lib/race3Publication";
+import { isRace4Published } from "@/lib/race4Publication";
 import { isPressPublished } from "@/lib/press/publication";
 const baseUrl = "https://www.flyingdavidson.com";
 
@@ -54,6 +55,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   if (isRace3Published()) {
     routes.push("/media/race-reports/2026-race-3");
   }
+
+  if (isRace4Published()) routes.push("/media/race-reports/2026-race-4");
 
   if (isPressPublished()) routes.push("/press");
 

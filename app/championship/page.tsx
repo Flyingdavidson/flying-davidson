@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import SeasonHub from "@/components/championship/SeasonHub";
+import { isRace4Published, RACE_4_BROADCAST_URL } from "@/lib/race4Publication";
 import { isRace2Published } from "@/lib/race2Publication";
 import { isRace3Published } from "@/lib/race3Publication";
 
@@ -46,12 +48,15 @@ const racesBeforeRace2: ChampionshipRace[] = [
   },
   {
     title: "Race 4",
-    date: "13 September 2026",
+    date: "13 September 2026 · 14:00 SAST",
     headline: "Season Finale",
+    video: RACE_4_BROADCAST_URL,
   },
 ];
 
 export default function ChampionshipPage() {
+  if (isRace4Published()) return <SeasonHub />;
+
   const race2Published = isRace2Published();
   const race3Published = isRace3Published();
   let races: ChampionshipRace[] = race2Published
@@ -105,7 +110,7 @@ export default function ChampionshipPage() {
           </p>
 
           <div className="mt-6 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-            <h1 className="text-6xl font-black uppercase italic leading-[0.9] md:text-8xl">
+            <h1 className="text-[clamp(2.5rem,9vw,3.75rem)] font-black uppercase italic leading-[0.9] md:text-8xl">
               Championship.
             </h1>
 

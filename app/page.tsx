@@ -3,10 +3,14 @@ import Hero from "@/components/Hero";
 import Story from "@/components/Story";
 import MeetPatrick from "@/components/MeetPatrick";
 import AirRaceX from "@/components/AirRaceX";
+import ChampionEntrance from "@/components/championship/ChampionEntrance";
+import { isRace4Published } from "@/lib/race4Publication";
 import Aerobatics from "@/components/Aerobatics";
 import Hangar from "@/components/Hangar";
 import MediaCentre from "@/components/MediaCentre";
 import Contact from "@/components/Contact";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
   title: {
@@ -26,7 +30,7 @@ export default function Home() {
       <Hero />
       <Story />
       <MeetPatrick />
-      <AirRaceX />
+      {isRace4Published() ? <ChampionEntrance /> : <AirRaceX />}
       <Aerobatics />
       <Hangar />
       <MediaCentre />

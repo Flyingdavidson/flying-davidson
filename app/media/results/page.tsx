@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { isRace2Published } from "@/lib/race2Publication";
 import { isRace3Published } from "@/lib/race3Publication";
+import { isRace4Published } from "@/lib/race4Publication";
 
 export const dynamic = "force-dynamic";
 
@@ -47,6 +48,14 @@ const liveSeasonAfterRace3 = {
     ["Race 3", "1st • 33 pts"],
     ["Race 4", "Pending"],
   ],
+};
+
+const liveSeasonAfterRace4 = {
+  ...liveSeasonBeforeRace2,
+  title: "Back-to-back Champion",
+  position: "P1 Overall • 99 Points",
+  note: "Patrick Davidson and Team 77 defended the AIR RACE X title with fastest qualifying and victory in the season finale. Level with Yoshi on 99 points, Patrick won the championship on race wins: two to one.",
+  races: [["Race 1", "4th • 12 pts"], ["Race 2", "2nd • 21 pts"], ["Race 3", "1st • 33 pts"], ["Race 4", "1st • 33 pts"]],
 };
 
 const aerobaticHighlights = [
@@ -141,7 +150,8 @@ export default function ResultsPage() {
 }
 
 function LiveSeasonCard() {
-  const liveSeason = isRace3Published()
+  const race4Published = isRace4Published();
+  const liveSeason = race4Published ? liveSeasonAfterRace4 : isRace3Published()
     ? liveSeasonAfterRace3
     : isRace2Published()
       ? liveSeasonAfterRace2
@@ -183,7 +193,7 @@ function LiveSeasonCard() {
           </div>
 
           <p className="mt-8 text-xs uppercase tracking-[0.3em] text-white/40">
-            Championship result will be updated once officially confirmed.
+            {race4Published ? <Link href="/championship" className="text-yellow-400 hover:underline">Explore the complete 2026 season →</Link> : "Championship result will be updated once officially confirmed."}
           </p>
         </div>
       </div>

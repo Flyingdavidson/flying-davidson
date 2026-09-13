@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { isRace2Published } from "@/lib/race2Publication";
 import { isRace3Published } from "@/lib/race3Publication";
+import { isRace4Published } from "@/lib/race4Publication";
 
 export const dynamic = "force-dynamic";
 
@@ -61,6 +62,14 @@ export default function RaceReportsPage() {
       },
       ...reports,
     ];
+  }
+
+  if (isRace4Published()) {
+    reports = [{
+      year: "2026", title: "Back to Back", series: "AIR RACE X • Race 4",
+      text: "Fastest qualifying, victory in the final and a championship settled on race wins. Patrick’s story, cockpit audio, films and photos from the Karoo.",
+      href: "/media/race-reports/2026-race-4",
+    }, ...reports];
   }
 
   return (

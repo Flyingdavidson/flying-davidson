@@ -9,7 +9,13 @@ import { getPressContent } from "@/lib/press/storage";
 export const dynamic = "force-dynamic";
 
 export default async function NewsPage() {
-  const visibleArticles = isPressPublished() ? [(await getPressContent()).news, ...newsArticles] : newsArticles;
+  const visibleArticles = [...newsArticles];
+
+  if (isPressPublished()) {
+    // Keep the latest independent coverage in the lead position.
+    visibleArticles.splice(2, 0, (await getPressContent()).news);
+  }
+
   return (
     <main className="bg-black text-white">
 
@@ -70,8 +76,8 @@ export default async function NewsPage() {
   );
 }
 export const metadata: Metadata = {
-  title: "Latest News",
+  title: "Patrick Davidson News & Media Coverage",
   description:
-    "Latest news from Patrick Davidson, Team 77, AIR RACE X, sponsors and the Flying Davidson hangar.",
+    "Latest Patrick Davidson news, including his 2026 AIR RACE X championship victory and features from AIR RACE X, Red Bull South Africa and Team 77.",
   alternates: { canonical: "/media/news" },
 };

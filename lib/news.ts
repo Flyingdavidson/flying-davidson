@@ -6,9 +6,23 @@ export type NewsArticle = {
   href: string;
 };
 
-// Official stories from https://airracex.com/news/, checked 12 September 2026.
-// Keep the archive newest first; scheduled Team 77 news is prepended by the pages.
+// Official stories from https://airracex.com/news/ and selected media coverage,
+// checked 14 September 2026. Keep the archive newest first.
 export const newsArticles: NewsArticle[] = [
+  {
+    category: "AIR RACE X",
+    date: "14 September 2026",
+    title: "Patrick Davidson Wins Race 4 and Retains the AIR RACE X Title",
+    text: "Davidson wins the season finale and finishes level with Yoshihide Muroya on 99 points. His two race victories to Muroya's one secure a second consecutive AIR RACE X championship.",
+    href: "https://airracex.com/news/news-11/",
+  },
+  {
+    category: "Red Bull South Africa",
+    date: "14 September 2026",
+    title: "The Man Who Writes in a Language Only He Can Read",
+    text: "Red Bull profiles Patrick Davidson's handwritten aerobatic shorthand, the preparation and muscle memory behind every flight, and the instinct that helped him land safely after an engine failure.",
+    href: "https://www.redbull.com/za-en/pat-davidson-what-we-know-profile",
+  },
   {
     category: "AIR RACE X",
     date: "9 September 2026",

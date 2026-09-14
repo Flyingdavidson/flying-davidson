@@ -32,7 +32,7 @@ export default function NewsArticleList({ articles }: { articles: NewsArticle[] 
             </p>
 
             <p className="mt-8 text-xs uppercase tracking-[0.3em] text-[#62d6aa]">
-              {external ? "Read on AIR RACE X ↗" : "Read Story →"}
+              {external ? `Read on ${article.category} ↗` : "Read Story →"}
               {external && <span className="sr-only"> (opens in a new tab)</span>}
             </p>
           </Link>

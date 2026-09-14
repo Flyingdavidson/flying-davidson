@@ -24,6 +24,13 @@ export const newsArticles: NewsArticle[] = [
     href: "https://www.redbull.com/za-en/pat-davidson-what-we-know-profile",
   },
   {
+    category: "Good Things Guy",
+    date: "14 September 2026",
+    title: "Patrick Davidson Retains AIR RACE X Title for South Africa",
+    text: "Good Things Guy celebrates the Gqeberha pilot's successful title defence, second consecutive AIR RACE X championship and another international sporting achievement for South Africa.",
+    href: "https://www.goodthingsguy.com/patrick-davidson-air-race-x-title/",
+  },
+  {
     category: "AIR RACE X",
     date: "9 September 2026",
     title: "Race 4 Preview: The Championship Decider",

@@ -13,7 +13,7 @@ export default async function NewsPage() {
 
   if (isPressPublished()) {
     // Keep the latest independent coverage in the lead position.
-    visibleArticles.splice(2, 0, (await getPressContent()).news);
+    visibleArticles.splice(3, 0, (await getPressContent()).news);
   }
 
   return (
@@ -78,6 +78,6 @@ export default async function NewsPage() {
 export const metadata: Metadata = {
   title: "Patrick Davidson News & Media Coverage",
   description:
-    "Latest Patrick Davidson news, including his 2026 AIR RACE X championship victory and features from AIR RACE X, Red Bull South Africa and Team 77.",
+    "Latest Patrick Davidson news, including his 2026 AIR RACE X championship victory and coverage from AIR RACE X, Red Bull South Africa, Good Things Guy and Team 77.",
   alternates: { canonical: "/media/news" },
 };

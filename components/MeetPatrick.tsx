@@ -43,14 +43,15 @@ export default function MeetPatrick() {
 
             <p className="mt-8 max-w-xl text-lg leading-9 text-white/70 md:text-xl">
               Patrick Davidson is a professional display pilot, Red Bull athlete,
-              aerobatic champion and 2025 AIR RACE X Champion.
+              aerobatic champion and back-to-back AIR RACE X champion in 2025
+              and 2026.
             </p>
 
             <div className="mt-12 grid gap-6 border-t border-white/10 pt-8 sm:grid-cols-2 md:grid-cols-4">
-              <AnimatedStat end={4879} suffix="+" label="Flying Hours" />
+              <AnimatedStat end={5107} suffix="" label="Flying Hours" />
               <AnimatedStat end={30} suffix="+" label="Years Flying" />
               <AnimatedStat end={6} suffix="×" label="SA Aerobatic Champion" />
-              <Stat value="2025" label="AIR RACE X Champion" />
+              <Stat value="2025 + 2026" label="AIR RACE X Champion" />
             </div>
           </div>
         </div>
@@ -125,7 +126,9 @@ function AnimatedStat({
 function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div>
-      <p className="text-4xl font-black">{value}</p>
+      <p className="text-3xl font-black tracking-tight md:text-xl lg:text-2xl xl:text-3xl">
+        {value}
+      </p>
       <p className="mt-2 text-[10px] uppercase tracking-[0.3em] text-white/40">
         {label}
       </p>

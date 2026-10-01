@@ -100,7 +100,27 @@ export default function Hero() {
             <div className="space-y-3 text-xs uppercase leading-7 tracking-[0.28em] text-white/85 sm:text-sm sm:tracking-[0.32em]">
               <p>Professional Pilot</p>
               <p>Red Bull Athlete</p>
-              <p>2025 Air Race X World Champion</p>
+              <div className="flex items-start gap-3 text-[#e5c785]">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="mt-1 h-5 w-5 shrink-0"
+                >
+                  <path d="M7 3h10v7a5 5 0 0 1-10 0V3Z" />
+                  <path d="M7 5H4v2a4 4 0 0 0 3 3.87M17 5h3v2a4 4 0 0 1-3 3.87M12 15v4m-4 2h8m-7-2h6" />
+                </svg>
+                <div>
+                  <p>2025 + 2026 Air Race X World Champion</p>
+                  <p className="text-[10px] font-bold tracking-[0.3em] text-[#d4b16a]">
+                    Back-to-back titles
+                  </p>
+                </div>
+              </div>
               <p>6× South African Aerobatic Champion</p>
             </div>
 
